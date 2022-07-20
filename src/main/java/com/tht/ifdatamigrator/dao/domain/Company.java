@@ -6,6 +6,7 @@ import lombok.Data;
 public class Company {
     private String custNum;
     private String custName;
+    private String store;
     private String city;
     private String state;
 }

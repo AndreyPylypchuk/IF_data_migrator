@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
+import static java.lang.String.format;
 import static java.nio.file.Files.writeString;
 import static java.nio.file.Path.of;
 import static java.nio.file.StandardOpenOption.CREATE;
@@ -29,6 +30,7 @@ public class BackupService {
 
     @Value("${migration.scopes}")
     private List<String> scopes;
+    private static final String COMPANY_NAME_TEMPLATE = "%s - %s, %s";
 
     private final BackupDaoService service;
 
@@ -57,6 +59,43 @@ public class BackupService {
 
         Map<String, List<Company>> numCompanies = companies.stream()
                 .collect(groupingBy(Company::getCustNum));
+
+        List<CompanyDTO> dtos = new ArrayList<>();
+        for (Map.Entry<String, List<Company>> entry : numCompanies.entrySet()) {
+            if (entry.getValue().size() == 1) {
+                Company company = entry.getValue().get(0);
+                dtos.add(
+                        new CompanyDTO(
+                                company.getCustNum(),
+                                company.getStore(),
+                                company.getCustName()
+                        )
+                );
+            } else {
+                entry.getValue().forEach(company -> {
+                    if (nonNull(company.getCity()))
+                        company.setCity(company.getCity().trim());
+                    if (nonNull(company.getState()))
+                        company.setState(company.getState().trim());
+                    dtos.add(
+                            new CompanyDTO(
+                                    company.getCustNum(),
+                                    company.getStore(),
+                                    format(COMPANY_NAME_TEMPLATE,
+                                            company.getCustName(),
+                                            company.getCity(),
+                                            company.getState()
+                                    )
+                            )
+                    );
+                });
+            }
+        }
+
+        dtos.forEach(companyDto -> {
+            List<User> users = service.getUsers(companyDto.getNum(), companyDto.getStore());
+            System.out.println();
+        });
 
         return null;
     }

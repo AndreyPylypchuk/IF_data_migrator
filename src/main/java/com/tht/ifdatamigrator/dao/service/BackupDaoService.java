@@ -55,9 +55,16 @@ public class BackupDaoService {
             """;
 
     private static final String COMPANIES = """
-            select c.CustNum, c.CustName, s.City, s.state
+            select c.CustNum, c.CustName, s.Store# as store, s.City, s.state
             from atiCustomer c
                      join atiAllStores s on c.CustNum = s.Cust#
+            """;
+
+    private static final String USERS = """
+            select ucc.UserCredentialId, EmailAddress, PreviousPasswords, RoleID
+            from UserCredentials uc
+            join UserCredentialCoverage ucc on uc.UserCredentialId = ucc.UserCredentialId
+            where ucc.Active = 1 and ucc.CustomerNumber = ? and ucc.StoreNumber = ?
             """;
 
     private final JdbcTemplate template;
@@ -90,5 +97,9 @@ public class BackupDaoService {
 
     public List<Company> getCompanies() {
         return template.query(COMPANIES, new BeanPropertyRowMapper<>(Company.class));
+    }
+
+    public List<User> getUsers(String cusNum, String storeNum) {
+        return template.query(USERS, new BeanPropertyRowMapper<>(User.class), cusNum, storeNum);
     }
 }
