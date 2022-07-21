@@ -9,5 +9,5 @@ import java.util.List;
 public class BackupDTO {
     private List<QuestionDTO> questionAnswerData = new ArrayList<>();
     private List<AssessmentDTO> assessmentData = new ArrayList<>();
-    private List<CompanyDTO> companies = new ArrayList<>();
+    private List<CompanyDTO> companyData = new ArrayList<>();
 }

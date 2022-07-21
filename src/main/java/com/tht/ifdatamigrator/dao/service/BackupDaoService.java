@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.tht.ifdatamigrator.Const.COMPANY_NUMS;
 import static com.tht.ifdatamigrator.Const.VERSIONS;
+import static java.util.Objects.nonNull;
 
 @Service
 @AllArgsConstructor
@@ -57,14 +59,31 @@ public class BackupDaoService {
     private static final String COMPANIES = """
             select c.CustNum, c.CustName, s.Store# as store, s.City, s.state
             from atiCustomer c
-                     join atiAllStores s on c.CustNum = s.Cust#
+                     left join atiAllStores s on c.CustNum = s.Cust#
+            where c.CustNum in (:companies)
             """;
 
-    private static final String USERS = """
+    private static final String COMPANY_USERS = """
             select ucc.UserCredentialId, EmailAddress, PreviousPasswords, RoleID
             from UserCredentials uc
             join UserCredentialCoverage ucc on uc.UserCredentialId = ucc.UserCredentialId
-            where ucc.Active = 1 and ucc.CustomerNumber = ? and ucc.StoreNumber = ?
+            where uc.IsActive = 1 and ucc.CustomerNumber = :cut
+            """;
+
+    private static final String COMPANY_ASSESSMENT = """
+            select distinct at2.TestCode
+            from TescorNetBiz.dbo.UserCredentialCoverage ucc
+                     inner join TescorNetBiz.dbo.UserCredentials uc
+                                on ucc.UserCredentialId = uc.UserCredentialId
+                     inner join TescorNetBiz.dbo.UniqueUrls uu
+                                on uu.Applicant_Username = uc.Username
+                     inner join TescorNetBiz.dbo.atiTestsAssignedToUsers atatu
+                                on CONCAT(ucc.CustomerNumber, ucc.StoreNumber, 'U') = atatu.Username
+                     inner join TescorNetBiz.dbo.atiTests at2
+                                on at2.TestID = atatu.TestID
+            where uc.RoleID = 4
+              and uc.IsActive = 1
+            and ucc.CustomerNumber = :cut
             """;
 
     private final JdbcTemplate template;
@@ -96,10 +115,25 @@ public class BackupDaoService {
     }
 
     public List<Company> getCompanies() {
-        return template.query(COMPANIES, new BeanPropertyRowMapper<>(Company.class));
+        SqlParameterSource parameters = new MapSqlParameterSource("companies", COMPANY_NUMS);
+        return namedTemplate.query(COMPANIES, parameters, new BeanPropertyRowMapper<>(Company.class));
     }
 
     public List<User> getUsers(String cusNum, String storeNum) {
-        return template.query(USERS, new BeanPropertyRowMapper<>(User.class), cusNum, storeNum);
+        String sql = COMPANY_USERS;
+        if (nonNull(storeNum))
+            sql += " and ucc.StoreNumber = :store";
+        SqlParameterSource parameters = new MapSqlParameterSource("cut", cusNum).
+                addValue("store", storeNum);
+        return namedTemplate.query(sql, parameters, new BeanPropertyRowMapper<>(User.class));
+    }
+
+    public List<String> getCompanyAssessment(String cusNum, String storeNum) {
+        String sql = COMPANY_ASSESSMENT;
+        if (nonNull(storeNum))
+            sql += " and ucc.StoreNumber = :store";
+        SqlParameterSource parameters = new MapSqlParameterSource("cut", cusNum).
+                addValue("store", storeNum);
+        return namedTemplate.queryForList(sql, parameters, String.class);
     }
 }

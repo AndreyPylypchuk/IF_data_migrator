@@ -1,26 +1,25 @@
 package com.tht.ifdatamigrator.dao.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tht.ifdatamigrator.dto.AnswerDTO;
-import com.tht.ifdatamigrator.dto.AssessmentDTO;
+import com.tht.ifdatamigrator.dto.*;
 import com.tht.ifdatamigrator.dto.AssessmentDTO.AssQuestionDTO;
-import com.tht.ifdatamigrator.dto.QuestionDTO;
-import com.tht.ifdatamigrator.dto.TranslateDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import static java.lang.String.format;
+import static java.lang.String.join;
 import static java.util.Collections.singletonMap;
 import static java.util.Objects.isNull;
 
@@ -46,8 +45,8 @@ public class RestoreDaoService {
             """;
 
     private static final String CREATE_ASSESSMENT = """
-            insert into assessment(company_id, assessment_name, custom, integrity_first, assessment_version_id)
-            values (?, ?, true, true, (select assessment_version_id from assessment_version where name = ?));
+            insert into assessment(company_id, assessment_name, custom, integrity_first, assessment_version_id, from_ati)
+            values (?, ?, true, true, (select assessment_version_id from assessment_version where name = ?), true);
             """;
 
     private static final String CREATE_ASSESSMENT_QUALITY = """
@@ -59,10 +58,31 @@ public class RestoreDaoService {
             VALUES (?, ?, ?, 1);
             """;
 
-    private static final String SELECT_QUESTION = """
-            select question_id
-            from question
-            where ati_full_code = ?
+    private static final String CREATE_COMPANY = """
+            insert into company(company_status_id, company_name, company_owner_user_id, billing_email_address, ati_cust, ati_store)
+            values (1, ?, ?, ?, ?, ?)
+            """;
+
+    private static final String CREATE_COMPANY_ASSESSMENT = """
+            insert into company_assessment_version
+            values (?, (select assessment_version_id from assessment_version where name = ?))
+            """;
+
+    private static final String GET_USER_ID_BY_EMAIL = """
+            select user_id from "user" where user_email_address = ? limit 1
+            """;
+
+    private static final String CREATE_USER = """
+            insert into "user"(user_email_address, password, ati_id) values (?, ?, ?)
+            """;
+
+    private static final String CREATE_MY_ACCOUNT_USER = """
+            insert into user_myaccount(user_id, company_id, active, permission_level, access_to_jobposts, access_to_departments)
+            values (?, ?, 1, ?, ?, ?)
+            """;
+
+    private static final String GET_ID = """
+            select %s from %s where %s limit 1
             """;
 
     private final JdbcTemplate template;
@@ -157,17 +177,97 @@ public class RestoreDaoService {
         });
     }
 
-    public void createAssessmentQuestion(long assId, AssQuestionDTO q) {
+    public void createAssessmentQuestion(long assId, Long questionId, AssQuestionDTO q) {
+        template.update(con -> {
+            PreparedStatement ps = con.prepareStatement(CREATE_ASSESSMENT_QUESTION);
+            ps.setLong(1, assId);
+            ps.setLong(2, questionId);
+            ps.setInt(3, q.getOrder());
+            return ps;
+        });
+    }
+
+    public Map<String, Object> createCompany(CompanyDTO companyDTO) {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(CREATE_COMPANY, new String[]{"company_id"});
+            ps.setString(1, companyDTO.getName());
+            ps.setString(2, null);
+            ps.setString(3, null);
+            ps.setString(4, companyDTO.getNum());
+            ps.setString(5, companyDTO.getStore());
+            return ps;
+        }, keyHolder);
+
+        return keyHolder.getKeys();
+    }
+
+    public void createCompanyAssessments(long companyId, List<String> assessmentVersions) {
+        template.batchUpdate(
+                CREATE_COMPANY_ASSESSMENT,
+                new BatchPreparedStatementSetter() {
+                    @SneakyThrows
+                    public void setValues(PreparedStatement ps, int i) {
+                        ps.setLong(1, companyId);
+                        ps.setString(2, assessmentVersions.get(i));
+                    }
+
+                    public int getBatchSize() {
+                        return assessmentVersions.size();
+                    }
+                });
+    }
+
+    public Long getUserIdByEmail(String email) {
         try {
-            Long questionId = template.queryForObject(SELECT_QUESTION, Long.class, q.getAtiFullCode());
-            if (isNull(questionId)) return;
-            template.update(con -> {
-                PreparedStatement ps = con.prepareStatement(CREATE_ASSESSMENT_QUESTION);
-                ps.setLong(1, assId);
-                ps.setLong(2, questionId);
-                ps.setInt(3, q.getOrder());
-                return ps;
-            });
-        } catch (EmptyResultDataAccessException ignored){}
+            return template.queryForObject(GET_USER_ID_BY_EMAIL, Long.class, email);
+        } catch (EmptyResultDataAccessException ignored) {
+            return null;
+        }
+    }
+
+    public Long createUser(UserDTO u) {
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(CREATE_USER, new String[]{"user_id"});
+            ps.setString(1, u.getEmail());
+            ps.setString(2, u.getPassword());
+            ps.setLong(3, u.getId());
+            return ps;
+        }, keyHolder);
+
+        return Long.parseLong(keyHolder.getKeys().get("user_id").toString());
+    }
+
+    public void createMyAccountUser(Long userId, long companyId, String role) {
+        String level = isNull(role) ? "myaccount_viewer" : role;
+
+        boolean hasAccess = "myaccount_admin".equals(level) || "myaccount_editor".equals(level);
+
+        String toJobPost = hasAccess ? "all_posts" : "custom";
+        String toDepart = hasAccess ? "all_departments" : "custom";
+
+        template.update(con -> {
+            PreparedStatement ps = con.prepareStatement(CREATE_MY_ACCOUNT_USER);
+            ps.setLong(1, userId);
+            ps.setLong(2, companyId);
+            ps.setString(3, level);
+            ps.setString(4, toJobPost);
+            ps.setString(5, toDepart);
+            return ps;
+        });
+    }
+
+    public Long getId(String table, String identifierField, Map<String, String> conditions) {
+        List<String> conditionRequestParts = new ArrayList<>();
+        conditions.forEach((k, v) -> conditionRequestParts.add(k + " = '" + v + "'"));
+        String sql = format(GET_ID, identifierField, table, join(" and ", conditionRequestParts));
+        try {
+            return template.queryForObject(sql, Long.class);
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }

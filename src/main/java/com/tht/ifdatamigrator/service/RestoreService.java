@@ -2,10 +2,8 @@ package com.tht.ifdatamigrator.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tht.ifdatamigrator.dao.service.RestoreDaoService;
-import com.tht.ifdatamigrator.dto.AnswerDTO;
-import com.tht.ifdatamigrator.dto.AssessmentDTO;
-import com.tht.ifdatamigrator.dto.BackupDTO;
-import com.tht.ifdatamigrator.dto.QuestionDTO;
+import com.tht.ifdatamigrator.dto.*;
+import com.tht.ifdatamigrator.dto.AssessmentDTO.AssQuestionDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -18,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 import static java.lang.Long.parseLong;
+import static java.util.Collections.singletonMap;
+import static java.util.Objects.isNull;
 
 @Slf4j
 @Service
@@ -37,48 +37,116 @@ public class RestoreService {
 
         if (scopes.contains("questionAnswerData")) data.getQuestionAnswerData().forEach(this::restore);
         if (scopes.contains("assessmentData")) data.getAssessmentData().forEach(this::restore);
+        if (scopes.contains("companyData")) data.getCompanyData().forEach(this::restore);
 
         log.info("Restoring finished");
+    }
+
+    private void restore(CompanyDTO companyDTO) {
+        log.info("Company name {}", companyDTO.getName());
+
+        Map<String, String> param = new HashMap<>();
+        param.put("ati_cust", companyDTO.getNum());
+        param.put("ati_store", companyDTO.getStore());
+        Long companyId = service.getId("company", "company_id", param);
+        if (isNull(companyId)) {
+            Map<String, Object> ids = service.createCompany(companyDTO);
+            companyId = parseLong(ids.get("company_id").toString());
+
+            service.createCompanyAssessments(companyId, companyDTO.getAssessmentVersions());
+
+            //TODO: handle job posts
+        }
+
+        for (UserDTO u : companyDTO.getUsers()) {
+            Long userId = service.getUserIdByEmail(u.getEmail());
+            if (isNull(userId))
+                userId = service.createUser(u);
+
+            Map<String, String> myAccParam = new HashMap<>();
+            param.put("user_id", userId.toString());
+            param.put("company_id", companyId.toString());
+            Long myAccUserId = service.getId("user_myaccount", "user_myaccount_id", myAccParam);
+            if (isNull(myAccUserId))
+                service.createMyAccountUser(userId, companyId, u.getRole());
+        }
     }
 
     private void restore(AssessmentDTO a) {
         log.info("Assessment name {}", a.getName());
 
-        Map<String, Object> ids = service.createAssessment(a);
-        long assId = parseLong(ids.get("assessment_id").toString());
-        long translateId = parseLong(ids.get("translation_id").toString());
+        Map<String, String> param = new HashMap<>();
+        param.put("assessment_name", a.getName());
+        param.put("from_ati", "true");
+        Long assId = service.getId("assessment", "assessment_id", param);
+        if (isNull(assId)) {
+            Map<String, Object> ids = service.createAssessment(a);
+            assId = parseLong(ids.get("assessment_id").toString());
+            long translateId = parseLong(ids.get("translation_id").toString());
 
-        Map<String, String> translate = new HashMap<>();
-        translate.put("assessment_desc", null);
-        translate.put("assessment_name", a.getName());
-        translate.put("candidate_desc", null);
-        translate.put("general_instructions", null);
-        translate.put("thank_you_desc", null);
+            Map<String, String> translate = new HashMap<>();
+            translate.put("assessment_desc", null);
+            translate.put("assessment_name", a.getName());
+            translate.put("candidate_desc", null);
+            translate.put("general_instructions", null);
+            translate.put("thank_you_desc", null);
 
-        service.createTranslation(translateId, translate);
+            service.createTranslation(translateId, translate);
+        }
 
-        a.getQualities().forEach(q -> service.createAssessmentQuality(assId, q));
-        a.getQuestions().forEach(q -> service.createAssessmentQuestion(assId, q));
+        for (Integer qId : a.getQualities()) {
+            Map<String, String> qParam = new HashMap<>();
+            param.put("assessment_id", assId.toString());
+            param.put("quality_id", qId.toString());
+            Long id = service.getId("assessment_quality", "assessment_quality_id", qParam);
+            if (isNull(id))
+                service.createAssessmentQuality(assId, qId);
+        }
+        for (AssQuestionDTO q : a.getQuestions()) {
+            Map<String, String> qParam = new HashMap<>();
+            param.put("ati_full_code", q.getAtiFullCode());
+            Long qId = service.getId("question", "question_id", qParam);
+            if (isNull(qId)) continue;
+
+            Map<String, String> aqParam = new HashMap<>();
+            param.put("assessment_id", assId.toString());
+            param.put("question_id", qId.toString());
+            Long id = service.getId("assessment_question", "assessment_question_id", aqParam);
+            if (isNull(id))
+                service.createAssessmentQuestion(assId, qId, q);
+        }
     }
 
     private void restore(QuestionDTO q) {
         log.info("Question full code {}", q.getCode());
 
-        Map<String, Object> ids = service.createQuestion(q);
-        long questionId = parseLong(ids.get("question_id").toString());
-        long translateId = parseLong(ids.get("translation_id").toString());
+        Long questionId = service.getId("question", "question_id", singletonMap("ati_code", q.getId()));
+        if (isNull(questionId)) {
+            Map<String, Object> ids = service.createQuestion(q);
+            questionId = parseLong(ids.get("question_id").toString());
+            long translateId = parseLong(ids.get("translation_id").toString());
 
-        service.createTranslation(translateId, q.getTranslates(), "question_text");
+            service.createTranslation(translateId, q.getTranslates(), "question_text");
+        }
 
-        q.getAnswers().forEach(a -> restore(a, questionId));
+        for (AnswerDTO a : q.getAnswers()) {
+            restore(a, questionId);
+        }
     }
 
     private void restore(AnswerDTO a, Long questionId) {
         log.info("Question {} answer order {}", questionId, a.getOrder());
 
-        Map<String, Object> ids = service.createAnswer(a, questionId);
-        long translateId = parseLong(ids.get("translation_id").toString());
+        Map<String, String> param = new HashMap<>();
+        param.put("question_id", questionId.toString());
+        param.put("answer_text", a.getText());
+        Long answerId = service.getId("question_answer", "question_answer_id", param);
 
-        service.createTranslation(translateId, a.getTranslates(), "answer_text");
+        if (isNull(answerId)) {
+            Map<String, Object> ids = service.createAnswer(a, questionId);
+            long translateId = parseLong(ids.get("translation_id").toString());
+
+            service.createTranslation(translateId, a.getTranslates(), "answer_text");
+        }
     }
 }

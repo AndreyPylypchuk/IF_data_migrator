@@ -19,6 +19,7 @@ import static java.nio.file.Files.writeString;
 import static java.nio.file.Path.of;
 import static java.nio.file.StandardOpenOption.CREATE;
 import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
@@ -42,7 +43,7 @@ public class BackupService {
 
         if (scopes.contains("questionAnswerData")) result.setQuestionAnswerData(backupQuestionAnswerData());
         if (scopes.contains("assessmentData")) result.setAssessmentData(backupAssessmentData());
-        if (scopes.contains("company")) result.setCompanies(backupCompanyData());
+        if (scopes.contains("companyData")) result.setCompanyData(backupCompanyData());
 
         writeString(
                 of("backup.json"),
@@ -55,49 +56,80 @@ public class BackupService {
     private List<CompanyDTO> backupCompanyData() {
         log.info("Company data extracting...");
 
-        List<Company> companies = service.getCompanies();
-
-        Map<String, List<Company>> numCompanies = companies.stream()
+        Map<String, List<Company>> numCompanies = service.getCompanies()
+                .stream()
                 .collect(groupingBy(Company::getCustNum));
 
-        List<CompanyDTO> dtos = new ArrayList<>();
+        List<CompanyDTO> backup = new ArrayList<>();
         for (Map.Entry<String, List<Company>> entry : numCompanies.entrySet()) {
-            if (entry.getValue().size() == 1) {
-                Company company = entry.getValue().get(0);
-                dtos.add(
-                        new CompanyDTO(
-                                company.getCustNum(),
-                                company.getStore(),
-                                company.getCustName()
-                        )
-                );
-            } else {
-                entry.getValue().forEach(company -> {
-                    if (nonNull(company.getCity()))
-                        company.setCity(company.getCity().trim());
-                    if (nonNull(company.getState()))
-                        company.setState(company.getState().trim());
-                    dtos.add(
-                            new CompanyDTO(
-                                    company.getCustNum(),
-                                    company.getStore(),
-                                    format(COMPANY_NAME_TEMPLATE,
-                                            company.getCustName(),
-                                            company.getCity(),
-                                            company.getState()
-                                    )
-                            )
-                    );
-                });
-            }
+            if (entry.getValue().size() == 1)
+                backup.add(toCompanyDto(entry.getValue().get(0)));
+            else
+                backup.addAll(toCompanyDto(entry.getValue()));
         }
 
-        dtos.forEach(companyDto -> {
-            List<User> users = service.getUsers(companyDto.getNum(), companyDto.getStore());
-            System.out.println();
+        backup.forEach(companyDto -> {
+            companyDto.setUsers(extractCompanyUsers(companyDto));
+            companyDto.setAssessmentVersions(extractCompanyAssessments(companyDto));
         });
 
+        return backup;
+    }
+
+    private List<String> extractCompanyAssessments(CompanyDTO companyDto) {
+        log.info("Extracting assessments for company {} {}", companyDto.getNum(), companyDto.getStore());
+        return service.getCompanyAssessment(companyDto.getNum(), companyDto.getStore())
+                .stream()
+                .filter(Objects::nonNull)
+                .map(v -> v.trim().replaceAll("-", ""))
+                .collect(toList());
+    }
+
+    private List<UserDTO> extractCompanyUsers(CompanyDTO companyDto) {
+        log.info("Extracting users for company {} {}", companyDto.getNum(), companyDto.getStore());
+        return service.getUsers(companyDto.getNum(), companyDto.getStore())
+                .stream()
+                .map(u -> {
+                    UserDTO dto = new UserDTO();
+                    dto.setId(u.getUserCredentialId());
+                    dto.setEmail(trim(u.getEmailAddress()));
+                    dto.setPassword(u.getPreviousPasswords());
+                    dto.setRole(mapRole(u.getRoleID()));
+                    return dto;
+                }).collect(toList());
+    }
+
+    private CompanyDTO toCompanyDto(Company company) {
+        return new CompanyDTO(
+                company.getCustNum(),
+                company.getStore(),
+                company.getCustName()
+        );
+    }
+
+    private List<CompanyDTO> toCompanyDto(List<Company> companies) {
+        return companies.stream()
+                .map(company -> new CompanyDTO(
+                                company.getCustNum(),
+                                company.getStore(),
+                                format(COMPANY_NAME_TEMPLATE,
+                                        company.getCustName(),
+                                        trim(company.getCity()),
+                                        trim(company.getState())
+                                )
+                        )
+                ).collect(toList());
+    }
+
+    private String mapRole(Integer roleID) {
+        if (roleID == 2) return "myaccount_admin";
+        if (roleID == 3) return "myaccount_editor";
         return null;
+    }
+
+    private String trim(String str) {
+        if (isNull(str)) return null;
+        return str.trim();
     }
 
     private List<AssessmentDTO> backupAssessmentData() {
