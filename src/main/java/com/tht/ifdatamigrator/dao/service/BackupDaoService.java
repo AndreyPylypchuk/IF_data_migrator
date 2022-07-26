@@ -57,14 +57,14 @@ public class BackupDaoService {
             """;
 
     private static final String COMPANIES = """
-            select c.CustNum, c.CustName, s.Store# as store, s.City, s.state
+            select c.CustNum, c.CustName, s.Store# as store, s.StoreName
             from atiCustomer c
-                     left join atiAllStores s on c.CustNum = s.Cust#
+                     left join (select * from atiAllStores where Active = 'True') s on c.CustNum = s.Cust#
             where c.CustNum in (:companies)
             """;
 
     private static final String COMPANY_USERS = """
-            select ucc.UserCredentialId, EmailAddress, PreviousPasswords, RoleID
+            select ucc.UserCredentialId, EmailAddress, uc.Password, PreviousPasswords, RoleID
             from UserCredentials uc
             join UserCredentialCoverage ucc on uc.UserCredentialId = ucc.UserCredentialId
             where uc.IsActive = 1 and ucc.CustomerNumber = :cut

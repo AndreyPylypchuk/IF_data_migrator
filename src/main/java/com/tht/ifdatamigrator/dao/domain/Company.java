@@ -9,4 +9,5 @@ public class Company {
     private String store;
     private String city;
     private String state;
+    private String storeName;
 }

@@ -73,7 +73,7 @@ public class RestoreDaoService {
             """;
 
     private static final String CREATE_USER = """
-            insert into "user"(user_email_address, password, ati_id) values (?, ?, ?)
+            insert into "user"(user_email_address, password, ati_id, ati_notified) values (?, ?, ?, false)
             """;
 
     private static final String CREATE_MY_ACCOUNT_USER = """
@@ -187,14 +187,14 @@ public class RestoreDaoService {
         });
     }
 
-    public Map<String, Object> createCompany(CompanyDTO companyDTO) {
+    public Map<String, Object> createCompany(CompanyDTO companyDTO, Long adminId, String adminEmail) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         template.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(CREATE_COMPANY, new String[]{"company_id"});
             ps.setString(1, companyDTO.getName());
-            ps.setString(2, null);
-            ps.setString(3, null);
+            ps.setLong(2, adminId);
+            ps.setString(3, adminEmail);
             ps.setString(4, companyDTO.getNum());
             ps.setString(5, companyDTO.getStore());
             return ps;
@@ -203,20 +203,15 @@ public class RestoreDaoService {
         return keyHolder.getKeys();
     }
 
-    public void createCompanyAssessments(long companyId, List<String> assessmentVersions) {
-        template.batchUpdate(
-                CREATE_COMPANY_ASSESSMENT,
-                new BatchPreparedStatementSetter() {
-                    @SneakyThrows
-                    public void setValues(PreparedStatement ps, int i) {
-                        ps.setLong(1, companyId);
-                        ps.setString(2, assessmentVersions.get(i));
-                    }
-
-                    public int getBatchSize() {
-                        return assessmentVersions.size();
-                    }
-                });
+    public void createCompanyAssessment(long companyId, String assessmentVersion) {
+        try {
+            template.update(con -> {
+                PreparedStatement ps = con.prepareStatement(CREATE_COMPANY_ASSESSMENT);
+                ps.setLong(1, companyId);
+                ps.setString(2, assessmentVersion);
+                return ps;
+            });
+        } catch (Exception ignored) {}
     }
 
     public Long getUserIdByEmail(String email) {
@@ -260,9 +255,14 @@ public class RestoreDaoService {
         });
     }
 
-    public Long getId(String table, String identifierField, Map<String, String> conditions) {
+    public Long getId(String table, String identifierField, Map<String, Object> conditions) {
         List<String> conditionRequestParts = new ArrayList<>();
-        conditions.forEach((k, v) -> conditionRequestParts.add(k + " = '" + v + "'"));
+        conditions.forEach((k, v) -> {
+            if (v instanceof String vStr)
+                conditionRequestParts.add(k + " = '" + vStr + "'");
+            else
+                conditionRequestParts.add(k + " = " + v);
+        });
         String sql = format(GET_ID, identifierField, table, join(" and ", conditionRequestParts));
         try {
             return template.queryForObject(sql, Long.class);

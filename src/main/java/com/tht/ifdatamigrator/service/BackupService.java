@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
-import static java.lang.String.format;
 import static java.nio.file.Files.writeString;
 import static java.nio.file.Path.of;
 import static java.nio.file.StandardOpenOption.CREATE;
@@ -23,6 +22,8 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
+import static org.springframework.util.CollectionUtils.isEmpty;
+import static org.springframework.util.StringUtils.hasText;
 
 @Slf4j
 @Service
@@ -73,6 +74,11 @@ public class BackupService {
             companyDto.setAssessmentVersions(extractCompanyAssessments(companyDto));
         });
 
+        backup = backup.stream()
+                .filter(c -> !isEmpty(c.getUsers()))
+//                .filter(c -> !isEmpty(c.getAssessmentVersions()))
+                .collect(toList());
+
         return backup;
     }
 
@@ -93,10 +99,13 @@ public class BackupService {
                     UserDTO dto = new UserDTO();
                     dto.setId(u.getUserCredentialId());
                     dto.setEmail(trim(u.getEmailAddress()));
-                    dto.setPassword(u.getPreviousPasswords());
+                    dto.setPassword(u.getPasswords());
+                    dto.setPreviousPassword(u.getPreviousPasswords());
                     dto.setRole(mapRole(u.getRoleID()));
                     return dto;
-                }).collect(toList());
+                })
+                .filter(u -> hasText(u.getEmail()))
+                .collect(toList());
     }
 
     private CompanyDTO toCompanyDto(Company company) {
@@ -110,14 +119,9 @@ public class BackupService {
     private List<CompanyDTO> toCompanyDto(List<Company> companies) {
         return companies.stream()
                 .map(company -> new CompanyDTO(
-                                company.getCustNum(),
-                                company.getStore(),
-                                format(COMPANY_NAME_TEMPLATE,
-                                        company.getCustName(),
-                                        trim(company.getCity()),
-                                        trim(company.getState())
-                                )
-                        )
+                        company.getCustNum(),
+                        company.getStore(),
+                        company.getCustName() + " - " + trim(company.getStoreName()))
                 ).collect(toList());
     }
 

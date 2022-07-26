@@ -45,39 +45,57 @@ public class RestoreService {
     private void restore(CompanyDTO companyDTO) {
         log.info("Company name {}", companyDTO.getName());
 
-        Map<String, String> param = new HashMap<>();
+        UserDTO admin = companyDTO.getUsers()
+                .stream()
+                .filter(u -> "myaccount_admin".equals(u.getRole()))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException(
+                        "Not found admin user for [num:" + companyDTO.getNum() + " store" + companyDTO.getStore()
+                ));
+
+        String adminEmail = admin.getEmail();
+        Long adminId = service.getUserIdByEmail(admin.getEmail());
+        if (isNull(adminId))
+            adminId = service.createUser(admin);
+
+        Map<String, Object> param = new HashMap<>();
         param.put("ati_cust", companyDTO.getNum());
         param.put("ati_store", companyDTO.getStore());
         Long companyId = service.getId("company", "company_id", param);
         if (isNull(companyId)) {
-            Map<String, Object> ids = service.createCompany(companyDTO);
+            Map<String, Object> ids = service.createCompany(companyDTO, adminId, adminEmail);
             companyId = parseLong(ids.get("company_id").toString());
-
-            service.createCompanyAssessments(companyId, companyDTO.getAssessmentVersions());
-
-            //TODO: handle job posts
         }
 
         for (UserDTO u : companyDTO.getUsers()) {
+            log.info("Handling user {}", u.getEmail());
             Long userId = service.getUserIdByEmail(u.getEmail());
             if (isNull(userId))
+                //TODO: handle password
                 userId = service.createUser(u);
 
-            Map<String, String> myAccParam = new HashMap<>();
-            param.put("user_id", userId.toString());
-            param.put("company_id", companyId.toString());
+            Map<String, Object> myAccParam = new HashMap<>();
+            param.put("user_id", userId);
+            param.put("company_id", companyId);
             Long myAccUserId = service.getId("user_myaccount", "user_myaccount_id", myAccParam);
             if (isNull(myAccUserId))
                 service.createMyAccountUser(userId, companyId, u.getRole());
+        }
+
+        for (String assVersion : companyDTO.getAssessmentVersions()) {
+            log.info("Handling assessment {}", assVersion);
+            service.createCompanyAssessment(companyId, assVersion);
+
+            //TODO: handle job posts
         }
     }
 
     private void restore(AssessmentDTO a) {
         log.info("Assessment name {}", a.getName());
 
-        Map<String, String> param = new HashMap<>();
+        Map<String, Object> param = new HashMap<>();
         param.put("assessment_name", a.getName());
-        param.put("from_ati", "true");
+        param.put("from_ati", true);
         Long assId = service.getId("assessment", "assessment_id", param);
         if (isNull(assId)) {
             Map<String, Object> ids = service.createAssessment(a);
@@ -95,22 +113,22 @@ public class RestoreService {
         }
 
         for (Integer qId : a.getQualities()) {
-            Map<String, String> qParam = new HashMap<>();
-            param.put("assessment_id", assId.toString());
-            param.put("quality_id", qId.toString());
+            Map<String, Object> qParam = new HashMap<>();
+            param.put("assessment_id", assId);
+            param.put("quality_id", qId);
             Long id = service.getId("assessment_quality", "assessment_quality_id", qParam);
             if (isNull(id))
                 service.createAssessmentQuality(assId, qId);
         }
         for (AssQuestionDTO q : a.getQuestions()) {
-            Map<String, String> qParam = new HashMap<>();
+            Map<String, Object> qParam = new HashMap<>();
             param.put("ati_full_code", q.getAtiFullCode());
             Long qId = service.getId("question", "question_id", qParam);
             if (isNull(qId)) continue;
 
-            Map<String, String> aqParam = new HashMap<>();
-            param.put("assessment_id", assId.toString());
-            param.put("question_id", qId.toString());
+            Map<String, Object> aqParam = new HashMap<>();
+            param.put("assessment_id", assId);
+            param.put("question_id", qId);
             Long id = service.getId("assessment_question", "assessment_question_id", aqParam);
             if (isNull(id))
                 service.createAssessmentQuestion(assId, qId, q);
@@ -137,8 +155,8 @@ public class RestoreService {
     private void restore(AnswerDTO a, Long questionId) {
         log.info("Question {} answer order {}", questionId, a.getOrder());
 
-        Map<String, String> param = new HashMap<>();
-        param.put("question_id", questionId.toString());
+        Map<String, Object> param = new HashMap<>();
+        param.put("question_id", questionId);
         param.put("answer_text", a.getText());
         Long answerId = service.getId("question_answer", "question_answer_id", param);
 
