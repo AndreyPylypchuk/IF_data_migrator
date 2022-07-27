@@ -59,7 +59,6 @@ public class CompanyDataRestoreService {
             log.info("Handling user {}", u.getEmail());
             Long userId = service.getUserIdByEmail(u.getEmail());
             if (isNull(userId))
-                //TODO: handle password
                 userId = service.createUser(u);
 
             Map<String, Object> myAccParam = new HashMap<>();

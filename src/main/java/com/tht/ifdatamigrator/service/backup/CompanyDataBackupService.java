@@ -84,8 +84,6 @@ public class CompanyDataBackupService {
                     UserDTO dto = new UserDTO();
                     dto.setId(u.getUserCredentialId());
                     dto.setEmail(trim(u.getEmailAddress()));
-                    dto.setPassword(u.getPasswords());
-                    dto.setPreviousPassword(u.getPreviousPasswords());
                     dto.setRole(mapRole(u.getRoleID()));
                     return dto;
                 })

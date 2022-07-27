@@ -73,7 +73,7 @@ public class RestoreDaoService {
             """;
 
     private static final String CREATE_USER = """
-            insert into "user"(user_email_address, password, ati_id, ati_notified) values (?, ?, ?, false)
+            insert into "user"(user_email_address, ati_id, ati_notified) values (?, ?, false)
             """;
 
     private static final String CREATE_MY_ACCOUNT_USER = """
@@ -229,8 +229,7 @@ public class RestoreDaoService {
         template.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(CREATE_USER, new String[]{"user_id"});
             ps.setString(1, u.getEmail());
-            ps.setString(2, u.getPassword());
-            ps.setLong(3, u.getId());
+            ps.setLong(2, u.getId());
             return ps;
         }, keyHolder);
 

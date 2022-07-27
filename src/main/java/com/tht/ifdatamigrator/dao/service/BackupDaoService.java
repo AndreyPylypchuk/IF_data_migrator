@@ -64,7 +64,7 @@ public class BackupDaoService {
             """;
 
     private static final String COMPANY_USERS = """
-            select ucc.UserCredentialId, EmailAddress, uc.Password, PreviousPasswords, RoleID
+            select ucc.UserCredentialId, EmailAddress, RoleID
             from UserCredentials uc
             join UserCredentialCoverage ucc on uc.UserCredentialId = ucc.UserCredentialId
             where uc.IsActive = 1 and ucc.CustomerNumber = :cut
