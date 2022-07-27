@@ -211,7 +211,8 @@ public class RestoreDaoService {
                 ps.setString(2, assessmentVersion);
                 return ps;
             });
-        } catch (Exception ignored) {}
+        } catch (Exception ignored) {
+        }
     }
 
     public Long getUserIdByEmail(String email) {
@@ -269,5 +270,35 @@ public class RestoreDaoService {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
+    }
+
+    public Long getCompanyJobpostingStatusId(Long comJobpostId) {
+        String sql = """
+                select company_jobposting_status_id
+                from company_jobposting_status
+                where company_jobposting_id = ?
+                and status_type = 'assessment'
+                limit 1
+                """;
+        return template.queryForObject(sql, Long.class, comJobpostId);
+    }
+
+    public Long getAssessment(String assVersion) {
+        String sql = """
+                select assessment_id
+                from assessment a
+                         left join assessment_version v on a.assessment_version_id = v.assessment_version_id
+                where a.from_ati = true
+                  and v.name = ? limit 1
+                """;
+        return template.queryForObject(sql, Long.class, assVersion);
+    }
+
+    public void createCompanyJobpostStatusAss(Long companyJobpostingStatusId, Long assId) {
+        String sql = """
+                insert into company_jobposting_status_assessment(company_jobposting_status_id, assessment_id)
+                values (?, ?)
+                """;
+        template.update(sql, companyJobpostingStatusId, assId);
     }
 }

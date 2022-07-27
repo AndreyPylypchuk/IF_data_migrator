@@ -260,7 +260,7 @@
     {
       "num": "1338",
       "store": "0001",
-      "name": "Bruns Construction Enterprises Inc - Bruns Building & Development",
+      "name": "Bruns Construction Enterprises Inc - 0001",
       "users": [
         {
           "id": 13422,
@@ -282,7 +282,7 @@
     {
       "num": "1338",
       "store": "0002",
-      "name": "Bruns Construction Enterprises Inc - Ohio and Indiana Roofing (South)",
+      "name": "Bruns Construction Enterprises Inc - 0002",
       "users": [
         {
           "id": 14076,
@@ -311,7 +311,7 @@
     {
       "num": "1338",
       "store": "0003",
-      "name": "Bruns Construction Enterprises Inc - Health Care Products",
+      "name": "Bruns Construction Enterprises Inc - 0003",
       "users": [
         {
           "id": 14074,
@@ -340,7 +340,7 @@
     {
       "num": "1338",
       "store": "0004",
-      "name": "Bruns Construction Enterprises Inc - Bruns General Contracting",
+      "name": "Bruns Construction Enterprises Inc - 0004",
       "users": [
         {
           "id": 14072,
@@ -362,7 +362,7 @@
     {
       "num": "1338",
       "store": "0005",
-      "name": "Bruns Construction Enterprises Inc - GreenTech Roofing",
+      "name": "Bruns Construction Enterprises Inc - 0005",
       "users": [
         {
           "id": 12042,
@@ -398,7 +398,7 @@
     {
       "num": "1338",
       "store": "0006",
-      "name": "Bruns Construction Enterprises Inc - Bruns Construction - Celina",
+      "name": "Bruns Construction Enterprises Inc - 0006",
       "users": [
         {
           "id": 12950,
@@ -427,7 +427,7 @@
     {
       "num": "1338",
       "store": "0008",
-      "name": "Bruns Construction Enterprises Inc - Greentech Roofing-AZ",
+      "name": "Bruns Construction Enterprises Inc - 0008",
       "users": [
         {
           "id": 21293,
@@ -904,7 +904,7 @@
     {
       "num": "1970",
       "store": "0001",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - RMG/LMG/ADOC/QCSC",
+      "name": "Heritage Provider Network, Inc. - 0001",
       "users": [
         {
           "id": 18480,
@@ -1040,7 +1040,7 @@
     {
       "num": "1970",
       "store": "0002",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - BFMC/CCPN",
+      "name": "Heritage Provider Network, Inc. - 0002",
       "users": [
         {
           "id": 18484,
@@ -1127,7 +1127,7 @@
     {
       "num": "1970",
       "store": "0003",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - AZPC",
+      "name": "Heritage Provider Network, Inc. - 0003",
       "users": [
         {
           "id": 18484,
@@ -1186,7 +1186,7 @@
     {
       "num": "1970",
       "store": "0004",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - DOHC",
+      "name": "Heritage Provider Network, Inc. - 0004",
       "users": [
         {
           "id": 18818,
@@ -1252,7 +1252,7 @@
     {
       "num": "1970",
       "store": "0005",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - HDMG",
+      "name": "Heritage Provider Network, Inc. - 0005",
       "users": [
         {
           "id": 18484,
@@ -1339,7 +1339,7 @@
     {
       "num": "1970",
       "store": "0006",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - HVVMG",
+      "name": "Heritage Provider Network, Inc. - 0006",
       "users": [
         {
           "id": 18484,
@@ -1391,7 +1391,7 @@
     {
       "num": "1970",
       "store": "0007",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - HPN",
+      "name": "Heritage Provider Network, Inc. - 0007",
       "users": [
         {
           "id": 18484,
@@ -1436,7 +1436,7 @@
     {
       "num": "1970",
       "store": "0008",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - HCP",
+      "name": "Heritage Provider Network, Inc. - 0008",
       "users": [
         {
           "id": 18484,
@@ -1481,7 +1481,7 @@
     {
       "num": "1970",
       "store": "0009",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider - NYPC",
+      "name": "Heritage Provider Network, Inc. - 0009",
       "users": [
         {
           "id": 18484,
@@ -1526,7 +1526,7 @@
     {
       "num": "1970",
       "store": "0010",
-      "name": "Heritage Provider Network, Inc. - Heritage Provider Network - HSMG",
+      "name": "Heritage Provider Network, Inc. - 0010",
       "users": [
         {
           "id": 18484,
@@ -1610,7 +1610,7 @@
     {
       "num": "1618",
       "store": "0001",
-      "name": "CDI - Premier Magnesia, LLC - Premier Magnesia, LLC",
+      "name": "CDI - Premier Magnesia, LLC - 0001",
       "users": [
         {
           "id": 5706,
@@ -1648,7 +1648,7 @@
     {
       "num": "1618",
       "store": "0002",
-      "name": "CDI - Premier Magnesia, LLC - Premier Magnesia, LLC - Nevada",
+      "name": "CDI - Premier Magnesia, LLC - 0002",
       "users": [
         {
           "id": 17092,
@@ -1777,7 +1777,7 @@
     {
       "num": "3370",
       "store": "0000",
-      "name": "Linn Gear Company - Linn Gear Company",
+      "name": "Linn Gear Company - 0000",
       "users": [
         {
           "id": 11671,
@@ -1815,6 +1815,13 @@
           "role": "myaccount_editor"
         }
       ],
+      "assessmentVersions": []
+    },
+    {
+      "num": "3370",
+      "store": "9999",
+      "name": "Linn Gear Company - 9999",
+      "users": [],
       "assessmentVersions": []
     },
     {
@@ -1907,7 +1914,7 @@
     {
       "num": "1861",
       "store": "0001",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Host",
+      "name": "Overeasy, Inc. - 0001",
       "users": [
         {
           "id": 15184,
@@ -1936,7 +1943,7 @@
     {
       "num": "1861",
       "store": "0002",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Cashier",
+      "name": "Overeasy, Inc. - 0002",
       "users": [
         {
           "id": 15184,
@@ -1965,7 +1972,7 @@
     {
       "num": "1861",
       "store": "0003",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Exp",
+      "name": "Overeasy, Inc. - 0003",
       "users": [
         {
           "id": 15184,
@@ -1994,7 +2001,7 @@
     {
       "num": "1861",
       "store": "0004",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Server",
+      "name": "Overeasy, Inc. - 0004",
       "users": [
         {
           "id": 15184,
@@ -2023,7 +2030,7 @@
     {
       "num": "1861",
       "store": "0005",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Busser",
+      "name": "Overeasy, Inc. - 0005",
       "users": [
         {
           "id": 15184,
@@ -2052,7 +2059,7 @@
     {
       "num": "1861",
       "store": "0006",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Dishwasher",
+      "name": "Overeasy, Inc. - 0006",
       "users": [
         {
           "id": 15184,
@@ -2081,7 +2088,7 @@
     {
       "num": "1861",
       "store": "0007",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Line Cook",
+      "name": "Overeasy, Inc. - 0007",
       "users": [
         {
           "id": 15184,
@@ -2110,7 +2117,7 @@
     {
       "num": "1861",
       "store": "0008",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Prep Cook",
+      "name": "Overeasy, Inc. - 0008",
       "users": [
         {
           "id": 15184,
@@ -2139,7 +2146,7 @@
     {
       "num": "1861",
       "store": "0009",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Baker",
+      "name": "Overeasy, Inc. - 0009",
       "users": [
         {
           "id": 15184,
@@ -2168,7 +2175,7 @@
     {
       "num": "1861",
       "store": "0010",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0010",
       "users": [
         {
           "id": 15184,
@@ -2197,7 +2204,7 @@
     {
       "num": "1861",
       "store": "0011",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Barback",
+      "name": "Overeasy, Inc. - 0011",
       "users": [
         {
           "id": 15184,
@@ -2226,7 +2233,7 @@
     {
       "num": "1861",
       "store": "0012",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Cocktail",
+      "name": "Overeasy, Inc. - 0012",
       "users": [
         {
           "id": 15184,
@@ -2255,7 +2262,7 @@
     {
       "num": "1861",
       "store": "0013",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Bartender",
+      "name": "Overeasy, Inc. - 0013",
       "users": [
         {
           "id": 15184,
@@ -2284,7 +2291,7 @@
     {
       "num": "1861",
       "store": "0014",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - General Manager",
+      "name": "Overeasy, Inc. - 0014",
       "users": [
         {
           "id": 15184,
@@ -2313,7 +2320,7 @@
     {
       "num": "1861",
       "store": "0015",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Assistant Manager",
+      "name": "Overeasy, Inc. - 0015",
       "users": [
         {
           "id": 15184,
@@ -2342,7 +2349,7 @@
     {
       "num": "1861",
       "store": "0016",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0016",
       "users": [
         {
           "id": 15184,
@@ -2371,7 +2378,7 @@
     {
       "num": "1861",
       "store": "0017",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Host",
+      "name": "Overeasy, Inc. - 0017",
       "users": [
         {
           "id": 15184,
@@ -2400,7 +2407,7 @@
     {
       "num": "1861",
       "store": "0018",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Cashier",
+      "name": "Overeasy, Inc. - 0018",
       "users": [
         {
           "id": 15184,
@@ -2429,7 +2436,7 @@
     {
       "num": "1861",
       "store": "0019",
-      "name": "Overeasy, Inc. - Expo",
+      "name": "Overeasy, Inc. - 0019",
       "users": [
         {
           "id": 15184,
@@ -2458,7 +2465,7 @@
     {
       "num": "1861",
       "store": "0020",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Server",
+      "name": "Overeasy, Inc. - 0020",
       "users": [
         {
           "id": 15184,
@@ -2487,7 +2494,7 @@
     {
       "num": "1861",
       "store": "0021",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Busser",
+      "name": "Overeasy, Inc. - 0021",
       "users": [
         {
           "id": 15184,
@@ -2516,7 +2523,7 @@
     {
       "num": "1861",
       "store": "0022",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Dishwasher",
+      "name": "Overeasy, Inc. - 0022",
       "users": [
         {
           "id": 15184,
@@ -2545,7 +2552,7 @@
     {
       "num": "1861",
       "store": "0023",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Line Cook",
+      "name": "Overeasy, Inc. - 0023",
       "users": [
         {
           "id": 15184,
@@ -2574,7 +2581,7 @@
     {
       "num": "1861",
       "store": "0024",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Prep Cook",
+      "name": "Overeasy, Inc. - 0024",
       "users": [
         {
           "id": 15184,
@@ -2603,7 +2610,7 @@
     {
       "num": "1861",
       "store": "0025",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Baker",
+      "name": "Overeasy, Inc. - 0025",
       "users": [
         {
           "id": 15184,
@@ -2632,7 +2639,7 @@
     {
       "num": "1861",
       "store": "0026",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0026",
       "users": [
         {
           "id": 15184,
@@ -2661,7 +2668,7 @@
     {
       "num": "1861",
       "store": "0027",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Barback",
+      "name": "Overeasy, Inc. - 0027",
       "users": [
         {
           "id": 15184,
@@ -2690,7 +2697,7 @@
     {
       "num": "1861",
       "store": "0028",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Cocktail",
+      "name": "Overeasy, Inc. - 0028",
       "users": [
         {
           "id": 15184,
@@ -2719,7 +2726,7 @@
     {
       "num": "1861",
       "store": "0029",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Bartender",
+      "name": "Overeasy, Inc. - 0029",
       "users": [
         {
           "id": 15184,
@@ -2748,7 +2755,7 @@
     {
       "num": "1861",
       "store": "0030",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - General Manager",
+      "name": "Overeasy, Inc. - 0030",
       "users": [
         {
           "id": 15184,
@@ -2777,7 +2784,7 @@
     {
       "num": "1861",
       "store": "0031",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Assistant Manage",
+      "name": "Overeasy, Inc. - 0031",
       "users": [
         {
           "id": 15184,
@@ -2806,7 +2813,7 @@
     {
       "num": "1861",
       "store": "0032",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0032",
       "users": [
         {
           "id": 15184,
@@ -2835,7 +2842,7 @@
     {
       "num": "1861",
       "store": "0033",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Host",
+      "name": "Overeasy, Inc. - 0033",
       "users": [
         {
           "id": 15184,
@@ -2864,7 +2871,7 @@
     {
       "num": "1861",
       "store": "0034",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Cashier",
+      "name": "Overeasy, Inc. - 0034",
       "users": [
         {
           "id": 15184,
@@ -2893,7 +2900,7 @@
     {
       "num": "1861",
       "store": "0035",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Expo",
+      "name": "Overeasy, Inc. - 0035",
       "users": [
         {
           "id": 15184,
@@ -2922,7 +2929,7 @@
     {
       "num": "1861",
       "store": "0036",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Server",
+      "name": "Overeasy, Inc. - 0036",
       "users": [
         {
           "id": 15184,
@@ -2951,7 +2958,7 @@
     {
       "num": "1861",
       "store": "0037",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Busser",
+      "name": "Overeasy, Inc. - 0037",
       "users": [
         {
           "id": 15184,
@@ -2980,7 +2987,7 @@
     {
       "num": "1861",
       "store": "0038",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Dishwasher",
+      "name": "Overeasy, Inc. - 0038",
       "users": [
         {
           "id": 15184,
@@ -3009,7 +3016,7 @@
     {
       "num": "1861",
       "store": "0039",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Line Cook",
+      "name": "Overeasy, Inc. - 0039",
       "users": [
         {
           "id": 15184,
@@ -3038,7 +3045,7 @@
     {
       "num": "1861",
       "store": "0040",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Prep Cook",
+      "name": "Overeasy, Inc. - 0040",
       "users": [
         {
           "id": 15184,
@@ -3067,7 +3074,7 @@
     {
       "num": "1861",
       "store": "0041",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Baker",
+      "name": "Overeasy, Inc. - 0041",
       "users": [
         {
           "id": 15184,
@@ -3096,7 +3103,7 @@
     {
       "num": "1861",
       "store": "0042",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Shift Superv",
+      "name": "Overeasy, Inc. - 0042",
       "users": [
         {
           "id": 15184,
@@ -3125,7 +3132,7 @@
     {
       "num": "1861",
       "store": "0043",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Barback",
+      "name": "Overeasy, Inc. - 0043",
       "users": [
         {
           "id": 15184,
@@ -3154,7 +3161,7 @@
     {
       "num": "1861",
       "store": "0044",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Cocktail",
+      "name": "Overeasy, Inc. - 0044",
       "users": [
         {
           "id": 15184,
@@ -3183,7 +3190,7 @@
     {
       "num": "1861",
       "store": "0045",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Bartender",
+      "name": "Overeasy, Inc. - 0045",
       "users": [
         {
           "id": 15184,
@@ -3212,7 +3219,7 @@
     {
       "num": "1861",
       "store": "0046",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Gen. Mgr",
+      "name": "Overeasy, Inc. - 0046",
       "users": [
         {
           "id": 15184,
@@ -3241,7 +3248,7 @@
     {
       "num": "1861",
       "store": "0047",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Assist. Mgr.",
+      "name": "Overeasy, Inc. - 0047",
       "users": [
         {
           "id": 15184,
@@ -3270,7 +3277,7 @@
     {
       "num": "1861",
       "store": "0048",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Kitchen Mana",
+      "name": "Overeasy, Inc. - 0048",
       "users": [
         {
           "id": 15184,
@@ -3299,7 +3306,7 @@
     {
       "num": "1861",
       "store": "0049",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Host",
+      "name": "Overeasy, Inc. - 0049",
       "users": [
         {
           "id": 15183,
@@ -3342,7 +3349,7 @@
     {
       "num": "1861",
       "store": "0050",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Cashier",
+      "name": "Overeasy, Inc. - 0050",
       "users": [
         {
           "id": 15183,
@@ -3385,7 +3392,7 @@
     {
       "num": "1861",
       "store": "0051",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Expo",
+      "name": "Overeasy, Inc. - 0051",
       "users": [
         {
           "id": 15183,
@@ -3428,7 +3435,7 @@
     {
       "num": "1861",
       "store": "0052",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Server",
+      "name": "Overeasy, Inc. - 0052",
       "users": [
         {
           "id": 15183,
@@ -3471,7 +3478,7 @@
     {
       "num": "1861",
       "store": "0053",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Busser",
+      "name": "Overeasy, Inc. - 0053",
       "users": [
         {
           "id": 15183,
@@ -3514,7 +3521,7 @@
     {
       "num": "1861",
       "store": "0054",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Dishwasher",
+      "name": "Overeasy, Inc. - 0054",
       "users": [
         {
           "id": 15183,
@@ -3557,7 +3564,7 @@
     {
       "num": "1861",
       "store": "0055",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Line Cook",
+      "name": "Overeasy, Inc. - 0055",
       "users": [
         {
           "id": 15183,
@@ -3600,7 +3607,7 @@
     {
       "num": "1861",
       "store": "0056",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Prep Cook",
+      "name": "Overeasy, Inc. - 0056",
       "users": [
         {
           "id": 15183,
@@ -3643,7 +3650,7 @@
     {
       "num": "1861",
       "store": "0057",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Baker",
+      "name": "Overeasy, Inc. - 0057",
       "users": [
         {
           "id": 15183,
@@ -3686,7 +3693,7 @@
     {
       "num": "1861",
       "store": "0058",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0058",
       "users": [
         {
           "id": 15183,
@@ -3729,7 +3736,7 @@
     {
       "num": "1861",
       "store": "0059",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Barback",
+      "name": "Overeasy, Inc. - 0059",
       "users": [
         {
           "id": 15183,
@@ -3772,7 +3779,7 @@
     {
       "num": "1861",
       "store": "0060",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Cocktail",
+      "name": "Overeasy, Inc. - 0060",
       "users": [
         {
           "id": 15183,
@@ -3815,7 +3822,7 @@
     {
       "num": "1861",
       "store": "0061",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Bartender",
+      "name": "Overeasy, Inc. - 0061",
       "users": [
         {
           "id": 15183,
@@ -3858,7 +3865,7 @@
     {
       "num": "1861",
       "store": "0062",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - General Mgr",
+      "name": "Overeasy, Inc. - 0062",
       "users": [
         {
           "id": 16892,
@@ -3894,7 +3901,7 @@
     {
       "num": "1861",
       "store": "0063",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Assistant Mgr",
+      "name": "Overeasy, Inc. - 0063",
       "users": [
         {
           "id": 16892,
@@ -3930,7 +3937,7 @@
     {
       "num": "1861",
       "store": "0064",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rancho - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0064",
       "users": [
         {
           "id": 15183,
@@ -3973,7 +3980,7 @@
     {
       "num": "1861",
       "store": "0065",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Host",
+      "name": "Overeasy, Inc. - 0065",
       "users": [
         {
           "id": 15176,
@@ -4009,7 +4016,7 @@
     {
       "num": "1861",
       "store": "0066",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Cashier",
+      "name": "Overeasy, Inc. - 0066",
       "users": [
         {
           "id": 15176,
@@ -4045,7 +4052,7 @@
     {
       "num": "1861",
       "store": "0067",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Expo",
+      "name": "Overeasy, Inc. - 0067",
       "users": [
         {
           "id": 15176,
@@ -4081,7 +4088,7 @@
     {
       "num": "1861",
       "store": "0068",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Server",
+      "name": "Overeasy, Inc. - 0068",
       "users": [
         {
           "id": 15176,
@@ -4117,7 +4124,7 @@
     {
       "num": "1861",
       "store": "0069",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Busser",
+      "name": "Overeasy, Inc. - 0069",
       "users": [
         {
           "id": 15176,
@@ -4153,7 +4160,7 @@
     {
       "num": "1861",
       "store": "0070",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Dishwasher",
+      "name": "Overeasy, Inc. - 0070",
       "users": [
         {
           "id": 15176,
@@ -4189,7 +4196,7 @@
     {
       "num": "1861",
       "store": "0071",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Line Cook",
+      "name": "Overeasy, Inc. - 0071",
       "users": [
         {
           "id": 15176,
@@ -4225,7 +4232,7 @@
     {
       "num": "1861",
       "store": "0072",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Prep Cook",
+      "name": "Overeasy, Inc. - 0072",
       "users": [
         {
           "id": 15176,
@@ -4261,7 +4268,7 @@
     {
       "num": "1861",
       "store": "0073",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Baker",
+      "name": "Overeasy, Inc. - 0073",
       "users": [
         {
           "id": 15176,
@@ -4297,7 +4304,7 @@
     {
       "num": "1861",
       "store": "0074",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0074",
       "users": [
         {
           "id": 15176,
@@ -4333,7 +4340,7 @@
     {
       "num": "1861",
       "store": "0075",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Barback",
+      "name": "Overeasy, Inc. - 0075",
       "users": [
         {
           "id": 15176,
@@ -4369,7 +4376,7 @@
     {
       "num": "1861",
       "store": "0076",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Cocktail",
+      "name": "Overeasy, Inc. - 0076",
       "users": [
         {
           "id": 15176,
@@ -4405,7 +4412,7 @@
     {
       "num": "1861",
       "store": "0077",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Bartender",
+      "name": "Overeasy, Inc. - 0077",
       "users": [
         {
           "id": 15176,
@@ -4441,7 +4448,7 @@
     {
       "num": "1861",
       "store": "0078",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - General Manager",
+      "name": "Overeasy, Inc. - 0078",
       "users": [
         {
           "id": 15176,
@@ -4477,7 +4484,7 @@
     {
       "num": "1861",
       "store": "0079",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Assistant Manage",
+      "name": "Overeasy, Inc. - 0079",
       "users": [
         {
           "id": 15176,
@@ -4513,7 +4520,7 @@
     {
       "num": "1861",
       "store": "0080",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ladera - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0080",
       "users": [
         {
           "id": 15176,
@@ -4549,7 +4556,7 @@
     {
       "num": "1861",
       "store": "0081",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Host",
+      "name": "Overeasy, Inc. - 0081",
       "users": [
         {
           "id": 15177,
@@ -4585,7 +4592,7 @@
     {
       "num": "1861",
       "store": "0082",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Cashier",
+      "name": "Overeasy, Inc. - 0082",
       "users": [
         {
           "id": 15177,
@@ -4621,7 +4628,7 @@
     {
       "num": "1861",
       "store": "0083",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Expo",
+      "name": "Overeasy, Inc. - 0083",
       "users": [
         {
           "id": 15177,
@@ -4657,7 +4664,7 @@
     {
       "num": "1861",
       "store": "0084",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Server",
+      "name": "Overeasy, Inc. - 0084",
       "users": [
         {
           "id": 15177,
@@ -4693,7 +4700,7 @@
     {
       "num": "1861",
       "store": "0085",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Busser",
+      "name": "Overeasy, Inc. - 0085",
       "users": [
         {
           "id": 15177,
@@ -4729,7 +4736,7 @@
     {
       "num": "1861",
       "store": "0086",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Dishwasher",
+      "name": "Overeasy, Inc. - 0086",
       "users": [
         {
           "id": 15177,
@@ -4765,7 +4772,7 @@
     {
       "num": "1861",
       "store": "0087",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Line Cook",
+      "name": "Overeasy, Inc. - 0087",
       "users": [
         {
           "id": 15177,
@@ -4801,7 +4808,7 @@
     {
       "num": "1861",
       "store": "0088",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Prep Cook",
+      "name": "Overeasy, Inc. - 0088",
       "users": [
         {
           "id": 15177,
@@ -4837,7 +4844,7 @@
     {
       "num": "1861",
       "store": "0089",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Baker",
+      "name": "Overeasy, Inc. - 0089",
       "users": [
         {
           "id": 15177,
@@ -4873,7 +4880,7 @@
     {
       "num": "1861",
       "store": "0090",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0090",
       "users": [
         {
           "id": 15177,
@@ -4909,7 +4916,7 @@
     {
       "num": "1861",
       "store": "0091",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Barback",
+      "name": "Overeasy, Inc. - 0091",
       "users": [
         {
           "id": 15177,
@@ -4945,7 +4952,7 @@
     {
       "num": "1861",
       "store": "0092",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Cocktail",
+      "name": "Overeasy, Inc. - 0092",
       "users": [
         {
           "id": 15177,
@@ -4981,7 +4988,7 @@
     {
       "num": "1861",
       "store": "0093",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Bartender",
+      "name": "Overeasy, Inc. - 0093",
       "users": [
         {
           "id": 15177,
@@ -5017,7 +5024,7 @@
     {
       "num": "1861",
       "store": "0094",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - General Manager",
+      "name": "Overeasy, Inc. - 0094",
       "users": [
         {
           "id": 15177,
@@ -5053,7 +5060,7 @@
     {
       "num": "1861",
       "store": "0095",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Assistant Mgr",
+      "name": "Overeasy, Inc. - 0095",
       "users": [
         {
           "id": 15177,
@@ -5089,7 +5096,7 @@
     {
       "num": "1861",
       "store": "0096",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Rialto - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0096",
       "users": [
         {
           "id": 15177,
@@ -5125,7 +5132,7 @@
     {
       "num": "1861",
       "store": "0097",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -",
+      "name": "Overeasy, Inc. - 0097",
       "users": [
         {
           "id": 17971,
@@ -5161,7 +5168,7 @@
     {
       "num": "1861",
       "store": "0098",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Cashier",
+      "name": "Overeasy, Inc. - 0098",
       "users": [
         {
           "id": 17971,
@@ -5197,7 +5204,7 @@
     {
       "num": "1861",
       "store": "0099",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Expo",
+      "name": "Overeasy, Inc. - 0099",
       "users": [
         {
           "id": 17971,
@@ -5233,7 +5240,7 @@
     {
       "num": "1861",
       "store": "0100",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Server",
+      "name": "Overeasy, Inc. - 0100",
       "users": [
         {
           "id": 17971,
@@ -5269,7 +5276,7 @@
     {
       "num": "1861",
       "store": "0101",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Busser",
+      "name": "Overeasy, Inc. - 0101",
       "users": [
         {
           "id": 17971,
@@ -5305,7 +5312,7 @@
     {
       "num": "1861",
       "store": "0102",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Dishwasher",
+      "name": "Overeasy, Inc. - 0102",
       "users": [
         {
           "id": 17971,
@@ -5341,7 +5348,7 @@
     {
       "num": "1861",
       "store": "0103",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Line Cook",
+      "name": "Overeasy, Inc. - 0103",
       "users": [
         {
           "id": 17971,
@@ -5377,7 +5384,7 @@
     {
       "num": "1861",
       "store": "0104",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Prep Cook",
+      "name": "Overeasy, Inc. - 0104",
       "users": [
         {
           "id": 17971,
@@ -5413,7 +5420,7 @@
     {
       "num": "1861",
       "store": "0105",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Baker",
+      "name": "Overeasy, Inc. - 0105",
       "users": [
         {
           "id": 17971,
@@ -5449,7 +5456,7 @@
     {
       "num": "1861",
       "store": "0106",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Shift Super",
+      "name": "Overeasy, Inc. - 0106",
       "users": [
         {
           "id": 17971,
@@ -5485,7 +5492,7 @@
     {
       "num": "1861",
       "store": "0107",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Barback",
+      "name": "Overeasy, Inc. - 0107",
       "users": [
         {
           "id": 17971,
@@ -5521,7 +5528,7 @@
     {
       "num": "1861",
       "store": "0108",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Cocktail",
+      "name": "Overeasy, Inc. - 0108",
       "users": [
         {
           "id": 17971,
@@ -5557,7 +5564,7 @@
     {
       "num": "1861",
       "store": "0109",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Bartender",
+      "name": "Overeasy, Inc. - 0109",
       "users": [
         {
           "id": 17971,
@@ -5593,7 +5600,7 @@
     {
       "num": "1861",
       "store": "0110",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  General Mgr",
+      "name": "Overeasy, Inc. - 0110",
       "users": [
         {
           "id": 17971,
@@ -5629,7 +5636,7 @@
     {
       "num": "1861",
       "store": "0111",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Assistant Mgr",
+      "name": "Overeasy, Inc. - 0111",
       "users": [
         {
           "id": 17971,
@@ -5665,7 +5672,7 @@
     {
       "num": "1861",
       "store": "0112",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Eastvale -  Kitchen Manag",
+      "name": "Overeasy, Inc. - 0112",
       "users": [
         {
           "id": 17971,
@@ -5701,7 +5708,7 @@
     {
       "num": "1861",
       "store": "0113",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Host",
+      "name": "Overeasy, Inc. - 0113",
       "users": [
         {
           "id": 15179,
@@ -5744,7 +5751,7 @@
     {
       "num": "1861",
       "store": "0114",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Cashier",
+      "name": "Overeasy, Inc. - 0114",
       "users": [
         {
           "id": 15179,
@@ -5787,7 +5794,7 @@
     {
       "num": "1861",
       "store": "0115",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Expo",
+      "name": "Overeasy, Inc. - 0115",
       "users": [
         {
           "id": 15179,
@@ -5830,7 +5837,7 @@
     {
       "num": "1861",
       "store": "0116",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Server",
+      "name": "Overeasy, Inc. - 0116",
       "users": [
         {
           "id": 15179,
@@ -5873,7 +5880,7 @@
     {
       "num": "1861",
       "store": "0117",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Busser",
+      "name": "Overeasy, Inc. - 0117",
       "users": [
         {
           "id": 15179,
@@ -5916,7 +5923,7 @@
     {
       "num": "1861",
       "store": "0118",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Dishwasher",
+      "name": "Overeasy, Inc. - 0118",
       "users": [
         {
           "id": 15179,
@@ -5959,7 +5966,7 @@
     {
       "num": "1861",
       "store": "0119",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Line Cook",
+      "name": "Overeasy, Inc. - 0119",
       "users": [
         {
           "id": 15179,
@@ -6002,7 +6009,7 @@
     {
       "num": "1861",
       "store": "0120",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Prep Cook",
+      "name": "Overeasy, Inc. - 0120",
       "users": [
         {
           "id": 15179,
@@ -6045,7 +6052,7 @@
     {
       "num": "1861",
       "store": "0121",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Baker",
+      "name": "Overeasy, Inc. - 0121",
       "users": [
         {
           "id": 15179,
@@ -6088,7 +6095,7 @@
     {
       "num": "1861",
       "store": "0122",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0122",
       "users": [
         {
           "id": 15179,
@@ -6131,7 +6138,7 @@
     {
       "num": "1861",
       "store": "0123",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Barback",
+      "name": "Overeasy, Inc. - 0123",
       "users": [
         {
           "id": 15179,
@@ -6174,7 +6181,7 @@
     {
       "num": "1861",
       "store": "0124",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Cocktail",
+      "name": "Overeasy, Inc. - 0124",
       "users": [
         {
           "id": 15179,
@@ -6217,7 +6224,7 @@
     {
       "num": "1861",
       "store": "0125",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Bartender",
+      "name": "Overeasy, Inc. - 0125",
       "users": [
         {
           "id": 15179,
@@ -6260,7 +6267,7 @@
     {
       "num": "1861",
       "store": "0126",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - General Mgr",
+      "name": "Overeasy, Inc. - 0126",
       "users": [
         {
           "id": 15179,
@@ -6303,7 +6310,7 @@
     {
       "num": "1861",
       "store": "0127",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Assist. Mgr",
+      "name": "Overeasy, Inc. - 0127",
       "users": [
         {
           "id": 15179,
@@ -6346,7 +6353,7 @@
     {
       "num": "1861",
       "store": "0128",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0128",
       "users": [
         {
           "id": 15179,
@@ -6389,7 +6396,7 @@
     {
       "num": "1861",
       "store": "0129",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Host",
+      "name": "Overeasy, Inc. - 0129",
       "users": [
         {
           "id": 15180,
@@ -6425,7 +6432,7 @@
     {
       "num": "1861",
       "store": "0130",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Cashier",
+      "name": "Overeasy, Inc. - 0130",
       "users": [
         {
           "id": 15180,
@@ -6461,7 +6468,7 @@
     {
       "num": "1861",
       "store": "0131",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Expo",
+      "name": "Overeasy, Inc. - 0131",
       "users": [
         {
           "id": 15180,
@@ -6497,7 +6504,7 @@
     {
       "num": "1861",
       "store": "0132",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Server",
+      "name": "Overeasy, Inc. - 0132",
       "users": [
         {
           "id": 15180,
@@ -6533,7 +6540,7 @@
     {
       "num": "1861",
       "store": "0133",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Busser",
+      "name": "Overeasy, Inc. - 0133",
       "users": [
         {
           "id": 15180,
@@ -6569,7 +6576,7 @@
     {
       "num": "1861",
       "store": "0134",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Dishwasher",
+      "name": "Overeasy, Inc. - 0134",
       "users": [
         {
           "id": 15180,
@@ -6605,7 +6612,7 @@
     {
       "num": "1861",
       "store": "0135",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Line Cook",
+      "name": "Overeasy, Inc. - 0135",
       "users": [
         {
           "id": 15180,
@@ -6641,7 +6648,7 @@
     {
       "num": "1861",
       "store": "0136",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Prep Cook",
+      "name": "Overeasy, Inc. - 0136",
       "users": [
         {
           "id": 15180,
@@ -6677,7 +6684,7 @@
     {
       "num": "1861",
       "store": "0137",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Baker",
+      "name": "Overeasy, Inc. - 0137",
       "users": [
         {
           "id": 15180,
@@ -6713,7 +6720,7 @@
     {
       "num": "1861",
       "store": "0138",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Shift Superviso",
+      "name": "Overeasy, Inc. - 0138",
       "users": [
         {
           "id": 15180,
@@ -6749,7 +6756,7 @@
     {
       "num": "1861",
       "store": "0139",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Barback",
+      "name": "Overeasy, Inc. - 0139",
       "users": [
         {
           "id": 15180,
@@ -6785,7 +6792,7 @@
     {
       "num": "1861",
       "store": "0140",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Cocktail",
+      "name": "Overeasy, Inc. - 0140",
       "users": [
         {
           "id": 15180,
@@ -6821,7 +6828,7 @@
     {
       "num": "1861",
       "store": "0141",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Bartender",
+      "name": "Overeasy, Inc. - 0141",
       "users": [
         {
           "id": 15180,
@@ -6857,7 +6864,7 @@
     {
       "num": "1861",
       "store": "0142",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - General Manager",
+      "name": "Overeasy, Inc. - 0142",
       "users": [
         {
           "id": 15180,
@@ -6893,7 +6900,7 @@
     {
       "num": "1861",
       "store": "0143",
-      "name": "Overeasy, Inc. - Corky's Kitchen & Bakery Fontana - Assistant Manag",
+      "name": "Overeasy, Inc. - 0143",
       "users": [
         {
           "id": 15180,
@@ -6929,7 +6936,7 @@
     {
       "num": "1861",
       "store": "0144",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Fontana - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0144",
       "users": [
         {
           "id": 15180,
@@ -6965,7 +6972,7 @@
     {
       "num": "1861",
       "store": "0145",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Host",
+      "name": "Overeasy, Inc. - 0145",
       "users": [
         {
           "id": 15181,
@@ -7008,7 +7015,7 @@
     {
       "num": "1861",
       "store": "0146",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Cashier",
+      "name": "Overeasy, Inc. - 0146",
       "users": [
         {
           "id": 15181,
@@ -7051,7 +7058,7 @@
     {
       "num": "1861",
       "store": "0147",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Expo",
+      "name": "Overeasy, Inc. - 0147",
       "users": [
         {
           "id": 15181,
@@ -7094,7 +7101,7 @@
     {
       "num": "1861",
       "store": "0148",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Server",
+      "name": "Overeasy, Inc. - 0148",
       "users": [
         {
           "id": 15181,
@@ -7137,7 +7144,7 @@
     {
       "num": "1861",
       "store": "0149",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Busser",
+      "name": "Overeasy, Inc. - 0149",
       "users": [
         {
           "id": 15181,
@@ -7180,7 +7187,7 @@
     {
       "num": "1861",
       "store": "0150",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Dishwasher",
+      "name": "Overeasy, Inc. - 0150",
       "users": [
         {
           "id": 15181,
@@ -7223,7 +7230,7 @@
     {
       "num": "1861",
       "store": "0151",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Line Cook",
+      "name": "Overeasy, Inc. - 0151",
       "users": [
         {
           "id": 15181,
@@ -7266,7 +7273,7 @@
     {
       "num": "1861",
       "store": "0152",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Prep Cook",
+      "name": "Overeasy, Inc. - 0152",
       "users": [
         {
           "id": 15181,
@@ -7309,7 +7316,7 @@
     {
       "num": "1861",
       "store": "0153",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Baker",
+      "name": "Overeasy, Inc. - 0153",
       "users": [
         {
           "id": 15181,
@@ -7352,7 +7359,7 @@
     {
       "num": "1861",
       "store": "0154",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0154",
       "users": [
         {
           "id": 15181,
@@ -7395,7 +7402,7 @@
     {
       "num": "1861",
       "store": "0155",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Barback",
+      "name": "Overeasy, Inc. - 0155",
       "users": [
         {
           "id": 15181,
@@ -7438,7 +7445,7 @@
     {
       "num": "1861",
       "store": "0156",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Cocktail",
+      "name": "Overeasy, Inc. - 0156",
       "users": [
         {
           "id": 15181,
@@ -7481,7 +7488,7 @@
     {
       "num": "1861",
       "store": "0157",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Bartender",
+      "name": "Overeasy, Inc. - 0157",
       "users": [
         {
           "id": 15181,
@@ -7524,7 +7531,7 @@
     {
       "num": "1861",
       "store": "0158",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - General Manager",
+      "name": "Overeasy, Inc. - 0158",
       "users": [
         {
           "id": 15181,
@@ -7567,7 +7574,7 @@
     {
       "num": "1861",
       "store": "0159",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Assistant Manage",
+      "name": "Overeasy, Inc. - 0159",
       "users": [
         {
           "id": 15181,
@@ -7610,7 +7617,7 @@
     {
       "num": "1861",
       "store": "0160",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0160",
       "users": [
         {
           "id": 15181,
@@ -7653,7 +7660,7 @@
     {
       "num": "1861",
       "store": "0161",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Host",
+      "name": "Overeasy, Inc. - 0161",
       "users": [
         {
           "id": 15182,
@@ -7689,7 +7696,7 @@
     {
       "num": "1861",
       "store": "0162",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Cashier",
+      "name": "Overeasy, Inc. - 0162",
       "users": [
         {
           "id": 15182,
@@ -7725,7 +7732,7 @@
     {
       "num": "1861",
       "store": "0163",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Expo",
+      "name": "Overeasy, Inc. - 0163",
       "users": [
         {
           "id": 15182,
@@ -7761,7 +7768,7 @@
     {
       "num": "1861",
       "store": "0164",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Server",
+      "name": "Overeasy, Inc. - 0164",
       "users": [
         {
           "id": 15182,
@@ -7797,7 +7804,7 @@
     {
       "num": "1861",
       "store": "0165",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Busser",
+      "name": "Overeasy, Inc. - 0165",
       "users": [
         {
           "id": 15182,
@@ -7833,7 +7840,7 @@
     {
       "num": "1861",
       "store": "0166",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Dishwasher",
+      "name": "Overeasy, Inc. - 0166",
       "users": [
         {
           "id": 15182,
@@ -7869,7 +7876,7 @@
     {
       "num": "1861",
       "store": "0167",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Line Cook",
+      "name": "Overeasy, Inc. - 0167",
       "users": [
         {
           "id": 15182,
@@ -7905,7 +7912,7 @@
     {
       "num": "1861",
       "store": "0168",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Prep Cook",
+      "name": "Overeasy, Inc. - 0168",
       "users": [
         {
           "id": 15182,
@@ -7941,7 +7948,7 @@
     {
       "num": "1861",
       "store": "0169",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Baker",
+      "name": "Overeasy, Inc. - 0169",
       "users": [
         {
           "id": 15182,
@@ -7977,7 +7984,7 @@
     {
       "num": "1861",
       "store": "0170",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0170",
       "users": [
         {
           "id": 15182,
@@ -8013,7 +8020,7 @@
     {
       "num": "1861",
       "store": "0171",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Barback",
+      "name": "Overeasy, Inc. - 0171",
       "users": [
         {
           "id": 15182,
@@ -8049,7 +8056,7 @@
     {
       "num": "1861",
       "store": "0172",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Cocktail",
+      "name": "Overeasy, Inc. - 0172",
       "users": [
         {
           "id": 15182,
@@ -8085,7 +8092,7 @@
     {
       "num": "1861",
       "store": "0173",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Bartender",
+      "name": "Overeasy, Inc. - 0173",
       "users": [
         {
           "id": 15182,
@@ -8121,7 +8128,7 @@
     {
       "num": "1861",
       "store": "0174",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - General Manager",
+      "name": "Overeasy, Inc. - 0174",
       "users": [
         {
           "id": 15182,
@@ -8157,7 +8164,7 @@
     {
       "num": "1861",
       "store": "0175",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Assistant Manage",
+      "name": "Overeasy, Inc. - 0175",
       "users": [
         {
           "id": 15182,
@@ -8193,7 +8200,7 @@
     {
       "num": "1861",
       "store": "0176",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0176",
       "users": [
         {
           "id": 15182,
@@ -8229,7 +8236,7 @@
     {
       "num": "1861",
       "store": "0177",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Host",
+      "name": "Overeasy, Inc. - 0177",
       "users": [
         {
           "id": 15183,
@@ -8279,7 +8286,7 @@
     {
       "num": "1861",
       "store": "0178",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Cashier",
+      "name": "Overeasy, Inc. - 0178",
       "users": [
         {
           "id": 15183,
@@ -8329,7 +8336,7 @@
     {
       "num": "1861",
       "store": "0179",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Expo",
+      "name": "Overeasy, Inc. - 0179",
       "users": [
         {
           "id": 15183,
@@ -8379,7 +8386,7 @@
     {
       "num": "1861",
       "store": "0180",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Server",
+      "name": "Overeasy, Inc. - 0180",
       "users": [
         {
           "id": 15183,
@@ -8429,7 +8436,7 @@
     {
       "num": "1861",
       "store": "0181",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Busser",
+      "name": "Overeasy, Inc. - 0181",
       "users": [
         {
           "id": 15183,
@@ -8479,7 +8486,7 @@
     {
       "num": "1861",
       "store": "0182",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Dishwasher",
+      "name": "Overeasy, Inc. - 0182",
       "users": [
         {
           "id": 15183,
@@ -8529,7 +8536,7 @@
     {
       "num": "1861",
       "store": "0183",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Line Cook",
+      "name": "Overeasy, Inc. - 0183",
       "users": [
         {
           "id": 15183,
@@ -8579,7 +8586,7 @@
     {
       "num": "1861",
       "store": "0184",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Prep Cook",
+      "name": "Overeasy, Inc. - 0184",
       "users": [
         {
           "id": 15183,
@@ -8629,7 +8636,7 @@
     {
       "num": "1861",
       "store": "0185",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Baker",
+      "name": "Overeasy, Inc. - 0185",
       "users": [
         {
           "id": 15183,
@@ -8679,7 +8686,7 @@
     {
       "num": "1861",
       "store": "0186",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Shift Superviso",
+      "name": "Overeasy, Inc. - 0186",
       "users": [
         {
           "id": 15183,
@@ -8729,7 +8736,7 @@
     {
       "num": "1861",
       "store": "0187",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Barback",
+      "name": "Overeasy, Inc. - 0187",
       "users": [
         {
           "id": 15183,
@@ -8779,7 +8786,7 @@
     {
       "num": "1861",
       "store": "0188",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Cocktail",
+      "name": "Overeasy, Inc. - 0188",
       "users": [
         {
           "id": 15183,
@@ -8829,7 +8836,7 @@
     {
       "num": "1861",
       "store": "0189",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Bartender",
+      "name": "Overeasy, Inc. - 0189",
       "users": [
         {
           "id": 15183,
@@ -8879,7 +8886,7 @@
     {
       "num": "1861",
       "store": "0190",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - General Manager",
+      "name": "Overeasy, Inc. - 0190",
       "users": [
         {
           "id": 15183,
@@ -8922,7 +8929,7 @@
     {
       "num": "1861",
       "store": "0191",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Assistant Manag",
+      "name": "Overeasy, Inc. - 0191",
       "users": [
         {
           "id": 15183,
@@ -8965,7 +8972,7 @@
     {
       "num": "1861",
       "store": "0192",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0192",
       "users": [
         {
           "id": 15183,
@@ -9015,7 +9022,7 @@
     {
       "num": "1861",
       "store": "0193",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Host",
+      "name": "Overeasy, Inc. - 0193",
       "users": [
         {
           "id": 15179,
@@ -9051,7 +9058,7 @@
     {
       "num": "1861",
       "store": "0194",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Cashier",
+      "name": "Overeasy, Inc. - 0194",
       "users": [
         {
           "id": 15179,
@@ -9087,7 +9094,7 @@
     {
       "num": "1861",
       "store": "0195",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Expo",
+      "name": "Overeasy, Inc. - 0195",
       "users": [
         {
           "id": 15179,
@@ -9123,7 +9130,7 @@
     {
       "num": "1861",
       "store": "0196",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Server",
+      "name": "Overeasy, Inc. - 0196",
       "users": [
         {
           "id": 15179,
@@ -9159,7 +9166,7 @@
     {
       "num": "1861",
       "store": "0197",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Busser",
+      "name": "Overeasy, Inc. - 0197",
       "users": [
         {
           "id": 15179,
@@ -9195,7 +9202,7 @@
     {
       "num": "1861",
       "store": "0198",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Dishwasher",
+      "name": "Overeasy, Inc. - 0198",
       "users": [
         {
           "id": 15179,
@@ -9231,7 +9238,7 @@
     {
       "num": "1861",
       "store": "0199",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Line Cook",
+      "name": "Overeasy, Inc. - 0199",
       "users": [
         {
           "id": 15179,
@@ -9267,7 +9274,7 @@
     {
       "num": "1861",
       "store": "0200",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Corp (Restaurant Support Ofc)",
+      "name": "Overeasy, Inc. - 0200",
       "users": [
         {
           "id": 15184,
@@ -9296,7 +9303,7 @@
     {
       "num": "1861",
       "store": "0201",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Prep Cook",
+      "name": "Overeasy, Inc. - 0201",
       "users": [
         {
           "id": 15179,
@@ -9332,7 +9339,7 @@
     {
       "num": "1861",
       "store": "0202",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Baker",
+      "name": "Overeasy, Inc. - 0202",
       "users": [
         {
           "id": 15179,
@@ -9368,7 +9375,7 @@
     {
       "num": "1861",
       "store": "0203",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0203",
       "users": [
         {
           "id": 15179,
@@ -9404,7 +9411,7 @@
     {
       "num": "1861",
       "store": "0204",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Barback",
+      "name": "Overeasy, Inc. - 0204",
       "users": [
         {
           "id": 15179,
@@ -9440,7 +9447,7 @@
     {
       "num": "1861",
       "store": "0205",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Cocktail",
+      "name": "Overeasy, Inc. - 0205",
       "users": [
         {
           "id": 15179,
@@ -9476,7 +9483,7 @@
     {
       "num": "1861",
       "store": "0206",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Bartender",
+      "name": "Overeasy, Inc. - 0206",
       "users": [
         {
           "id": 15179,
@@ -9512,7 +9519,7 @@
     {
       "num": "1861",
       "store": "0207",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - General Manager",
+      "name": "Overeasy, Inc. - 0207",
       "users": [
         {
           "id": 15179,
@@ -9548,7 +9555,7 @@
     {
       "num": "1861",
       "store": "0208",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Assistant Manage",
+      "name": "Overeasy, Inc. - 0208",
       "users": [
         {
           "id": 15179,
@@ -9584,7 +9591,7 @@
     {
       "num": "1861",
       "store": "0209",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0209",
       "users": [
         {
           "id": 15179,
@@ -9620,7 +9627,7 @@
     {
       "num": "1861",
       "store": "0210",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Host",
+      "name": "Overeasy, Inc. - 0210",
       "users": [
         {
           "id": 15181,
@@ -9663,7 +9670,7 @@
     {
       "num": "1861",
       "store": "0211",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Cashier",
+      "name": "Overeasy, Inc. - 0211",
       "users": [
         {
           "id": 15181,
@@ -9706,7 +9713,7 @@
     {
       "num": "1861",
       "store": "0212",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Expo",
+      "name": "Overeasy, Inc. - 0212",
       "users": [
         {
           "id": 15181,
@@ -9749,7 +9756,7 @@
     {
       "num": "1861",
       "store": "0213",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Server",
+      "name": "Overeasy, Inc. - 0213",
       "users": [
         {
           "id": 15181,
@@ -9792,7 +9799,7 @@
     {
       "num": "1861",
       "store": "0214",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Busser",
+      "name": "Overeasy, Inc. - 0214",
       "users": [
         {
           "id": 15181,
@@ -9835,7 +9842,7 @@
     {
       "num": "1861",
       "store": "0215",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Dishwasher",
+      "name": "Overeasy, Inc. - 0215",
       "users": [
         {
           "id": 15181,
@@ -9878,7 +9885,7 @@
     {
       "num": "1861",
       "store": "0216",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Line Cook",
+      "name": "Overeasy, Inc. - 0216",
       "users": [
         {
           "id": 15181,
@@ -9921,7 +9928,7 @@
     {
       "num": "1861",
       "store": "0217",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Prep Cook",
+      "name": "Overeasy, Inc. - 0217",
       "users": [
         {
           "id": 15181,
@@ -9964,7 +9971,7 @@
     {
       "num": "1861",
       "store": "0218",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Baker",
+      "name": "Overeasy, Inc. - 0218",
       "users": [
         {
           "id": 15181,
@@ -10007,7 +10014,7 @@
     {
       "num": "1861",
       "store": "0219",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Shift Supervisor",
+      "name": "Overeasy, Inc. - 0219",
       "users": [
         {
           "id": 15181,
@@ -10050,7 +10057,7 @@
     {
       "num": "1861",
       "store": "0220",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Barback",
+      "name": "Overeasy, Inc. - 0220",
       "users": [
         {
           "id": 15181,
@@ -10093,7 +10100,7 @@
     {
       "num": "1861",
       "store": "0221",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Cocktail",
+      "name": "Overeasy, Inc. - 0221",
       "users": [
         {
           "id": 15181,
@@ -10136,7 +10143,7 @@
     {
       "num": "1861",
       "store": "0222",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Bartender",
+      "name": "Overeasy, Inc. - 0222",
       "users": [
         {
           "id": 15181,
@@ -10179,7 +10186,7 @@
     {
       "num": "1861",
       "store": "0223",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - General Manager",
+      "name": "Overeasy, Inc. - 0223",
       "users": [
         {
           "id": 15181,
@@ -10222,7 +10229,7 @@
     {
       "num": "1861",
       "store": "0224",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Assistant Manager",
+      "name": "Overeasy, Inc. - 0224",
       "users": [
         {
           "id": 15181,
@@ -10265,7 +10272,7 @@
     {
       "num": "1861",
       "store": "0225",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Kitchen Manager",
+      "name": "Overeasy, Inc. - 0225",
       "users": [
         {
           "id": 15181,
@@ -10308,7 +10315,7 @@
     {
       "num": "1861",
       "store": "0226",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Host",
+      "name": "Overeasy, Inc. - 0226",
       "users": [
         {
           "id": 15181,
@@ -10358,7 +10365,7 @@
     {
       "num": "1861",
       "store": "0227",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Cashier",
+      "name": "Overeasy, Inc. - 0227",
       "users": [
         {
           "id": 15181,
@@ -10408,7 +10415,7 @@
     {
       "num": "1861",
       "store": "0228",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Expo",
+      "name": "Overeasy, Inc. - 0228",
       "users": [
         {
           "id": 15181,
@@ -10458,7 +10465,7 @@
     {
       "num": "1861",
       "store": "0229",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Server",
+      "name": "Overeasy, Inc. - 0229",
       "users": [
         {
           "id": 15181,
@@ -10508,7 +10515,7 @@
     {
       "num": "1861",
       "store": "0230",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Busser",
+      "name": "Overeasy, Inc. - 0230",
       "users": [
         {
           "id": 15181,
@@ -10558,7 +10565,7 @@
     {
       "num": "1861",
       "store": "0231",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Dishwasher",
+      "name": "Overeasy, Inc. - 0231",
       "users": [
         {
           "id": 15181,
@@ -10608,7 +10615,7 @@
     {
       "num": "1861",
       "store": "0232",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Line Cook",
+      "name": "Overeasy, Inc. - 0232",
       "users": [
         {
           "id": 15181,
@@ -10658,7 +10665,7 @@
     {
       "num": "1861",
       "store": "0233",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Prep Cook",
+      "name": "Overeasy, Inc. - 0233",
       "users": [
         {
           "id": 15181,
@@ -10708,7 +10715,7 @@
     {
       "num": "1861",
       "store": "0234",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Baker",
+      "name": "Overeasy, Inc. - 0234",
       "users": [
         {
           "id": 15181,
@@ -10758,7 +10765,7 @@
     {
       "num": "1861",
       "store": "0235",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Shift Super.",
+      "name": "Overeasy, Inc. - 0235",
       "users": [
         {
           "id": 15181,
@@ -10808,7 +10815,7 @@
     {
       "num": "1861",
       "store": "0236",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Barback",
+      "name": "Overeasy, Inc. - 0236",
       "users": [
         {
           "id": 15181,
@@ -10858,7 +10865,7 @@
     {
       "num": "1861",
       "store": "0237",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Cocktail",
+      "name": "Overeasy, Inc. - 0237",
       "users": [
         {
           "id": 15181,
@@ -10908,7 +10915,7 @@
     {
       "num": "1861",
       "store": "0238",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Bartender",
+      "name": "Overeasy, Inc. - 0238",
       "users": [
         {
           "id": 15181,
@@ -10958,7 +10965,7 @@
     {
       "num": "1861",
       "store": "0239",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - General Manag",
+      "name": "Overeasy, Inc. - 0239",
       "users": [
         {
           "id": 15181,
@@ -11008,7 +11015,7 @@
     {
       "num": "1861",
       "store": "0240",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Assist. Mgr",
+      "name": "Overeasy, Inc. - 0240",
       "users": [
         {
           "id": 15181,
@@ -11058,7 +11065,7 @@
     {
       "num": "1861",
       "store": "0241",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Kitchen Mgr.",
+      "name": "Overeasy, Inc. - 0241",
       "users": [
         {
           "id": 15181,
@@ -11108,7 +11115,7 @@
     {
       "num": "1861",
       "store": "0300",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Guasti - Corp. (RSO)",
+      "name": "Overeasy, Inc. - 0300",
       "users": [
         {
           "id": 15181,
@@ -11144,7 +11151,7 @@
     {
       "num": "1861",
       "store": "0401",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Tole House - Corp RSO",
+      "name": "Overeasy, Inc. - 0401",
       "users": [
         {
           "id": 15184,
@@ -11173,7 +11180,7 @@
     {
       "num": "1861",
       "store": "0501",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Ranco - Corp (RSO)",
+      "name": "Overeasy, Inc. - 0501",
       "users": [
         {
           "id": 15183,
@@ -11223,7 +11230,7 @@
     {
       "num": "1861",
       "store": "0502",
-      "name": "Overeasy, Inc. - Overeasy - Ladera",
+      "name": "Overeasy, Inc. - 0502",
       "users": [
         {
           "id": 15181,
@@ -11266,7 +11273,7 @@
     {
       "num": "1861",
       "store": "0503",
-      "name": "Overeasy, Inc. - Overeasy - Rialto",
+      "name": "Overeasy, Inc. - 0503",
       "users": [
         {
           "id": 15181,
@@ -11309,7 +11316,7 @@
     {
       "num": "1861",
       "store": "0504",
-      "name": "Overeasy, Inc. - Overeasy - Eastvale",
+      "name": "Overeasy, Inc. - 0504",
       "users": [
         {
           "id": 15181,
@@ -11352,7 +11359,7 @@
     {
       "num": "1861",
       "store": "0505",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Corona - Corp RSO",
+      "name": "Overeasy, Inc. - 0505",
       "users": [
         {
           "id": 15179,
@@ -11402,7 +11409,7 @@
     {
       "num": "1861",
       "store": "0506",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Fontana Corp RSO",
+      "name": "Overeasy, Inc. - 0506",
       "users": [
         {
           "id": 15181,
@@ -11445,7 +11452,7 @@
     {
       "num": "1861",
       "store": "0507",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Upland - Corp RSO",
+      "name": "Overeasy, Inc. - 0507",
       "users": [
         {
           "id": 15181,
@@ -11488,7 +11495,7 @@
     {
       "num": "1861",
       "store": "0508",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Pomona - Corp RSO",
+      "name": "Overeasy, Inc. - 0508",
       "users": [
         {
           "id": 15181,
@@ -11531,7 +11538,7 @@
     {
       "num": "1861",
       "store": "0509",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Yucapia - Corp RSO",
+      "name": "Overeasy, Inc. - 0509",
       "users": [
         {
           "id": 15183,
@@ -11581,7 +11588,7 @@
     {
       "num": "1861",
       "store": "0510",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Perris - Corp RSO",
+      "name": "Overeasy, Inc. - 0510",
       "users": [
         {
           "id": 15181,
@@ -11624,7 +11631,7 @@
     {
       "num": "1861",
       "store": "0511",
-      "name": "Overeasy, Inc. - Corky&#39;s Kitchen & Bakery Claremont - Corp RSO",
+      "name": "Overeasy, Inc. - 0511",
       "users": [
         {
           "id": 18151,
@@ -11674,7 +11681,7 @@
     {
       "num": "1861",
       "store": "0601",
-      "name": "Overeasy, Inc. - Gaggles - Septembers (Rancho) - Corp. RSO",
+      "name": "Overeasy, Inc. - 0601",
       "users": [
         {
           "id": 15181,
@@ -11717,7 +11724,7 @@
     {
       "num": "1861",
       "store": "0602",
-      "name": "Overeasy, Inc. - Gaggles - September (Rialto)",
+      "name": "Overeasy, Inc. - 0602",
       "users": [
         {
           "id": 15181,
@@ -11760,7 +11767,7 @@
     {
       "num": "1861",
       "store": "2001",
-      "name": "Overeasy, Inc. - Overeasy, Inc. - Host",
+      "name": "Overeasy, Inc. - 2001",
       "users": [
         {
           "id": 15184,
@@ -12228,7 +12235,7 @@
     {
       "num": "1635",
       "store": "0001",
-      "name": "Creminelli Fine Meats LLC - Creminelli Fine Meats LLC",
+      "name": "Creminelli Fine Meats LLC - 0001",
       "users": [
         {
           "id": 4794,
@@ -12245,7 +12252,7 @@
     {
       "num": "1635",
       "store": "0002",
-      "name": "Creminelli Fine Meats LLC - Spherion Staffing Agency",
+      "name": "Creminelli Fine Meats LLC - 0002",
       "users": [
         {
           "id": 4794,
@@ -12283,7 +12290,7 @@
     {
       "num": "1635",
       "store": "0003",
-      "name": "Creminelli Fine Meats LLC - Strategic Staffing",
+      "name": "Creminelli Fine Meats LLC - 0003",
       "users": [
         {
           "id": 4794,
@@ -12328,7 +12335,7 @@
     {
       "num": "1635",
       "store": "0004",
-      "name": "Creminelli Fine Meats LLC - Yes Employment",
+      "name": "Creminelli Fine Meats LLC - 0004",
       "users": [
         {
           "id": 4794,
@@ -12352,7 +12359,7 @@
     {
       "num": "1238",
       "store": "0001",
-      "name": "Kenpat USA LLC - Kenpat USA LLC",
+      "name": "Kenpat USA LLC - 0001",
       "users": [
         {
           "id": 16095,
@@ -12383,7 +12390,7 @@
     {
       "num": "1238",
       "store": "0002",
-      "name": "Kenpat USA LLC - Kenpat - Tampa",
+      "name": "Kenpat USA LLC - 0002",
       "users": [
         {
           "id": 16095,
@@ -12414,7 +12421,7 @@
     {
       "num": "1117",
       "store": "0001",
-      "name": "Donley Service Center, Inc. - Donley Service Center, Inc.",
+      "name": "Donley Service Center, Inc. - 0001",
       "users": [
         {
           "id": 3022,
@@ -12436,7 +12443,7 @@
     {
       "num": "1117",
       "store": "9999",
-      "name": "Donley Service Center, Inc. - Donley Service Center, Inc.",
+      "name": "Donley Service Center, Inc. - 9999",
       "users": [
         {
           "id": 3022,
@@ -12510,9 +12517,16 @@
       "assessmentVersions": []
     },
     {
+      "num": "2048",
+      "store": null,
+      "name": "CDI - City of Momence",
+      "users": [],
+      "assessmentVersions": []
+    },
+    {
       "num": "1630",
       "store": "0001",
-      "name": "Alan's Lawn and Garden Center, Inc. - Alan's Lawn and Garden Center, Inc.",
+      "name": "Alan's Lawn and Garden Center, Inc. - 0001",
       "users": [
         {
           "id": 4760,
@@ -12534,7 +12548,7 @@
     {
       "num": "1630",
       "store": "0002",
-      "name": "Alan's Lawn and Garden Center, Inc. - Alan's Lawn and Garden Center, Inc.",
+      "name": "Alan's Lawn and Garden Center, Inc. - 0002",
       "users": [
         {
           "id": 4761,
@@ -12772,7 +12786,7 @@
     {
       "num": "1078",
       "store": "0001",
-      "name": "International Marine and Industrial Applicators, I - International Marine & Industrial Appl.",
+      "name": "International Marine and Industrial Applicators, I - 0001",
       "users": [
         {
           "id": 13091,
@@ -12808,7 +12822,7 @@
     {
       "num": "1078",
       "store": "0002",
-      "name": "International Marine and Industrial Applicators, I - VA - International Marine & Industrial Applicators",
+      "name": "International Marine and Industrial Applicators, I - 0002",
       "users": [
         {
           "id": 13091,
@@ -12844,7 +12858,7 @@
     {
       "num": "1078",
       "store": "0003",
-      "name": "International Marine and Industrial Applicators, I - IMIA - Southwest Region (CA)",
+      "name": "International Marine and Industrial Applicators, I - 0003",
       "users": [
         {
           "id": 13091,
@@ -12880,7 +12894,7 @@
     {
       "num": "1078",
       "store": "0004",
-      "name": "International Marine and Industrial Applicators, I - IMIA - Northwest Region (WA)",
+      "name": "International Marine and Industrial Applicators, I - 0004",
       "users": [
         {
           "id": 13091,
@@ -12916,7 +12930,7 @@
     {
       "num": "1078",
       "store": "0005",
-      "name": "International Marine and Industrial Applicators, I - IMIA - Northeast Region - CT/PA/NW",
+      "name": "International Marine and Industrial Applicators, I - 0005",
       "users": [
         {
           "id": 13091,
@@ -12952,7 +12966,7 @@
     {
       "num": "1078",
       "store": "0006",
-      "name": "International Marine and Industrial Applicators, I - IMIA - Pacific Region - HI",
+      "name": "International Marine and Industrial Applicators, I - 0006",
       "users": [
         {
           "id": 13091,
@@ -12988,7 +13002,7 @@
     {
       "num": "1078",
       "store": "0007",
-      "name": "International Marine and Industrial Applicators, I - IMIA - Southeast Region - FL/GA",
+      "name": "International Marine and Industrial Applicators, I - 0007",
       "users": [
         {
           "id": 13091,
@@ -13048,7 +13062,7 @@
     {
       "num": "1915",
       "store": "0001",
-      "name": "Telling Industries, LLC - Telling Industries, LLC",
+      "name": "Telling Industries, LLC - 0001",
       "users": [
         {
           "id": 17696,
@@ -13063,7 +13077,7 @@
     {
       "num": "1915",
       "store": "0002",
-      "name": "Telling Industries, LLC - Telling Industries - Cambridge, OH",
+      "name": "Telling Industries, LLC - 0002",
       "users": [
         {
           "id": 16937,
@@ -13115,7 +13129,7 @@
     {
       "num": "1915",
       "store": "0003",
-      "name": "Telling Industries, LLC - Telling Industries - Osceola, AR",
+      "name": "Telling Industries, LLC - 0003",
       "users": [
         {
           "id": 16941,
@@ -13167,7 +13181,7 @@
     {
       "num": "1915",
       "store": "0004",
-      "name": "Telling Industries, LLC - Telling Industries - Windsor, CT",
+      "name": "Telling Industries, LLC - 0004",
       "users": [
         {
           "id": 17696,
@@ -13198,7 +13212,7 @@
     {
       "num": "1915",
       "store": "0005",
-      "name": "Telling Industries, LLC - Telling Industries - Willoughby, OH",
+      "name": "Telling Industries, LLC - 0005",
       "users": [
         {
           "id": 16943,
@@ -13736,7 +13750,7 @@
     {
       "num": "0722",
       "store": "0000",
-      "name": "B+B Liquor Warehouse - B & B Liquor Warehouse",
+      "name": "B+B Liquor Warehouse - 0000",
       "users": [
         {
           "id": 12911,
@@ -13763,6 +13777,13 @@
       "assessmentVersions": []
     },
     {
+      "num": "0722",
+      "store": "0001",
+      "name": "B+B Liquor Warehouse - 0001",
+      "users": [],
+      "assessmentVersions": []
+    },
+    {
       "num": "1897",
       "store": "0001",
       "name": "CDI - City of Macomb, Illinois",
@@ -13780,7 +13801,7 @@
     {
       "num": "0961",
       "store": "0000",
-      "name": "Warehouse Specialists, Inc. - WSI - Jacobson Staffing Co - Phoenix, AZ",
+      "name": "Warehouse Specialists, Inc. - 0000",
       "users": [
         {
           "id": 19815,
@@ -13811,7 +13832,7 @@
     {
       "num": "0961",
       "store": "0001",
-      "name": "Warehouse Specialists, Inc. - Warehouse Specialists, Inc.- Jenks, OK",
+      "name": "Warehouse Specialists, Inc. - 0001",
       "users": [
         {
           "id": 13916,
@@ -13863,7 +13884,7 @@
     {
       "num": "0961",
       "store": "0002",
-      "name": "Warehouse Specialists, Inc. - ProLogistix for Warehouse Specialists, Inc.",
+      "name": "Warehouse Specialists, Inc. - 0002",
       "users": [
         {
           "id": 13916,
@@ -13901,7 +13922,7 @@
     {
       "num": "0961",
       "store": "0003",
-      "name": "Warehouse Specialists, Inc. - Pyramid Personnel for Warehouse Specialists",
+      "name": "Warehouse Specialists, Inc. - 0003",
       "users": [
         {
           "id": 13916,
@@ -13939,7 +13960,7 @@
     {
       "num": "0961",
       "store": "0004",
-      "name": "Warehouse Specialists, Inc. - WSI - Jenks, OK (68012)",
+      "name": "Warehouse Specialists, Inc. - 0004",
       "users": [
         {
           "id": 13916,
@@ -13977,7 +13998,7 @@
     {
       "num": "0961",
       "store": "0005",
-      "name": "Warehouse Specialists, Inc. - WSI - Allentown, PA (70012)",
+      "name": "Warehouse Specialists, Inc. - 0005",
       "users": [
         {
           "id": 13714,
@@ -14043,7 +14064,7 @@
     {
       "num": "0961",
       "store": "0006",
-      "name": "Warehouse Specialists, Inc. - Staffmark La Mirada CA c/o WSI",
+      "name": "Warehouse Specialists, Inc. - 0006",
       "users": [
         {
           "id": 19815,
@@ -14088,7 +14109,7 @@
     {
       "num": "0961",
       "store": "0007",
-      "name": "Warehouse Specialists, Inc. - WSI - Denver CO",
+      "name": "Warehouse Specialists, Inc. - 0007",
       "users": [
         {
           "id": 13913,
@@ -14140,7 +14161,7 @@
     {
       "num": "0961",
       "store": "0012",
-      "name": "Warehouse Specialists, Inc. - Neenah, WI (IS Department) 90012",
+      "name": "Warehouse Specialists, Inc. - 0012",
       "users": [
         {
           "id": 19815,
@@ -14171,7 +14192,7 @@
     {
       "num": "0961",
       "store": "0013",
-      "name": "Warehouse Specialists, Inc. - Fond du Lac, WI",
+      "name": "Warehouse Specialists, Inc. - 0013",
       "users": [
         {
           "id": 13912,
@@ -14216,7 +14237,7 @@
     {
       "num": "0961",
       "store": "0101",
-      "name": "Warehouse Specialists, Inc. - Specialist Ave - QPS",
+      "name": "Warehouse Specialists, Inc. - 0101",
       "users": [
         {
           "id": 19815,
@@ -14247,7 +14268,7 @@
     {
       "num": "0961",
       "store": "0201",
-      "name": "Warehouse Specialists, Inc. - Enterprise Drive - Manpower",
+      "name": "Warehouse Specialists, Inc. - 0201",
       "users": [
         {
           "id": 19815,
@@ -14278,7 +14299,7 @@
     {
       "num": "0961",
       "store": "0202",
-      "name": "Warehouse Specialists, Inc. - Enterprise Drive - Aerotek",
+      "name": "Warehouse Specialists, Inc. - 0202",
       "users": [
         {
           "id": 13931,
@@ -14330,7 +14351,7 @@
     {
       "num": "0961",
       "store": "0203",
-      "name": "Warehouse Specialists, Inc. - Enterprise Drive - Office Team",
+      "name": "Warehouse Specialists, Inc. - 0203",
       "users": [
         {
           "id": 13931,
@@ -14375,7 +14396,7 @@
     {
       "num": "0961",
       "store": "0301",
-      "name": "Warehouse Specialists, Inc. - Carson, CA - Priority Staffing",
+      "name": "Warehouse Specialists, Inc. - 0301",
       "users": [
         {
           "id": 19815,
@@ -14404,7 +14425,7 @@
     {
       "num": "0961",
       "store": "0302",
-      "name": "Warehouse Specialists, Inc. - Carson, CA - On-Call Staffing",
+      "name": "Warehouse Specialists, Inc. - 0302",
       "users": [
         {
           "id": 13907,
@@ -14463,7 +14484,7 @@
     {
       "num": "0961",
       "store": "0400",
-      "name": "Warehouse Specialists, Inc. - Allentown - Manpower",
+      "name": "Warehouse Specialists, Inc. - 0400",
       "users": [
         {
           "id": 13716,
@@ -14508,7 +14529,7 @@
     {
       "num": "0961",
       "store": "0401",
-      "name": "Warehouse Specialists, Inc. - Allentown, PA - Staffmark",
+      "name": "Warehouse Specialists, Inc. - 0401",
       "users": [
         {
           "id": 13718,
@@ -14553,7 +14574,7 @@
     {
       "num": "0961",
       "store": "0501",
-      "name": "Warehouse Specialists, Inc. - Sauk Village - Benchmark",
+      "name": "Warehouse Specialists, Inc. - 0501",
       "users": [
         {
           "id": 13942,
@@ -14605,7 +14626,7 @@
     {
       "num": "0961",
       "store": "0511",
-      "name": "Warehouse Specialists, Inc. - Troy, OH",
+      "name": "Warehouse Specialists, Inc. - 0511",
       "users": [
         {
           "id": 19815,
@@ -14636,7 +14657,7 @@
     {
       "num": "0961",
       "store": "0601",
-      "name": "Warehouse Specialists, Inc. - La Mirada - First Choice",
+      "name": "Warehouse Specialists, Inc. - 0601",
       "users": [
         {
           "id": 19815,
@@ -14681,7 +14702,7 @@
     {
       "num": "0961",
       "store": "0602",
-      "name": "Warehouse Specialists, Inc. - La Mirada, CA - Priority Staffing",
+      "name": "Warehouse Specialists, Inc. - 0602",
       "users": [
         {
           "id": 19815,
@@ -14726,7 +14747,7 @@
     {
       "num": "0961",
       "store": "0701",
-      "name": "Warehouse Specialists, Inc. - Pomona, CA - AppleOne",
+      "name": "Warehouse Specialists, Inc. - 0701",
       "users": [
         {
           "id": 13937,
@@ -14778,7 +14799,7 @@
     {
       "num": "0961",
       "store": "0702",
-      "name": "Warehouse Specialists, Inc. - Pomona, CA - Benchmark Staffing",
+      "name": "Warehouse Specialists, Inc. - 0702",
       "users": [
         {
           "id": 13937,
@@ -14830,7 +14851,7 @@
     {
       "num": "0961",
       "store": "0712",
-      "name": "Warehouse Specialists, Inc. - WSI - At Works Personnel Services",
+      "name": "Warehouse Specialists, Inc. - 0712",
       "users": [
         {
           "id": 13714,
@@ -14882,7 +14903,7 @@
     {
       "num": "0961",
       "store": "1052",
-      "name": "Warehouse Specialists, Inc. - Barracuda Staffing (Jenks, OH)",
+      "name": "Warehouse Specialists, Inc. - 1052",
       "users": [
         {
           "id": 19815,
@@ -14911,7 +14932,7 @@
     {
       "num": "0961",
       "store": "1095",
-      "name": "Warehouse Specialists, Inc. - WSI - PeopleReady, Appleton",
+      "name": "Warehouse Specialists, Inc. - 1095",
       "users": [
         {
           "id": 16103,
@@ -14956,7 +14977,7 @@
     {
       "num": "0961",
       "store": "1151",
-      "name": "Warehouse Specialists, Inc. - Pacon Corporation (Casaloma Dr)",
+      "name": "Warehouse Specialists, Inc. - 1151",
       "users": [
         {
           "id": 19815,
@@ -14987,7 +15008,7 @@
     {
       "num": "0961",
       "store": "1201",
-      "name": "Warehouse Specialists, Inc. - WSI for Masterson",
+      "name": "Warehouse Specialists, Inc. - 1201",
       "users": [
         {
           "id": 13912,
@@ -15025,7 +15046,7 @@
     {
       "num": "0961",
       "store": "1257",
-      "name": "Warehouse Specialists, Inc. - Express Employment Professionals",
+      "name": "Warehouse Specialists, Inc. - 1257",
       "users": [
         {
           "id": 13940,
@@ -15091,7 +15112,7 @@
     {
       "num": "0961",
       "store": "1279",
-      "name": "Warehouse Specialists, Inc. - On-Call Staffing",
+      "name": "Warehouse Specialists, Inc. - 1279",
       "users": [
         {
           "id": 19815,
@@ -15122,7 +15143,7 @@
     {
       "num": "0961",
       "store": "1365",
-      "name": "Warehouse Specialists, Inc. - Cadre Services - Appleton, WI",
+      "name": "Warehouse Specialists, Inc. - 1365",
       "users": [
         {
           "id": 13902,
@@ -15181,7 +15202,7 @@
     {
       "num": "0961",
       "store": "1551",
-      "name": "Warehouse Specialists, Inc. - Warehouse Specialists - Andrews Staffing (Appleton",
+      "name": "Warehouse Specialists, Inc. - 1551",
       "users": [
         {
           "id": 13931,
@@ -15226,7 +15247,7 @@
     {
       "num": "0961",
       "store": "1741",
-      "name": "Warehouse Specialists, Inc. - Carlton Staffing",
+      "name": "Warehouse Specialists, Inc. - 1741",
       "users": [
         {
           "id": 13807,
@@ -15285,7 +15306,7 @@
     {
       "num": "0961",
       "store": "1748",
-      "name": "Warehouse Specialists, Inc. - Express Employmnet Professionals",
+      "name": "Warehouse Specialists, Inc. - 1748",
       "users": [
         {
           "id": 19815,
@@ -15316,7 +15337,7 @@
     {
       "num": "0961",
       "store": "1825",
-      "name": "Warehouse Specialists, Inc. - Select Staffing",
+      "name": "Warehouse Specialists, Inc. - 1825",
       "users": [
         {
           "id": 19815,
@@ -15354,7 +15375,7 @@
     {
       "num": "0961",
       "store": "1907",
-      "name": "Warehouse Specialists, Inc. - Neenah, WI - Fleet Maintenance",
+      "name": "Warehouse Specialists, Inc. - 1907",
       "users": [
         {
           "id": 19815,
@@ -15383,7 +15404,7 @@
     {
       "num": "0961",
       "store": "2007",
-      "name": "Warehouse Specialists, Inc. - WSI - Lyneer Staffing",
+      "name": "Warehouse Specialists, Inc. - 2007",
       "users": [
         {
           "id": 13935,
@@ -15442,7 +15463,7 @@
     {
       "num": "0961",
       "store": "2322",
-      "name": "Warehouse Specialists, Inc. - Premier Staffing",
+      "name": "Warehouse Specialists, Inc. - 2322",
       "users": [
         {
           "id": 19815,
@@ -15473,7 +15494,7 @@
     {
       "num": "0961",
       "store": "2511",
-      "name": "Warehouse Specialists, Inc. - WSI, Dallas, TX - Americna Mgmt Staffing 62511",
+      "name": "Warehouse Specialists, Inc. - 2511",
       "users": [
         {
           "id": 13908,
@@ -15532,7 +15553,7 @@
     {
       "num": "0961",
       "store": "2621",
-      "name": "Warehouse Specialists, Inc. - Staff Force, Inc.",
+      "name": "Warehouse Specialists, Inc. - 2621",
       "users": [
         {
           "id": 16177,
@@ -15598,7 +15619,7 @@
     {
       "num": "0961",
       "store": "2647",
-      "name": "Warehouse Specialists, Inc. - Resolve Human Resources",
+      "name": "Warehouse Specialists, Inc. - 2647",
       "users": [
         {
           "id": 17722,
@@ -15643,7 +15664,7 @@
     {
       "num": "0961",
       "store": "2686",
-      "name": "Warehouse Specialists, Inc. - At work Personnel Services",
+      "name": "Warehouse Specialists, Inc. - 2686",
       "users": [
         {
           "id": 13720,
@@ -15695,7 +15716,7 @@
     {
       "num": "0961",
       "store": "2761",
-      "name": "Warehouse Specialists, Inc. - Masterson Staffing Solutions, Fond du Lac",
+      "name": "Warehouse Specialists, Inc. - 2761",
       "users": [
         {
           "id": 19815,
@@ -15726,7 +15747,7 @@
     {
       "num": "0961",
       "store": "2794",
-      "name": "Warehouse Specialists, Inc. - Prologistix",
+      "name": "Warehouse Specialists, Inc. - 2794",
       "users": [
         {
           "id": 19815,
@@ -15757,7 +15778,7 @@
     {
       "num": "0961",
       "store": "2811",
-      "name": "Warehouse Specialists, Inc. - WSI - Baytown, TX",
+      "name": "Warehouse Specialists, Inc. - 2811",
       "users": [
         {
           "id": 13721,
@@ -15830,7 +15851,7 @@
     {
       "num": "0961",
       "store": "2899",
-      "name": "Warehouse Specialists, Inc. - QPS",
+      "name": "Warehouse Specialists, Inc. - 2899",
       "users": [
         {
           "id": 19815,
@@ -15861,7 +15882,7 @@
     {
       "num": "0961",
       "store": "2990",
-      "name": "Warehouse Specialists, Inc. - Berks & Beyond",
+      "name": "Warehouse Specialists, Inc. - 2990",
       "users": [
         {
           "id": 13715,
@@ -15899,7 +15920,7 @@
     {
       "num": "0961",
       "store": "3012",
-      "name": "Warehouse Specialists, Inc. - Larsen Drive, WI (30012)",
+      "name": "Warehouse Specialists, Inc. - 3012",
       "users": [
         {
           "id": 19815,
@@ -15930,7 +15951,7 @@
     {
       "num": "0961",
       "store": "3013",
-      "name": "Warehouse Specialists, Inc. - QPS",
+      "name": "Warehouse Specialists, Inc. - 3013",
       "users": [
         {
           "id": 13912,
@@ -15975,7 +15996,7 @@
     {
       "num": "0961",
       "store": "3014",
-      "name": "Warehouse Specialists, Inc. - Flex-Staff",
+      "name": "Warehouse Specialists, Inc. - 3014",
       "users": [
         {
           "id": 13912,
@@ -16013,7 +16034,7 @@
     {
       "num": "0961",
       "store": "3199",
-      "name": "Warehouse Specialists, Inc. - Patrick Staffing",
+      "name": "Warehouse Specialists, Inc. - 3199",
       "users": [
         {
           "id": 19815,
@@ -16044,7 +16065,7 @@
     {
       "num": "0961",
       "store": "3246",
-      "name": "Warehouse Specialists, Inc. - Pyramid Personnel",
+      "name": "Warehouse Specialists, Inc. - 3246",
       "users": [
         {
           "id": 13916,
@@ -16103,7 +16124,7 @@
     {
       "num": "0961",
       "store": "3321",
-      "name": "Warehouse Specialists, Inc. - WSI - Neenah, WI",
+      "name": "Warehouse Specialists, Inc. - 3321",
       "users": [
         {
           "id": 15129,
@@ -16155,7 +16176,7 @@
     {
       "num": "0961",
       "store": "3430",
-      "name": "Warehouse Specialists, Inc. - Parallel Employment",
+      "name": "Warehouse Specialists, Inc. - 3430",
       "users": [
         {
           "id": 13931,
@@ -16200,7 +16221,7 @@
     {
       "num": "0961",
       "store": "3461",
-      "name": "Warehouse Specialists, Inc. - WSI - Kelly Services (Tulsa, OK)",
+      "name": "Warehouse Specialists, Inc. - 3461",
       "users": [
         {
           "id": 19815,
@@ -16238,7 +16259,7 @@
     {
       "num": "0961",
       "store": "3465",
-      "name": "Warehouse Specialists, Inc. - WSI - Kayne Personnel",
+      "name": "Warehouse Specialists, Inc. - 3465",
       "users": [
         {
           "id": 14978,
@@ -16283,7 +16304,7 @@
     {
       "num": "0961",
       "store": "3501",
-      "name": "Warehouse Specialists, Inc. - St. Point, WI (3501)",
+      "name": "Warehouse Specialists, Inc. - 3501",
       "users": [
         {
           "id": 15227,
@@ -16328,7 +16349,7 @@
     {
       "num": "0961",
       "store": "3505",
-      "name": "Warehouse Specialists, Inc. - Staffmark",
+      "name": "Warehouse Specialists, Inc. - 3505",
       "users": [
         {
           "id": 19815,
@@ -16366,7 +16387,7 @@
     {
       "num": "0961",
       "store": "3508",
-      "name": "Warehouse Specialists, Inc. - WSI - Kelly Services (Phoenix)",
+      "name": "Warehouse Specialists, Inc. - 3508",
       "users": [
         {
           "id": 13934,
@@ -16432,7 +16453,7 @@
     {
       "num": "0961",
       "store": "3614",
-      "name": "Warehouse Specialists, Inc. - Benchmark Staffing",
+      "name": "Warehouse Specialists, Inc. - 3614",
       "users": [
         {
           "id": 19815,
@@ -16470,7 +16491,7 @@
     {
       "num": "0961",
       "store": "4188",
-      "name": "Warehouse Specialists, Inc. - Staff Source",
+      "name": "Warehouse Specialists, Inc. - 4188",
       "users": [
         {
           "id": 14557,
@@ -16536,7 +16557,7 @@
     {
       "num": "0961",
       "store": "4211",
-      "name": "Warehouse Specialists, Inc. - Davis Staffing, Matteson, IL #44211",
+      "name": "Warehouse Specialists, Inc. - 4211",
       "users": [
         {
           "id": 13926,
@@ -16588,7 +16609,7 @@
     {
       "num": "0961",
       "store": "4227",
-      "name": "Warehouse Specialists, Inc. - WSI (Matteson, IL) - Kelly Services",
+      "name": "Warehouse Specialists, Inc. - 4227",
       "users": [
         {
           "id": 13926,
@@ -16647,7 +16668,7 @@
     {
       "num": "0961",
       "store": "4231",
-      "name": "Warehouse Specialists, Inc. - Office TEam",
+      "name": "Warehouse Specialists, Inc. - 4231",
       "users": [
         {
           "id": 19815,
@@ -16678,7 +16699,7 @@
     {
       "num": "0961",
       "store": "4401",
-      "name": "Warehouse Specialists, Inc. - Sauk Village",
+      "name": "Warehouse Specialists, Inc. - 4401",
       "users": [
         {
           "id": 19815,
@@ -16716,7 +16737,7 @@
     {
       "num": "0961",
       "store": "4402",
-      "name": "Warehouse Specialists, Inc. - Sauk Village - 44011, Staff Source",
+      "name": "Warehouse Specialists, Inc. - 4402",
       "users": [
         {
           "id": 19815,
@@ -16754,7 +16775,7 @@
     {
       "num": "0961",
       "store": "4842",
-      "name": "Warehouse Specialists, Inc. - Staffing Network / CPA",
+      "name": "Warehouse Specialists, Inc. - 4842",
       "users": [
         {
           "id": 14105,
@@ -16813,7 +16834,7 @@
     {
       "num": "0961",
       "store": "4991",
-      "name": "Warehouse Specialists, Inc. - Solution Staffing",
+      "name": "Warehouse Specialists, Inc. - 4991",
       "users": [
         {
           "id": 19815,
@@ -16851,7 +16872,7 @@
     {
       "num": "0961",
       "store": "5011",
-      "name": "Warehouse Specialists, Inc. - Phoenix, AZ",
+      "name": "Warehouse Specialists, Inc. - 5011",
       "users": [
         {
           "id": 19815,
@@ -16903,7 +16924,7 @@
     {
       "num": "0961",
       "store": "5094",
-      "name": "Warehouse Specialists, Inc. - American Staff Corp",
+      "name": "Warehouse Specialists, Inc. - 5094",
       "users": [
         {
           "id": 19815,
@@ -16948,7 +16969,7 @@
     {
       "num": "0961",
       "store": "5125",
-      "name": "Warehouse Specialists, Inc. - Manpower",
+      "name": "Warehouse Specialists, Inc. - 5125",
       "users": [
         {
           "id": 13717,
@@ -16986,7 +17007,7 @@
     {
       "num": "0961",
       "store": "5225",
-      "name": "Warehouse Specialists, Inc. - Manpower",
+      "name": "Warehouse Specialists, Inc. - 5225",
       "users": [
         {
           "id": 13946,
@@ -17031,7 +17052,7 @@
     {
       "num": "0961",
       "store": "5268",
-      "name": "Warehouse Specialists, Inc. - Priority Staffing",
+      "name": "Warehouse Specialists, Inc. - 5268",
       "users": [
         {
           "id": 13924,
@@ -17097,7 +17118,7 @@
     {
       "num": "0961",
       "store": "5424",
-      "name": "Warehouse Specialists, Inc. - STL Staffing",
+      "name": "Warehouse Specialists, Inc. - 5424",
       "users": [
         {
           "id": 18159,
@@ -17163,7 +17184,7 @@
     {
       "num": "0961",
       "store": "5545",
-      "name": "Warehouse Specialists, Inc. - Lyneer Staffing",
+      "name": "Warehouse Specialists, Inc. - 5545",
       "users": [
         {
           "id": 19815,
@@ -17201,7 +17222,7 @@
     {
       "num": "0961",
       "store": "5648",
-      "name": "Warehouse Specialists, Inc. - Seek Careers & Staffing",
+      "name": "Warehouse Specialists, Inc. - 5648",
       "users": [
         {
           "id": 13914,
@@ -17253,7 +17274,7 @@
     {
       "num": "0961",
       "store": "5828",
-      "name": "Warehouse Specialists, Inc. - WSI - Midwest Labor",
+      "name": "Warehouse Specialists, Inc. - 5828",
       "users": [
         {
           "id": 19815,
@@ -17284,7 +17305,7 @@
     {
       "num": "0961",
       "store": "6168",
-      "name": "Warehouse Specialists, Inc. - Aerotek - Tulsa OK",
+      "name": "Warehouse Specialists, Inc. - 6168",
       "users": [
         {
           "id": 16805,
@@ -17336,7 +17357,7 @@
     {
       "num": "0961",
       "store": "6201",
-      "name": "Warehouse Specialists, Inc. - Garland Rd. Facility",
+      "name": "Warehouse Specialists, Inc. - 6201",
       "users": [
         {
           "id": 13908,
@@ -17395,7 +17416,7 @@
     {
       "num": "0961",
       "store": "6251",
-      "name": "Warehouse Specialists, Inc. - Petal Facility",
+      "name": "Warehouse Specialists, Inc. - 6251",
       "users": [
         {
           "id": 13908,
@@ -17468,7 +17489,7 @@
     {
       "num": "0961",
       "store": "6500",
-      "name": "Warehouse Specialists, Inc. - Warehouse Specialists - Kelly Services (St. Point,",
+      "name": "Warehouse Specialists, Inc. - 6500",
       "users": [
         {
           "id": 19815,
@@ -17499,7 +17520,7 @@
     {
       "num": "0961",
       "store": "6532",
-      "name": "Warehouse Specialists, Inc. - Neenah, WI - Building Maintenance",
+      "name": "Warehouse Specialists, Inc. - 6532",
       "users": [
         {
           "id": 19815,
@@ -17544,7 +17565,7 @@
     {
       "num": "0961",
       "store": "6801",
-      "name": "Warehouse Specialists, Inc. - Jenks - Raw Materials (Express Emp. Prof)",
+      "name": "Warehouse Specialists, Inc. - 6801",
       "users": [
         {
           "id": 13916,
@@ -17596,7 +17617,7 @@
     {
       "num": "0961",
       "store": "6837",
-      "name": "Warehouse Specialists, Inc. - Rolinc Staffing",
+      "name": "Warehouse Specialists, Inc. - 6837",
       "users": [
         {
           "id": 14200,
@@ -17655,7 +17676,7 @@
     {
       "num": "0961",
       "store": "6856",
-      "name": "Warehouse Specialists, Inc. - Begin Right",
+      "name": "Warehouse Specialists, Inc. - 6856",
       "users": [
         {
           "id": 14109,
@@ -17707,7 +17728,7 @@
     {
       "num": "0961",
       "store": "6947",
-      "name": "Warehouse Specialists, Inc. - Resource Staffing",
+      "name": "Warehouse Specialists, Inc. - 6947",
       "users": [
         {
           "id": 19815,
@@ -17745,7 +17766,7 @@
     {
       "num": "0961",
       "store": "7011",
-      "name": "Warehouse Specialists, Inc. - Portland, OR - Rsource Staffing",
+      "name": "Warehouse Specialists, Inc. - 7011",
       "users": [
         {
           "id": 13938,
@@ -17804,7 +17825,7 @@
     {
       "num": "0961",
       "store": "7012",
-      "name": "Warehouse Specialists, Inc. - Portland, OR - Ultimate Staffing",
+      "name": "Warehouse Specialists, Inc. - 7012",
       "users": [
         {
           "id": 13938,
@@ -17856,7 +17877,7 @@
     {
       "num": "0961",
       "store": "7013",
-      "name": "Warehouse Specialists, Inc. - One Source Staffing - Allentown, PA",
+      "name": "Warehouse Specialists, Inc. - 7013",
       "users": [
         {
           "id": 19815,
@@ -17894,7 +17915,7 @@
     {
       "num": "0961",
       "store": "7019",
-      "name": "Warehouse Specialists, Inc. - Spherion Staffing - Allentown",
+      "name": "Warehouse Specialists, Inc. - 7019",
       "users": [
         {
           "id": 13901,
@@ -17939,7 +17960,7 @@
     {
       "num": "0961",
       "store": "7021",
-      "name": "Warehouse Specialists, Inc. - Brown/Jefferson (37021)",
+      "name": "Warehouse Specialists, Inc. - 7021",
       "users": [
         {
           "id": 14753,
@@ -17977,7 +17998,7 @@
     {
       "num": "0961",
       "store": "7115",
-      "name": "Warehouse Specialists, Inc. - Parallel Employment",
+      "name": "Warehouse Specialists, Inc. - 7115",
       "users": [
         {
           "id": 19815,
@@ -18008,7 +18029,7 @@
     {
       "num": "0961",
       "store": "7145",
-      "name": "Warehouse Specialists, Inc. - AppleOne",
+      "name": "Warehouse Specialists, Inc. - 7145",
       "users": [
         {
           "id": 19815,
@@ -18046,7 +18067,7 @@
     {
       "num": "0961",
       "store": "7212",
-      "name": "Warehouse Specialists, Inc. - WSI (Matteson, IL) - Community Assistance Programs",
+      "name": "Warehouse Specialists, Inc. - 7212",
       "users": [
         {
           "id": 19815,
@@ -18077,7 +18098,7 @@
     {
       "num": "0961",
       "store": "7218",
-      "name": "Warehouse Specialists, Inc. - PeopleLink",
+      "name": "Warehouse Specialists, Inc. - 7218",
       "users": [
         {
           "id": 13916,
@@ -18122,7 +18143,7 @@
     {
       "num": "0961",
       "store": "7317",
-      "name": "Warehouse Specialists, Inc. - WSI - Express Employment Professionals",
+      "name": "Warehouse Specialists, Inc. - 7317",
       "users": [
         {
           "id": 19815,
@@ -18174,7 +18195,7 @@
     {
       "num": "0961",
       "store": "7327",
-      "name": "Warehouse Specialists, Inc. - AmeriTemps AZ",
+      "name": "Warehouse Specialists, Inc. - 7327",
       "users": [
         {
           "id": 19815,
@@ -18210,7 +18231,7 @@
     {
       "num": "0961",
       "store": "7435",
-      "name": "Warehouse Specialists, Inc. - Aerotek",
+      "name": "Warehouse Specialists, Inc. - 7435",
       "users": [
         {
           "id": 13931,
@@ -18269,7 +18290,7 @@
     {
       "num": "0961",
       "store": "7511",
-      "name": "Warehouse Specialists, Inc. - Wolosek Ave (37511)",
+      "name": "Warehouse Specialists, Inc. - 7511",
       "users": [
         {
           "id": 15227,
@@ -18314,7 +18335,7 @@
     {
       "num": "0961",
       "store": "7632",
-      "name": "Warehouse Specialists, Inc. - WSI - Seek Careers & Staffing (Appleton, WI)",
+      "name": "Warehouse Specialists, Inc. - 7632",
       "users": [
         {
           "id": 13931,
@@ -18373,7 +18394,7 @@
     {
       "num": "0961",
       "store": "7642",
-      "name": "Warehouse Specialists, Inc. - Labor Works",
+      "name": "Warehouse Specialists, Inc. - 7642",
       "users": [
         {
           "id": 13940,
@@ -18446,7 +18467,7 @@
     {
       "num": "0961",
       "store": "7643",
-      "name": "Warehouse Specialists, Inc. - WSI - Mgmt-Aid, LLC",
+      "name": "Warehouse Specialists, Inc. - 7643",
       "users": [
         {
           "id": 13910,
@@ -18491,7 +18512,7 @@
     {
       "num": "0961",
       "store": "7745",
-      "name": "Warehouse Specialists, Inc. - Seek Staffing",
+      "name": "Warehouse Specialists, Inc. - 7745",
       "users": [
         {
           "id": 19815,
@@ -18522,7 +18543,7 @@
     {
       "num": "0961",
       "store": "7752",
-      "name": "Warehouse Specialists, Inc. - WSI - Locate Staffing, Fond Du Lac",
+      "name": "Warehouse Specialists, Inc. - 7752",
       "users": [
         {
           "id": 14765,
@@ -18560,7 +18581,7 @@
     {
       "num": "0961",
       "store": "8012",
-      "name": "Warehouse Specialists, Inc. - WSI - Jenks, OK",
+      "name": "Warehouse Specialists, Inc. - 8012",
       "users": [
         {
           "id": 13916,
@@ -18612,7 +18633,7 @@
     {
       "num": "0961",
       "store": "8027",
-      "name": "Warehouse Specialists, Inc. - Aerotek - Sauk Village IL",
+      "name": "Warehouse Specialists, Inc. - 8027",
       "users": [
         {
           "id": 14199,
@@ -18657,7 +18678,7 @@
     {
       "num": "0961",
       "store": "8091",
-      "name": "Warehouse Specialists, Inc. - On Source Staffing",
+      "name": "Warehouse Specialists, Inc. - 8091",
       "users": [
         {
           "id": 19815,
@@ -18688,7 +18709,7 @@
     {
       "num": "0961",
       "store": "8099",
-      "name": "Warehouse Specialists, Inc. - WSI - QPS Employment Group",
+      "name": "Warehouse Specialists, Inc. - 8099",
       "users": [
         {
           "id": 16018,
@@ -18726,7 +18747,7 @@
     {
       "num": "0961",
       "store": "8186",
-      "name": "Warehouse Specialists, Inc. - Life Style Staffing",
+      "name": "Warehouse Specialists, Inc. - 8186",
       "users": [
         {
           "id": 14876,
@@ -18764,7 +18785,7 @@
     {
       "num": "0961",
       "store": "8321",
-      "name": "Warehouse Specialists, Inc. - Encore Pro Staffing",
+      "name": "Warehouse Specialists, Inc. - 8321",
       "users": [
         {
           "id": 13916,
@@ -18809,7 +18830,7 @@
     {
       "num": "0961",
       "store": "8460",
-      "name": "Warehouse Specialists, Inc. - WSI Appleton, WI - Kelly Services",
+      "name": "Warehouse Specialists, Inc. - 8460",
       "users": [
         {
           "id": 16180,
@@ -18854,7 +18875,7 @@
     {
       "num": "0961",
       "store": "8773",
-      "name": "Warehouse Specialists, Inc. - Davis Staffing",
+      "name": "Warehouse Specialists, Inc. - 8773",
       "users": [
         {
           "id": 13926,
@@ -18899,7 +18920,7 @@
     {
       "num": "0961",
       "store": "8965",
-      "name": "Warehouse Specialists, Inc. - Benchmark",
+      "name": "Warehouse Specialists, Inc. - 8965",
       "users": [
         {
           "id": 19815,
@@ -18930,7 +18951,7 @@
     {
       "num": "0961",
       "store": "8992",
-      "name": "Warehouse Specialists, Inc. - Staffmark",
+      "name": "Warehouse Specialists, Inc. - 8992",
       "users": [
         {
           "id": 13719,
@@ -18968,7 +18989,7 @@
     {
       "num": "0961",
       "store": "9090",
-      "name": "Warehouse Specialists, Inc. - Bear Staffing",
+      "name": "Warehouse Specialists, Inc. - 9090",
       "users": [
         {
           "id": 14979,
@@ -19013,7 +19034,7 @@
     {
       "num": "0961",
       "store": "9204",
-      "name": "Warehouse Specialists, Inc. - Managing Personnel Services",
+      "name": "Warehouse Specialists, Inc. - 9204",
       "users": [
         {
           "id": 19815,
@@ -19049,7 +19070,7 @@
     {
       "num": "0961",
       "store": "9207",
-      "name": "Warehouse Specialists, Inc. - Sure Staff",
+      "name": "Warehouse Specialists, Inc. - 9207",
       "users": [
         {
           "id": 19815,
@@ -19080,7 +19101,7 @@
     {
       "num": "0961",
       "store": "9260",
-      "name": "Warehouse Specialists, Inc. - WSI - Kelly Services, Martin Dr.",
+      "name": "Warehouse Specialists, Inc. - 9260",
       "users": [
         {
           "id": 19815,
@@ -19118,7 +19139,7 @@
     {
       "num": "0961",
       "store": "9438",
-      "name": "Warehouse Specialists, Inc. - Flex-Staff",
+      "name": "Warehouse Specialists, Inc. - 9438",
       "users": [
         {
           "id": 19815,
@@ -19149,7 +19170,7 @@
     {
       "num": "0961",
       "store": "9446",
-      "name": "Warehouse Specialists, Inc. - SYNC Staffing Services",
+      "name": "Warehouse Specialists, Inc. - 9446",
       "users": [
         {
           "id": 14179,
@@ -19194,7 +19215,7 @@
     {
       "num": "0961",
       "store": "9498",
-      "name": "Warehouse Specialists, Inc. - WSI - Locate Staffing, Appleton",
+      "name": "Warehouse Specialists, Inc. - 9498",
       "users": [
         {
           "id": 16100,
@@ -19239,7 +19260,7 @@
     {
       "num": "0961",
       "store": "9510",
-      "name": "Warehouse Specialists, Inc. - American Management Staffing",
+      "name": "Warehouse Specialists, Inc. - 9510",
       "users": [
         {
           "id": 13908,
@@ -19326,7 +19347,7 @@
     {
       "num": "0961",
       "store": "9715",
-      "name": "Warehouse Specialists, Inc. - Staff Management - HTTSS Inc",
+      "name": "Warehouse Specialists, Inc. - 9715",
       "users": [
         {
           "id": 15128,
@@ -19385,7 +19406,7 @@
     {
       "num": "0961",
       "store": "9761",
-      "name": "Warehouse Specialists, Inc. - Cody Staffing (Portland, OR)",
+      "name": "Warehouse Specialists, Inc. - 9761",
       "users": [
         {
           "id": 13938,
@@ -19437,7 +19458,7 @@
     {
       "num": "0961",
       "store": "9867",
-      "name": "Warehouse Specialists, Inc. - Ultimate Staffing",
+      "name": "Warehouse Specialists, Inc. - 9867",
       "users": [
         {
           "id": 19815,
@@ -19475,7 +19496,7 @@
     {
       "num": "0961",
       "store": "9906",
-      "name": "Warehouse Specialists, Inc. - Priority Staffing",
+      "name": "Warehouse Specialists, Inc. - 9906",
       "users": [
         {
           "id": 19815,
@@ -19506,7 +19527,7 @@
     {
       "num": "0961",
       "store": "9931",
-      "name": "Warehouse Specialists, Inc. - WSI - Plover, WI",
+      "name": "Warehouse Specialists, Inc. - 9931",
       "users": [
         {
           "id": 18156,
@@ -19551,7 +19572,7 @@
     {
       "num": "0961",
       "store": "9963",
-      "name": "Warehouse Specialists, Inc. - QPS",
+      "name": "Warehouse Specialists, Inc. - 9963",
       "users": [
         {
           "id": 19815,
@@ -19611,7 +19632,7 @@
     {
       "num": "1498",
       "store": "0001",
-      "name": "HJ Russell & Company - Executive - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0001",
       "users": [
         {
           "id": 12942,
@@ -19635,7 +19656,7 @@
     {
       "num": "1498",
       "store": "0002",
-      "name": "HJ Russell & Company - Finance - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0002",
       "users": [
         {
           "id": 12942,
@@ -19659,7 +19680,7 @@
     {
       "num": "1498",
       "store": "0003",
-      "name": "HJ Russell & Company - Human Resources - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0003",
       "users": [
         {
           "id": 12942,
@@ -19683,7 +19704,7 @@
     {
       "num": "1498",
       "store": "0004",
-      "name": "HJ Russell & Company - Legal / Risk Mgmt - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0004",
       "users": [
         {
           "id": 12942,
@@ -19707,7 +19728,7 @@
     {
       "num": "1498",
       "store": "0006",
-      "name": "HJ Russell & Company - IT - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0006",
       "users": [
         {
           "id": 12942,
@@ -19731,7 +19752,7 @@
     {
       "num": "1498",
       "store": "0010",
-      "name": "HJ Russell & Company - Russell Personal - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0010",
       "users": [
         {
           "id": 12942,
@@ -19755,7 +19776,7 @@
     {
       "num": "1498",
       "store": "0012",
-      "name": "HJ Russell & Company - Program Mgmt - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0012",
       "users": [
         {
           "id": 12942,
@@ -19779,7 +19800,7 @@
     {
       "num": "1498",
       "store": "0014",
-      "name": "HJ Russell & Company - Property Mgmt - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0014",
       "users": [
         {
           "id": 12942,
@@ -19803,7 +19824,7 @@
     {
       "num": "1498",
       "store": "0025",
-      "name": "HJ Russell & Company - RNU - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0025",
       "users": [
         {
           "id": 12942,
@@ -19827,7 +19848,7 @@
     {
       "num": "1498",
       "store": "0070",
-      "name": "HJ Russell & Company - Construction - HJ Russell & Company",
+      "name": "HJ Russell & Company - 0070",
       "users": [
         {
           "id": 12942,
@@ -20514,7 +20535,7 @@
     {
       "num": "0855",
       "store": "0001",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem USA Inc.",
+      "name": "Buzzi Unicem USA Inc. - 0001",
       "users": [
         {
           "id": 4525,
@@ -20566,7 +20587,7 @@
     {
       "num": "0855",
       "store": "0002",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem USA Inc. - Festus MO",
+      "name": "Buzzi Unicem USA Inc. - 0002",
       "users": [
         {
           "id": 4525,
@@ -20625,7 +20646,7 @@
     {
       "num": "0855",
       "store": "0003",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem USA Inc. - Cape Girardeau Plant",
+      "name": "Buzzi Unicem USA Inc. - 0003",
       "users": [
         {
           "id": 4525,
@@ -20684,7 +20705,7 @@
     {
       "num": "0855",
       "store": "0004",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem USA, Inc. - Cape Alternate Fuels Faci",
+      "name": "Buzzi Unicem USA Inc. - 0004",
       "users": [
         {
           "id": 4525,
@@ -20743,7 +20764,7 @@
     {
       "num": "0855",
       "store": "0005",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem USA - Greencastle, IN",
+      "name": "Buzzi Unicem USA Inc. - 0005",
       "users": [
         {
           "id": 4525,
@@ -20802,7 +20823,7 @@
     {
       "num": "0855",
       "store": "0006",
-      "name": "Buzzi Unicem USA Inc. - Pryor Cement Company",
+      "name": "Buzzi Unicem USA Inc. - 0006",
       "users": [
         {
           "id": 4525,
@@ -20861,7 +20882,7 @@
     {
       "num": "0855",
       "store": "0007",
-      "name": "Buzzi Unicem USA Inc. - Maryneal Cement Company",
+      "name": "Buzzi Unicem USA Inc. - 0007",
       "users": [
         {
           "id": 4525,
@@ -20920,7 +20941,7 @@
     {
       "num": "0855",
       "store": "0008",
-      "name": "Buzzi Unicem USA Inc. - Chattanooga Plant, Buzzi Unicem USA",
+      "name": "Buzzi Unicem USA Inc. - 0008",
       "users": [
         {
           "id": 4525,
@@ -20972,7 +20993,7 @@
     {
       "num": "0855",
       "store": "0009",
-      "name": "Buzzi Unicem USA Inc. - Stockertown Plant",
+      "name": "Buzzi Unicem USA Inc. - 0009",
       "users": [
         {
           "id": 4525,
@@ -21024,7 +21045,7 @@
     {
       "num": "0855",
       "store": "0010",
-      "name": "Buzzi Unicem USA Inc. - Buzzi - Terminals",
+      "name": "Buzzi Unicem USA Inc. - 0010",
       "users": [
         {
           "id": 4525,
@@ -21083,7 +21104,7 @@
     {
       "num": "0855",
       "store": "0011",
-      "name": "Buzzi Unicem USA Inc. - Buzzi - Alamo Cement Company",
+      "name": "Buzzi Unicem USA Inc. - 0011",
       "users": [
         {
           "id": 4525,
@@ -21142,7 +21163,7 @@
     {
       "num": "0855",
       "store": "0012",
-      "name": "Buzzi Unicem USA Inc. - Alamo Cement Company",
+      "name": "Buzzi Unicem USA Inc. - 0012",
       "users": [
         {
           "id": 4525,
@@ -21201,7 +21222,7 @@
     {
       "num": "0855",
       "store": "0013",
-      "name": "Buzzi Unicem USA Inc. - Elmira Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0013",
       "users": [
         {
           "id": 4525,
@@ -21260,7 +21281,7 @@
     {
       "num": "0855",
       "store": "0014",
-      "name": "Buzzi Unicem USA Inc. - Rock Island Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0014",
       "users": [
         {
           "id": 4525,
@@ -21319,7 +21340,7 @@
     {
       "num": "0855",
       "store": "0015",
-      "name": "Buzzi Unicem USA Inc. - Grandville Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0015",
       "users": [
         {
           "id": 4525,
@@ -21378,7 +21399,7 @@
     {
       "num": "0855",
       "store": "0016",
-      "name": "Buzzi Unicem USA Inc. - Temple Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0016",
       "users": [
         {
           "id": 19902,
@@ -21430,7 +21451,7 @@
     {
       "num": "0855",
       "store": "0018",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Indianapolis Sales",
+      "name": "Buzzi Unicem USA Inc. - 0018",
       "users": [
         {
           "id": 19902,
@@ -21475,7 +21496,7 @@
     {
       "num": "0855",
       "store": "0019",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Memphis Sales",
+      "name": "Buzzi Unicem USA Inc. - 0019",
       "users": [
         {
           "id": 19902,
@@ -21520,7 +21541,7 @@
     {
       "num": "0855",
       "store": "0020",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - St. Louis Sales",
+      "name": "Buzzi Unicem USA Inc. - 0020",
       "users": [
         {
           "id": 19902,
@@ -21565,7 +21586,7 @@
     {
       "num": "0855",
       "store": "0048",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Oklahoma Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0048",
       "users": [
         {
           "id": 19902,
@@ -21617,7 +21638,7 @@
     {
       "num": "0855",
       "store": "0153",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Memphis Ready Mix",
+      "name": "Buzzi Unicem USA Inc. - 0153",
       "users": [
         {
           "id": 19902,
@@ -21669,7 +21690,7 @@
     {
       "num": "0855",
       "store": "0183",
-      "name": "Buzzi Unicem USA Inc. - Red-E-Mix (US-IL-HIGHLAND)",
+      "name": "Buzzi Unicem USA Inc. - 0183",
       "users": [
         {
           "id": 19902,
@@ -21714,7 +21735,7 @@
     {
       "num": "0855",
       "store": "0200",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Amarillo",
+      "name": "Buzzi Unicem USA Inc. - 0200",
       "users": [
         {
           "id": 4525,
@@ -21773,7 +21794,7 @@
     {
       "num": "0855",
       "store": "0202",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Mina",
+      "name": "Buzzi Unicem USA Inc. - 0202",
       "users": [
         {
           "id": 4525,
@@ -21832,7 +21853,7 @@
     {
       "num": "0855",
       "store": "0204",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Bonner Springs",
+      "name": "Buzzi Unicem USA Inc. - 0204",
       "users": [
         {
           "id": 4525,
@@ -21891,7 +21912,7 @@
     {
       "num": "0855",
       "store": "0206",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Brandon",
+      "name": "Buzzi Unicem USA Inc. - 0206",
       "users": [
         {
           "id": 4525,
@@ -21950,7 +21971,7 @@
     {
       "num": "0855",
       "store": "0208",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Burnside",
+      "name": "Buzzi Unicem USA Inc. - 0208",
       "users": [
         {
           "id": 4525,
@@ -22009,7 +22030,7 @@
     {
       "num": "0855",
       "store": "0210",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Cincinnati",
+      "name": "Buzzi Unicem USA Inc. - 0210",
       "users": [
         {
           "id": 4525,
@@ -22068,7 +22089,7 @@
     {
       "num": "0855",
       "store": "0212",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - College Park",
+      "name": "Buzzi Unicem USA Inc. - 0212",
       "users": [
         {
           "id": 4525,
@@ -22127,7 +22148,7 @@
     {
       "num": "0855",
       "store": "0214",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Dallas",
+      "name": "Buzzi Unicem USA Inc. - 0214",
       "users": [
         {
           "id": 4525,
@@ -22186,7 +22207,7 @@
     {
       "num": "0855",
       "store": "0216",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Dawsonville",
+      "name": "Buzzi Unicem USA Inc. - 0216",
       "users": [
         {
           "id": 4525,
@@ -22245,7 +22266,7 @@
     {
       "num": "0855",
       "store": "0218",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Elkhart",
+      "name": "Buzzi Unicem USA Inc. - 0218",
       "users": [
         {
           "id": 4525,
@@ -22304,7 +22325,7 @@
     {
       "num": "0855",
       "store": "0220",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Fort Wayne",
+      "name": "Buzzi Unicem USA Inc. - 0220",
       "users": [
         {
           "id": 4525,
@@ -22363,7 +22384,7 @@
     {
       "num": "0855",
       "store": "0223",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Independence",
+      "name": "Buzzi Unicem USA Inc. - 0223",
       "users": [
         {
           "id": 4525,
@@ -22422,7 +22443,7 @@
     {
       "num": "0855",
       "store": "0224",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Indianapolis",
+      "name": "Buzzi Unicem USA Inc. - 0224",
       "users": [
         {
           "id": 4525,
@@ -22481,7 +22502,7 @@
     {
       "num": "0855",
       "store": "0228",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Jeffersonville",
+      "name": "Buzzi Unicem USA Inc. - 0228",
       "users": [
         {
           "id": 4525,
@@ -22540,7 +22561,7 @@
     {
       "num": "0855",
       "store": "0234",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Knoxville",
+      "name": "Buzzi Unicem USA Inc. - 0234",
       "users": [
         {
           "id": 4525,
@@ -22599,7 +22620,7 @@
     {
       "num": "0855",
       "store": "0236",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Little Rock",
+      "name": "Buzzi Unicem USA Inc. - 0236",
       "users": [
         {
           "id": 4525,
@@ -22658,7 +22679,7 @@
     {
       "num": "0855",
       "store": "0238",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Memphis",
+      "name": "Buzzi Unicem USA Inc. - 0238",
       "users": [
         {
           "id": 4525,
@@ -22717,7 +22738,7 @@
     {
       "num": "0855",
       "store": "0242",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Milwaukee",
+      "name": "Buzzi Unicem USA Inc. - 0242",
       "users": [
         {
           "id": 4525,
@@ -22776,7 +22797,7 @@
     {
       "num": "0855",
       "store": "0244",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Nashville - LSI",
+      "name": "Buzzi Unicem USA Inc. - 0244",
       "users": [
         {
           "id": 4525,
@@ -22835,7 +22856,7 @@
     {
       "num": "0855",
       "store": "0246",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Nashville",
+      "name": "Buzzi Unicem USA Inc. - 0246",
       "users": [
         {
           "id": 4525,
@@ -22894,7 +22915,7 @@
     {
       "num": "0855",
       "store": "0248",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Natchez",
+      "name": "Buzzi Unicem USA Inc. - 0248",
       "users": [
         {
           "id": 4525,
@@ -22953,7 +22974,7 @@
     {
       "num": "0855",
       "store": "0249",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - New Orleans",
+      "name": "Buzzi Unicem USA Inc. - 0249",
       "users": [
         {
           "id": 4525,
@@ -23012,7 +23033,7 @@
     {
       "num": "0855",
       "store": "0250",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Oklahoma City",
+      "name": "Buzzi Unicem USA Inc. - 0250",
       "users": [
         {
           "id": 4525,
@@ -23071,7 +23092,7 @@
     {
       "num": "0855",
       "store": "0251",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Oglesby",
+      "name": "Buzzi Unicem USA Inc. - 0251",
       "users": [
         {
           "id": 4525,
@@ -23130,7 +23151,7 @@
     {
       "num": "0855",
       "store": "0252",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Orange",
+      "name": "Buzzi Unicem USA Inc. - 0252",
       "users": [
         {
           "id": 4525,
@@ -23189,7 +23210,7 @@
     {
       "num": "0855",
       "store": "0253",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Joliet",
+      "name": "Buzzi Unicem USA Inc. - 0253",
       "users": [
         {
           "id": 4525,
@@ -23248,7 +23269,7 @@
     {
       "num": "0855",
       "store": "0254",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Paducah",
+      "name": "Buzzi Unicem USA Inc. - 0254",
       "users": [
         {
           "id": 4525,
@@ -23307,7 +23328,7 @@
     {
       "num": "0855",
       "store": "0256",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Pensacola",
+      "name": "Buzzi Unicem USA Inc. - 0256",
       "users": [
         {
           "id": 4525,
@@ -23366,7 +23387,7 @@
     {
       "num": "0855",
       "store": "0258",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - St. Louis North",
+      "name": "Buzzi Unicem USA Inc. - 0258",
       "users": [
         {
           "id": 4525,
@@ -23425,7 +23446,7 @@
     {
       "num": "0855",
       "store": "0260",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - St. Louis South",
+      "name": "Buzzi Unicem USA Inc. - 0260",
       "users": [
         {
           "id": 4525,
@@ -23484,7 +23505,7 @@
     {
       "num": "0855",
       "store": "0285",
-      "name": "Buzzi Unicem USA Inc. - Buzzi Unicem - Wichita Terminal",
+      "name": "Buzzi Unicem USA Inc. - 0285",
       "users": [
         {
           "id": 4525,
@@ -23543,7 +23564,7 @@
     {
       "num": "0855",
       "store": "0401",
-      "name": "Buzzi Unicem USA Inc. - Indianapolis Office",
+      "name": "Buzzi Unicem USA Inc. - 0401",
       "users": [
         {
           "id": 4525,
@@ -23602,7 +23623,7 @@
     {
       "num": "1702",
       "store": "0001",
-      "name": "Hawaii Tire Co., LLC - Lex Brodie&#39;s Tires - Hilo",
+      "name": "Hawaii Tire Co., LLC - 0001",
       "users": [
         {
           "id": 12811,
@@ -23645,7 +23666,7 @@
     {
       "num": "1702",
       "store": "0002",
-      "name": "Hawaii Tire Co., LLC - Lex Brodie&#39;s Tires - Kona",
+      "name": "Hawaii Tire Co., LLC - 0002",
       "users": [
         {
           "id": 7704,
@@ -23688,7 +23709,7 @@
     {
       "num": "1702",
       "store": "0003",
-      "name": "Hawaii Tire Co., LLC - Lex Brodie&#39;s Tires - Pahoa",
+      "name": "Hawaii Tire Co., LLC - 0003",
       "users": [
         {
           "id": 7700,
@@ -23717,7 +23738,7 @@
     {
       "num": "1702",
       "store": "0004",
-      "name": "Hawaii Tire Co., LLC - Lex Brodie&#39;s Tires - Waimea",
+      "name": "Hawaii Tire Co., LLC - 0004",
       "users": [
         {
           "id": 7704,
@@ -23771,6 +23792,15 @@
         }
       ],
       "assessmentVersions": []
+    },
+    {
+      "num": "2132",
+      "store": null,
+      "name": "CDI (IPMG) - City of Carlyle",
+      "users": [],
+      "assessmentVersions": [
+        "MIT54M5V2"
+      ]
     },
     {
       "num": "2099",
@@ -24545,7 +24575,7 @@
     {
       "num": "1437",
       "store": "0001",
-      "name": "CDI - Rose Pest Solutions - BioServe - Metro West",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0001",
       "users": [
         {
           "id": 12017,
@@ -24583,7 +24613,7 @@
     {
       "num": "1437",
       "store": "0002",
-      "name": "CDI - Rose Pest Solutions - BioServe - Metro East",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0002",
       "users": [
         {
           "id": 12018,
@@ -24628,7 +24658,7 @@
     {
       "num": "1437",
       "store": "0003",
-      "name": "CDI - Rose Pest Solutions - BioServe - Metro North",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0003",
       "users": [
         {
           "id": 12019,
@@ -24664,7 +24694,7 @@
     {
       "num": "1437",
       "store": "0004",
-      "name": "CDI - Rose Pest Solutions - BioServe - Rose Pest - K9",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0004",
       "users": [
         {
           "id": 12253,
@@ -24686,7 +24716,7 @@
     {
       "num": "1437",
       "store": "0006",
-      "name": "CDI - Rose Pest Solutions - BioServe - Grand Rapids",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0006",
       "users": [
         {
           "id": 12020,
@@ -24722,7 +24752,7 @@
     {
       "num": "1437",
       "store": "0007",
-      "name": "CDI - Rose Pest Solutions - BioServe - LansinG",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0007",
       "users": [
         {
           "id": 12021,
@@ -24758,7 +24788,7 @@
     {
       "num": "1437",
       "store": "0008",
-      "name": "CDI - Rose Pest Solutions - BioServe - Saginaw",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0008",
       "users": [
         {
           "id": 12022,
@@ -24794,7 +24824,7 @@
     {
       "num": "1437",
       "store": "0009",
-      "name": "CDI - Rose Pest Solutions - BioServe - Toledo",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0009",
       "users": [
         {
           "id": 12023,
@@ -24837,7 +24867,7 @@
     {
       "num": "1437",
       "store": "0011",
-      "name": "CDI - Rose Pest Solutions - BioServe - Steubenville",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0011",
       "users": [
         {
           "id": 12027,
@@ -24880,7 +24910,7 @@
     {
       "num": "1437",
       "store": "0012",
-      "name": "CDI - Rose Pest Solutions - BioServe - Kalamazoo",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0012",
       "users": [
         {
           "id": 12024,
@@ -24916,7 +24946,7 @@
     {
       "num": "1437",
       "store": "0013",
-      "name": "CDI - Rose Pest Solutions - BioServe - Central Office",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0013",
       "users": [
         {
           "id": 12148,
@@ -24945,7 +24975,7 @@
     {
       "num": "1437",
       "store": "0014",
-      "name": "CDI - Rose Pest Solutions - BioServe - Fort Wayne",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0014",
       "users": [
         {
           "id": 12025,
@@ -24981,7 +25011,7 @@
     {
       "num": "1437",
       "store": "0015",
-      "name": "CDI - Rose Pest Solutions - BioServe - South Bend",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0015",
       "users": [
         {
           "id": 12025,
@@ -25017,7 +25047,7 @@
     {
       "num": "1437",
       "store": "0016",
-      "name": "CDI - Rose Pest Solutions - BioServe - Cincinnati",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0016",
       "users": [
         {
           "id": 12026,
@@ -25060,7 +25090,7 @@
     {
       "num": "1437",
       "store": "0017",
-      "name": "CDI - Rose Pest Solutions - BioServe - Cleveland",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0017",
       "users": [
         {
           "id": 12027,
@@ -25103,7 +25133,7 @@
     {
       "num": "1437",
       "store": "0018",
-      "name": "CDI - Rose Pest Solutions - BioServe - Columbus",
+      "name": "CDI - Rose Pest Solutions - BioServe - 0018",
       "users": [
         {
           "id": 12028,
@@ -25146,7 +25176,7 @@
     {
       "num": "0743",
       "store": "0001",
-      "name": "Cambrian Homecare - LB - Cambrian Homes",
+      "name": "Cambrian Homecare - 0001",
       "users": [
         {
           "id": 11875,
@@ -25203,7 +25233,7 @@
     {
       "num": "0743",
       "store": "0002",
-      "name": "Cambrian Homecare - SG - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0002",
       "users": [
         {
           "id": 4411,
@@ -25232,7 +25262,7 @@
     {
       "num": "0743",
       "store": "0003",
-      "name": "Cambrian Homecare - OC - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0003",
       "users": [
         {
           "id": 4411,
@@ -25254,7 +25284,7 @@
     {
       "num": "0743",
       "store": "0004",
-      "name": "Cambrian Homecare - SC - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0004",
       "users": [
         {
           "id": 4411,
@@ -25304,7 +25334,7 @@
     {
       "num": "0743",
       "store": "0005",
-      "name": "Cambrian Homecare - PS - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0005",
       "users": [
         {
           "id": 4411,
@@ -25326,7 +25356,7 @@
     {
       "num": "0743",
       "store": "0006",
-      "name": "Cambrian Homecare - Victorville - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0006",
       "users": [
         {
           "id": 4411,
@@ -25348,7 +25378,7 @@
     {
       "num": "0743",
       "store": "0007",
-      "name": "Cambrian Homecare - Cambrian Homecare",
+      "name": "Cambrian Homecare - 0007",
       "users": [
         {
           "id": 19847,
@@ -25391,7 +25421,7 @@
     {
       "num": "0743",
       "store": "0008",
-      "name": "Cambrian Homecare - Cambrian Home Care - South Bay",
+      "name": "Cambrian Homecare - 0008",
       "users": [
         {
           "id": 4411,
@@ -25420,7 +25450,7 @@
     {
       "num": "0743",
       "store": "0009",
-      "name": "Cambrian Homecare - Cambrian Home Care - Los Angeles",
+      "name": "Cambrian Homecare - 0009",
       "users": [
         {
           "id": 4411,
@@ -25442,7 +25472,7 @@
     {
       "num": "0743",
       "store": "0010",
-      "name": "Cambrian Homecare - Cambrian Home Care - San Diego",
+      "name": "Cambrian Homecare - 0010",
       "users": [
         {
           "id": 4411,
@@ -25526,7 +25556,7 @@
     {
       "num": "1798",
       "store": "0001",
-      "name": "Floyd's Truck Center, Inc. - Floyd's Truck Center, Inc.",
+      "name": "Floyd's Truck Center, Inc. - 0001",
       "users": [
         {
           "id": 12641,
@@ -25548,7 +25578,7 @@
     {
       "num": "1798",
       "store": "0101",
-      "name": "Floyd's Truck Center, Inc. - Floyd's Truck Center - Scottsbluff, NE",
+      "name": "Floyd's Truck Center, Inc. - 0101",
       "users": [
         {
           "id": 12641,
@@ -25614,7 +25644,7 @@
     {
       "num": "1798",
       "store": "0102",
-      "name": "Floyd's Truck Center, Inc. - Floyd's Truck Center - Cheyenne, WY",
+      "name": "Floyd's Truck Center, Inc. - 0102",
       "users": [
         {
           "id": 14122,
@@ -25652,7 +25682,7 @@
     {
       "num": "1798",
       "store": "0103",
-      "name": "Floyd's Truck Center, Inc. - Floyd's Truck Center - Sidney, NE",
+      "name": "Floyd's Truck Center, Inc. - 0103",
       "users": [
         {
           "id": 14122,
@@ -25683,7 +25713,7 @@
     {
       "num": "1798",
       "store": "0201",
-      "name": "Floyd's Truck Center, Inc. - Eddie's Truck Center - Rapid City, SD",
+      "name": "Floyd's Truck Center, Inc. - 0201",
       "users": [
         {
           "id": 14122,
@@ -25735,7 +25765,7 @@
     {
       "num": "1798",
       "store": "0202",
-      "name": "Floyd's Truck Center, Inc. - Eddie's Truck Center - Fort Pierre",
+      "name": "Floyd's Truck Center, Inc. - 0202",
       "users": [
         {
           "id": 14122,
@@ -25766,7 +25796,7 @@
     {
       "num": "1798",
       "store": "0301",
-      "name": "Floyd's Truck Center, Inc. - Jack's Truck Center - Gillette, WY",
+      "name": "Floyd's Truck Center, Inc. - 0301",
       "users": [
         {
           "id": 14122,
@@ -25804,7 +25834,7 @@
     {
       "num": "1798",
       "store": "0302",
-      "name": "Floyd's Truck Center, Inc. - Jack's Truck Center - Casper, WY",
+      "name": "Floyd's Truck Center, Inc. - 0302",
       "users": [
         {
           "id": 14122,
@@ -25842,7 +25872,7 @@
     {
       "num": "1798",
       "store": "0303",
-      "name": "Floyd's Truck Center, Inc. - Jack's Truck Center - Rock Springs, WY",
+      "name": "Floyd's Truck Center, Inc. - 0303",
       "users": [
         {
           "id": 14122,
@@ -26209,7 +26239,7 @@
     {
       "num": "1176",
       "store": "0001",
-      "name": "Professional Home Health Care Inc. - Denver - Wheat Ridge",
+      "name": "Professional Home Health Care Inc. - 0001",
       "users": [
         {
           "id": 17236,
@@ -26231,7 +26261,7 @@
     {
       "num": "1176",
       "store": "0002",
-      "name": "Professional Home Health Care Inc. - Boulder",
+      "name": "Professional Home Health Care Inc. - 0002",
       "users": [
         {
           "id": 17236,
@@ -26253,7 +26283,7 @@
     {
       "num": "1176",
       "store": "0003",
-      "name": "Professional Home Health Care Inc. - Colorado Springs",
+      "name": "Professional Home Health Care Inc. - 0003",
       "users": [
         {
           "id": 17236,
@@ -26275,7 +26305,7 @@
     {
       "num": "1176",
       "store": "0005",
-      "name": "Professional Home Health Care Inc. - Longmont",
+      "name": "Professional Home Health Care Inc. - 0005",
       "users": [
         {
           "id": 17236,
@@ -26297,7 +26327,7 @@
     {
       "num": "1176",
       "store": "0006",
-      "name": "Professional Home Health Care Inc. - Pueblo",
+      "name": "Professional Home Health Care Inc. - 0006",
       "users": [
         {
           "id": 17236,
