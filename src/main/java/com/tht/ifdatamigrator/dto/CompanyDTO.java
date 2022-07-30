@@ -14,7 +14,15 @@ public class CompanyDTO {
     private String name;
 
     private List<UserDTO> users = new ArrayList<>();
-    private List<String> assessmentVersions = new ArrayList<>();
+    private List<AssessmentVersion> assessmentVersions = new ArrayList<>();
+
+//    private List<VersionApplicant> versionApplicants = new ArrayList<>()
+
+    @Data
+    public static class AssessmentVersion {
+        private String atiVersion;
+        private String thtVersion;
+    }
 
     public CompanyDTO(String num, String store, String name) {
         this.num = num;

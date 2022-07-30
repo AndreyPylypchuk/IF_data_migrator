@@ -157,12 +157,12 @@ public class RestoreDaoService {
     }
 
     @SneakyThrows
-    public void createTranslation(long translateId, Map<String, String> translate) {
+    public void createAssTranslation(long translateId, Map<String, String> translate, String locale) {
         String body = new ObjectMapper().writeValueAsString(translate);
         template.update(con -> {
             PreparedStatement ps = con.prepareStatement(CREATE_TRANSLATE);
             ps.setLong(1, translateId);
-            ps.setString(2, "en");
+            ps.setString(2, locale);
             ps.setString(3, body);
             return ps;
         });
@@ -258,9 +258,10 @@ public class RestoreDaoService {
     public Long getId(String table, String identifierField, Map<String, Object> conditions) {
         List<String> conditionRequestParts = new ArrayList<>();
         conditions.forEach((k, v) -> {
-            if (v instanceof String vStr)
-                conditionRequestParts.add(k + " = '" + vStr + "'");
-            else
+            if (v instanceof String vStr) {
+                String valueStr = vStr.replaceAll("'", "''");
+                conditionRequestParts.add(k + " = '" + valueStr + "'");
+            } else
                 conditionRequestParts.add(k + " = " + v);
         });
         String sql = format(GET_ID, identifierField, table, join(" and ", conditionRequestParts));

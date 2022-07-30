@@ -3,9 +3,10 @@ package com.tht.ifdatamigrator.service.restore;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tht.ifdatamigrator.dao.service.RestoreDaoService;
 import com.tht.ifdatamigrator.dto.CompanyDTO;
+import com.tht.ifdatamigrator.dto.CompanyDTO.AssessmentVersion;
 import com.tht.ifdatamigrator.dto.CreateJobpostResponse;
 import com.tht.ifdatamigrator.dto.UserDTO;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +22,7 @@ import static java.util.Objects.isNull;
 
 @Slf4j
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class CompanyDataRestoreService {
 
     @Value("${migration.jobpost.url}")
@@ -69,11 +70,11 @@ public class CompanyDataRestoreService {
                 service.createMyAccountUser(userId, companyId, u.getRole());
         }
 
-        for (String assVersion : companyDTO.getAssessmentVersions()) {
-            log.info("Handling assessment {}", assVersion);
-            service.createCompanyAssessment(companyId, assVersion);
+        for (AssessmentVersion assVersion : companyDTO.getAssessmentVersions()) {
+            log.info("Handling assessment {}", assVersion.getThtVersion());
+            service.createCompanyAssessment(companyId, assVersion.getThtVersion());
 
-            String jobpostTitle = format("IntegrityFirst (%s)", assVersion);
+            String jobpostTitle = format("IntegrityFirst (%s)", assVersion.getThtVersion());
 
             Map<String, Object> companyJobpostParam = new HashMap<>();
             companyJobpostParam.put("jobpost_title", jobpostTitle);
@@ -98,9 +99,9 @@ public class CompanyDataRestoreService {
                 companyJobpostingStatusId = service.getCompanyJobpostingStatusId(comJobpostId);
             }
 
-            Long assId = service.getAssessment(assVersion);
+            Long assId = service.getAssessment(assVersion.getThtVersion());
             if (assId == null)
-                throw new RuntimeException("Not found ass from ATI with version " + assVersion);
+                throw new RuntimeException("Not found ass from ATI with version " + assVersion.getThtVersion());
 
             Map<String, Object> comJobpostStatusAssIdParam = new HashMap<>();
             comJobpostStatusAssIdParam.put("company_jobposting_status_id", companyJobpostingStatusId);

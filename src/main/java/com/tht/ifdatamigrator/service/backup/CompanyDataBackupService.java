@@ -3,6 +3,7 @@ package com.tht.ifdatamigrator.service.backup;
 import com.tht.ifdatamigrator.dao.domain.Company;
 import com.tht.ifdatamigrator.dao.service.BackupDaoService;
 import com.tht.ifdatamigrator.dto.CompanyDTO;
+import com.tht.ifdatamigrator.dto.CompanyDTO.AssessmentVersion;
 import com.tht.ifdatamigrator.dto.UserDTO;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,36 +44,33 @@ public class CompanyDataBackupService {
         }
 
         backup.forEach(companyDto -> {
-            companyDto.setUsers(extractCompanyUsers(companyDto));
+//            companyDto.setUsers(extractCompanyUsers(companyDto));
             companyDto.setAssessmentVersions(extractCompanyAssessments(companyDto));
+
+            companyDto.getAssessmentVersions().forEach(v -> {
+                var applicants = service.getApplicants(companyDto.getNum(), companyDto.getStore(), v.getAtiVersion());
+
+            });
         });
 
         backup = backup.stream()
-//                .filter(c -> !isEmpty(c.getUsers()))
-//                .filter(c -> !isEmpty(c.getAssessmentVersions()))
+                .filter(c -> !isEmpty(c.getUsers()))
                 .collect(toList());
-
-        log.info("Empty users");
-        backup.forEach(c -> {
-            if (isEmpty(c.getUsers()))
-                System.out.println("CustNum: " + c.getNum() + " Store#: " + c.getStore());
-        });
-
-        log.info("Empty ass");
-        backup.forEach(c -> {
-            if (isEmpty(c.getAssessmentVersions()))
-                System.out.println("CustNum: " + c.getNum() + " Store#: " + c.getStore());
-        });
 
         return backup;
     }
 
-    private List<String> extractCompanyAssessments(CompanyDTO companyDto) {
+    private List<AssessmentVersion> extractCompanyAssessments(CompanyDTO companyDto) {
         log.info("Extracting assessments for company {} {}", companyDto.getNum(), companyDto.getStore());
         return service.getCompanyAssessment(companyDto.getNum(), companyDto.getStore())
                 .stream()
                 .filter(Objects::nonNull)
-                .map(v -> v.trim().replaceAll("-", ""))
+                .map(v -> {
+                    AssessmentVersion av = new AssessmentVersion();
+                    av.setAtiVersion(v.trim());
+                    av.setThtVersion(v.trim().replaceAll("-", ""));
+                    return av;
+                })
                 .collect(toList());
     }
 
