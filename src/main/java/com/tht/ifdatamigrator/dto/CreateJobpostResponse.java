@@ -8,9 +8,15 @@ import java.util.List;
 
 @Data
 public class CreateJobpostResponse {
-    @JsonProperty("company_jobposting_id")
-    private Long companyJobpostingId;
-    private List<Status> statuses = new ArrayList<>();
+
+    private DataResponse data;
+
+    @Data
+    public static class DataResponse {
+        @JsonProperty("company_jobposting_id")
+        private Long companyJobpostingId;
+        private List<Status> statuses = new ArrayList<>();
+    }
 
     @Data
     public static class Status {
@@ -19,4 +25,6 @@ public class CreateJobpostResponse {
         @JsonProperty("status_type")
         private String statusType;
     }
+
+
 }

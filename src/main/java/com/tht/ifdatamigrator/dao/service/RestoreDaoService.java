@@ -20,7 +20,9 @@ import java.util.Map;
 
 import static java.lang.String.format;
 import static java.lang.String.join;
+import static java.sql.Types.INTEGER;
 import static java.util.Collections.singletonMap;
+import static java.util.Objects.nonNull;
 
 @Service
 @RequiredArgsConstructor
@@ -72,7 +74,7 @@ public class RestoreDaoService {
             """;
 
     private static final String CREATE_USER = """
-            insert into "user"(user_email_address, ati_id, from_ati, ati_notified, welcome_message_viewed) values (?, ?, true, false, false)
+            insert into "user"(user_status_id, user_email_address, ati_id, from_ati, ati_notified, welcome_message_viewed) values (1, ?, ?, true, false, false)
             """;
 
     private static final String CREATE_MY_ACCOUNT_USER = """
@@ -227,7 +229,10 @@ public class RestoreDaoService {
         template.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(CREATE_USER, new String[]{"user_id"});
             ps.setString(1, u.getEmail());
-            ps.setLong(2, u.getId());
+            if (nonNull(u.getId()))
+                ps.setInt(2, u.getId());
+            else
+                ps.setNull(2, INTEGER);
             return ps;
         }, keyHolder);
 
@@ -252,7 +257,9 @@ public class RestoreDaoService {
     public Long getId(String table, String identifierField, Map<String, Object> conditions) {
         List<String> conditionRequestParts = new ArrayList<>();
         conditions.forEach((k, v) -> {
-            if (v instanceof String vStr) {
+            if (v == null)
+                conditionRequestParts.add(k + " is null");
+            else if (v instanceof String vStr) {
                 String valueStr = vStr.replaceAll("'", "''");
                 conditionRequestParts.add(k + " = '" + valueStr + "'");
             } else
@@ -303,5 +310,82 @@ public class RestoreDaoService {
                 where company_id = ?
                 """;
         return template.queryForObject(sql, Long.class, companyId);
+    }
+
+    public void createCompanyStatus(Long companyId) {
+        Long id = getId("status", "status_id", singletonMap("company_id", companyId));
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into status(status_name, status_type, email_template_id, company_id, status_order, color)
+                select status_name, status_type, email_template_id, ?, status_order, color
+                from status
+                where company_id = 0
+                """;
+
+        template.update(sql, companyId);
+    }
+
+    public void createCompanyEmailTemplate(Long companyId) {
+        Long id = getId("email_template", "email_template_id", singletonMap("company_id", companyId));
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into public.email_template(template_type,
+                                                  template_name,
+                                                  company_id,
+                                                  name,
+                                                  subject,
+                                                  body,
+                                                  plaintext,
+                                                  email_created_by)
+                select template_type,
+                       template_name,
+                       ?,
+                       name,
+                       subject,
+                       body,
+                       plaintext,
+                       email_created_by
+                from email_template
+                where company_id = 0;
+                """;
+
+        template.update(sql, companyId);
+    }
+
+    public void createCompanyReference(Long companyId) {
+        Long id = getId("reference_contact_settings", "company_id", singletonMap("company_id", companyId));
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into reference_contact_settings(time_interval_type,
+                                                       time_interval_frequency,
+                                                       first_priority,
+                                                       second_priority,
+                                                       third_priority,
+                                                       do_not_contact_before,
+                                                       do_not_contact_after,
+                                                       phone_introduction,
+                                                       sms_introduction,
+                                                       company_id)
+                select time_interval_type,
+                       time_interval_frequency,
+                       first_priority,
+                       second_priority,
+                       third_priority,
+                       do_not_contact_before,
+                       do_not_contact_after,
+                       phone_introduction,
+                       sms_introduction,
+                       ?
+                from reference_contact_settings
+                where company_id = 0
+                """;
+
+        template.update(sql, companyId);
     }
 }

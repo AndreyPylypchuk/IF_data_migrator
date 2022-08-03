@@ -10,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +23,7 @@ import static java.lang.Long.parseLong;
 import static java.lang.String.format;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static org.springframework.http.MediaType.APPLICATION_JSON;
 
 @Slf4j
 @Service
@@ -50,6 +53,7 @@ public class CompanyDataRestoreService {
                         UserDTO a = new UserDTO();
                         a.setEmail("leisa@ambroseair.com");
                         a.setRole("myaccount_admin");
+                        companyDTO.getUsers().add(a);
                         return a;
                     });
 
@@ -67,6 +71,10 @@ public class CompanyDataRestoreService {
                 Map<String, Object> ids = service.createCompany(companyDTO, adminId, adminEmail);
                 companyId = parseLong(ids.get("company_id").toString());
             }
+
+            service.createCompanyStatus(companyId);
+            service.createCompanyEmailTemplate(companyId);
+            service.createCompanyReference(companyId);
         }
 
         handleUsers(companyId, companyDTO.getUsers());
@@ -75,12 +83,21 @@ public class CompanyDataRestoreService {
 
     @SneakyThrows
     private CreateJobpostResponse createJobPost(String jobpostTitle, Long companyId, Long adminId) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(APPLICATION_JSON);
+
         Map<String, Object> params = new HashMap<>();
         params.put("manager_id", adminId);
         params.put("company_id", companyId);
         params.put("jobpost_title", jobpostTitle);
         params.put("jobpost_description", jobpostTitle);
-        return template.postForObject(jobPostCreateUrl, new ObjectMapper().writeValueAsString(params), CreateJobpostResponse.class);
+
+        HttpEntity<String> entity = new HttpEntity<>(
+                new ObjectMapper().writeValueAsString(params),
+                headers
+        );
+
+        return template.postForObject(jobPostCreateUrl, entity, CreateJobpostResponse.class);
     }
 
     private void handleUsers(Long companyId, List<UserDTO> users) {
@@ -120,8 +137,8 @@ public class CompanyDataRestoreService {
             Long companyJobpostingStatusId;
             if (isNull(comJobpostId)) {
                 CreateJobpostResponse response = createJobPost(jobpostTitle, companyId, adminId);
-                comJobpostId = response.getCompanyJobpostingId();
-                companyJobpostingStatusId = response.getStatuses()
+                comJobpostId = response.getData().getCompanyJobpostingId();
+                companyJobpostingStatusId = response.getData().getStatuses()
                         .stream()
                         .filter(s -> "assessment".equals(s.getStatusType()))
                         .findFirst()

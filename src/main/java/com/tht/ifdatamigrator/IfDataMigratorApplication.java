@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @Slf4j
 @SpringBootApplication
 @RequiredArgsConstructor
-public class IfDataMigratorApplication {
+public class IfDataMigratorApplication implements CommandLineRunner {
+
+    @Value("${migration.task}")
+    private MigrationTask task;
 
     public static void main(String[] args) {
         SpringApplication.run(IfDataMigratorApplication.class, args);
@@ -22,13 +24,11 @@ public class IfDataMigratorApplication {
     private final BackupService backupService;
     private final RestoreService restoreService;
 
-    @Bean
-    public CommandLineRunner run(@Value("${migration.task}") MigrationTask task) {
-        return (args) -> {
-            switch (task) {
-                case backup -> backupService.backup();
-                case restore -> restoreService.restore();
-            }
-        };
+    @Override
+    public void run(String... args) {
+        switch (task) {
+            case backup -> backupService.backup();
+            case restore -> restoreService.restore();
+        }
     }
 }
