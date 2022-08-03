@@ -124,13 +124,15 @@ public class BackupDaoService {
                                     on at2.TestID = atatu.TestID
                 where uc.RoleID = 4
                   and uc.IsActive = 1
+                  and at2.TestCode in (:versions)
                 and ucc.CustomerNumber = :cut
                 """;
 
         if (nonNull(storeNum))
             sql += " and ucc.StoreNumber = :store";
-        SqlParameterSource parameters = new MapSqlParameterSource("cut", cusNum).
-                addValue("store", storeNum);
+        SqlParameterSource parameters = new MapSqlParameterSource("cut", cusNum)
+                .addValue("store", storeNum)
+                .addValue("versions", VERSIONS);
         return namedTemplate.queryForList(sql, parameters, String.class);
     }
 

@@ -21,7 +21,6 @@ import java.util.Map;
 import static java.lang.String.format;
 import static java.lang.String.join;
 import static java.util.Collections.singletonMap;
-import static java.util.Objects.isNull;
 
 @Service
 @RequiredArgsConstructor
@@ -73,7 +72,7 @@ public class RestoreDaoService {
             """;
 
     private static final String CREATE_USER = """
-            insert into "user"(user_email_address, ati_id, ati_notified) values (?, ?, false)
+            insert into "user"(user_email_address, ati_id, from_ati, ati_notified, welcome_message_viewed) values (?, ?, true, false, false)
             """;
 
     private static final String CREATE_MY_ACCOUNT_USER = """
@@ -225,7 +224,6 @@ public class RestoreDaoService {
 
     public Long createUser(UserDTO u) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
-
         template.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(CREATE_USER, new String[]{"user_id"});
             ps.setString(1, u.getEmail());
@@ -237,18 +235,14 @@ public class RestoreDaoService {
     }
 
     public void createMyAccountUser(Long userId, long companyId, String role) {
-        String level = isNull(role) ? "myaccount_viewer" : role;
-
-        boolean hasAccess = "myaccount_admin".equals(level) || "myaccount_editor".equals(level);
-
-        String toJobPost = hasAccess ? "all_posts" : "custom";
-        String toDepart = hasAccess ? "all_departments" : "custom";
+        String toJobPost = "all_posts";
+        String toDepart = "all_departments";
 
         template.update(con -> {
             PreparedStatement ps = con.prepareStatement(CREATE_MY_ACCOUNT_USER);
             ps.setLong(1, userId);
             ps.setLong(2, companyId);
-            ps.setString(3, level);
+            ps.setString(3, role);
             ps.setString(4, toJobPost);
             ps.setString(5, toDepart);
             return ps;
@@ -300,5 +294,14 @@ public class RestoreDaoService {
                 values (?, ?)
                 """;
         template.update(sql, companyJobpostingStatusId, assId);
+    }
+
+    public Long getAdminId(Long companyId) {
+        String sql = """
+                select company_owner_user_id
+                from company
+                where company_id = ?
+                """;
+        return template.queryForObject(sql, Long.class, companyId);
     }
 }
