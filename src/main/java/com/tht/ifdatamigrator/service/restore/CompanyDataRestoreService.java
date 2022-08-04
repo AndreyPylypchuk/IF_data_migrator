@@ -18,9 +18,11 @@ import org.springframework.web.client.RestTemplate;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
-import static java.lang.Long.parseLong;
 import static java.lang.String.format;
+import static java.util.Collections.singletonMap;
+import static java.util.List.of;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
@@ -32,6 +34,9 @@ public class CompanyDataRestoreService {
 
     @Value("${migration.jobpost.url}")
     private String jobPostCreateUrl;
+
+    @Value("${migration.todolist.url}")
+    private String todoListCreateUrl;
 
     private final RestoreDaoService service;
     private final RestTemplate template;
@@ -57,20 +62,12 @@ public class CompanyDataRestoreService {
                         return a;
                     });
 
-            String adminEmail = admin.getEmail();
             adminId = service.getUserIdByEmail(admin.getEmail());
 
             if (isNull(adminId))
                 adminId = service.createUser(admin);
 
-            Map<String, Object> param = new HashMap<>();
-            param.put("ati_cust", companyDTO.getNum());
-            param.put("ati_store", companyDTO.getStore());
-            companyId = service.getId("company", "company_id", param);
-            if (isNull(companyId)) {
-                Map<String, Object> ids = service.createCompany(companyDTO, adminId, adminEmail);
-                companyId = parseLong(ids.get("company_id").toString());
-            }
+            companyId = service.createCompany(companyDTO, adminId, admin.getEmail());
 
             service.createCompanyStatus(companyId);
             service.createCompanyEmailTemplate(companyId);
@@ -100,19 +97,14 @@ public class CompanyDataRestoreService {
         return template.postForObject(jobPostCreateUrl, entity, CreateJobpostResponse.class);
     }
 
-    private void handleUsers(Long companyId, List<UserDTO> users) {
+    private void handleUsers(Long companyId, Set<UserDTO> users) {
         for (UserDTO u : users) {
             log.info("Handling user {}", u.getEmail());
             Long userId = service.getUserIdByEmail(u.getEmail());
             if (isNull(userId))
                 userId = service.createUser(u);
 
-            Map<String, Object> myAccParam = new HashMap<>();
-            myAccParam.put("user_id", userId);
-            myAccParam.put("company_id", companyId);
-            Long myAccUserId = service.getId("user_myaccount", "user_myaccount_id", myAccParam);
-            if (isNull(myAccUserId))
-                service.createMyAccountUser(userId, companyId, u.getRole());
+            service.createMyAccountUser(userId, companyId, u.getRole());
         }
     }
 
@@ -138,6 +130,7 @@ public class CompanyDataRestoreService {
             if (isNull(comJobpostId)) {
                 CreateJobpostResponse response = createJobPost(jobpostTitle, companyId, adminId);
                 comJobpostId = response.getData().getCompanyJobpostingId();
+
                 companyJobpostingStatusId = response.getData().getStatuses()
                         .stream()
                         .filter(s -> "assessment".equals(s.getStatusType()))
@@ -148,20 +141,41 @@ public class CompanyDataRestoreService {
                 companyJobpostingStatusId = service.getCompanyJobpostingStatusId(comJobpostId);
             }
 
+            service.createJobPostNotificationSettings(comJobpostId);
+
             Long assId = service.getAssessment(ass.getThtVersion());
             if (assId == null)
                 throw new RuntimeException("Not found ass from ATI with version " + ass.getThtVersion());
 
-            Map<String, Object> comJobpostStatusAssIdParam = new HashMap<>();
-            comJobpostStatusAssIdParam.put("company_jobposting_status_id", companyJobpostingStatusId);
-            comJobpostStatusAssIdParam.put("assessment_id", assId);
-            Long compJobPostStatusAssId = service.getId(
-                    "company_jobposting_status_assessment",
-                    "company_jobposting_status_assessment_id",
-                    comJobpostStatusAssIdParam
-            );
-            if (compJobPostStatusAssId == null)
-                service.createCompanyJobpostStatusAss(companyJobpostingStatusId, assId);
+            service.createCompanyJobpostStatusAss(companyJobpostingStatusId, assId);
+            createTodoList(assId, comJobpostId, companyId, adminId);
         }
+    }
+
+    @SneakyThrows
+    private void createTodoList(Long assId, Long comJobpostId, Long companyId, Long adminId) {
+        Long todoListId = service.getId(
+                "company_jobposting_todo_list",
+                "company_jobposting_todo_list_id",
+                singletonMap("company_jobposting_id", comJobpostId)
+        );
+        if (nonNull(todoListId))
+            return;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(APPLICATION_JSON);
+
+        Map<String, Object> params = new HashMap<>();
+        params.put("manager_id", adminId);
+        params.put("company_id", companyId);
+        params.put("company_jobposting_id", comJobpostId);
+        params.put("assessment_ids", of(assId));
+
+        HttpEntity<String> entity = new HttpEntity<>(
+                new ObjectMapper().writeValueAsString(params),
+                headers
+        );
+
+        template.postForEntity(todoListCreateUrl, entity, String.class);
     }
 }

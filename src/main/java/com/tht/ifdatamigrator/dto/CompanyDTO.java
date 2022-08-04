@@ -4,7 +4,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -12,9 +14,10 @@ public class CompanyDTO {
     private String num;
     private String store;
     private String name;
+    private String storeName;
     private Long thtId;
 
-    private List<UserDTO> users = new ArrayList<>();
+    private Set<UserDTO> users = new HashSet<>();
     private List<AssessmentData> assessmentData = new ArrayList<>();
 
     @Data
@@ -25,10 +28,11 @@ public class CompanyDTO {
         private List<ApplicantDTO> applicants = new ArrayList<>();
     }
 
-    public CompanyDTO(String num, String store, String name, Long thtId) {
+    public CompanyDTO(String num, String store, String name, String storeName, Long thtId) {
         this.num = num;
         this.store = store;
         this.name = name;
+        this.storeName = storeName;
         this.thtId = thtId;
     }
 }

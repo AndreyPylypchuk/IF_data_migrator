@@ -10,16 +10,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 import static com.tht.ifdatamigrator.Const.MIGRATED_COMPANIES;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static java.util.stream.Collectors.groupingBy;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.StringUtils.hasText;
 
@@ -36,29 +35,35 @@ public class CompanyDataBackupService {
     public List<CompanyDTO> backupCompanyData() {
         log.info("Company data extracting...");
 
-        Map<String, List<Company>> numCompanies = service.getCompanies()
+        List<CompanyDTO> companies = service.getCompanies()
                 .stream()
-                .collect(groupingBy(Company::getCustNum));
+                .map(this::toCompanyDto)
+                .collect(toList());
 
-        List<CompanyDTO> backup = new ArrayList<>();
-        for (Map.Entry<String, List<Company>> entry : numCompanies.entrySet()) {
-            if (entry.getValue().size() == 1)
-                backup.add(toCompanyDto(entry.getValue().get(0)));
-            else
-                backup.addAll(toCompanyDto(entry.getValue()));
-        }
-
-        backup = backup.stream()
+        companies = companies.stream()
                 .peek(c -> c.setUsers(extractCompanyUsers(c)))
                 .filter(c -> !isEmpty(c.getUsers()))
                 .collect(toList());
 
-        backup = backup.stream()
+        companies = companies.stream()
                 .peek(c -> c.setAssessmentData(extractCompanyAssessments(c)))
                 .filter(c -> !isEmpty(c.getAssessmentData()))
                 .collect(toList());
 
-        return backup;
+        Map<String, List<CompanyDTO>> numCompanies = companies
+                .stream()
+                .collect(groupingBy(CompanyDTO::getNum));
+
+        for (Map.Entry<String, List<CompanyDTO>> entry : numCompanies.entrySet()) {
+            if (entry.getValue().size() > 1) {
+                entry.getValue()
+                        .forEach(c -> c.setName("%s - %s (%s)".formatted(
+                                c.getName(), trim(c.getStoreName()), c.getStore()
+                        )));
+            }
+        }
+
+        return companies;
     }
 
 //    private List<ApplicantDTO> map(List<Map<String, Object>> applicants) {
@@ -120,7 +125,7 @@ public class CompanyDataBackupService {
         return assessmentData;
     }
 
-    private List<UserDTO> extractCompanyUsers(CompanyDTO companyDto) {
+    private Set<UserDTO> extractCompanyUsers(CompanyDTO companyDto) {
         log.info("Extracting users for company {} {}", companyDto.getNum(), companyDto.getStore());
         return service.getUsers(companyDto.getNum(), companyDto.getStore())
                 .stream()
@@ -133,7 +138,7 @@ public class CompanyDataBackupService {
                 })
                 .filter(u -> hasText(u.getEmail()))
                 .filter(u -> nonNull(u.getRole()))
-                .collect(toList());
+                .collect(toSet());
     }
 
     private CompanyDTO toCompanyDto(Company company) {
@@ -141,18 +146,9 @@ public class CompanyDataBackupService {
                 company.getCustNum(),
                 company.getStore(),
                 company.getCustName(),
+                company.getStoreName(),
                 MIGRATED_COMPANIES.get(company.getCustNum())
         );
-    }
-
-    private List<CompanyDTO> toCompanyDto(List<Company> companies) {
-        return companies.stream()
-                .map(company -> new CompanyDTO(
-                        company.getCustNum(),
-                        company.getStore(),
-                        company.getCustName() + " - " + company.getStore(),
-                        MIGRATED_COMPANIES.get(company.getCustNum()))
-                ).collect(toList());
     }
 
     private String mapRole(Integer roleID) {

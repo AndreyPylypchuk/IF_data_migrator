@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -188,7 +189,14 @@ public class RestoreDaoService {
         });
     }
 
-    public Map<String, Object> createCompany(CompanyDTO companyDTO, Long adminId, String adminEmail) {
+    public Long createCompany(CompanyDTO companyDTO, Long adminId, String adminEmail) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("ati_cust", companyDTO.getNum());
+        param.put("ati_store", companyDTO.getStore());
+        companyId = getId("company", "company_id", param);
+        if (nonNull(companyId))
+            return companyId;
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         template.update(connection -> {
@@ -201,7 +209,7 @@ public class RestoreDaoService {
             return ps;
         }, keyHolder);
 
-        return keyHolder.getKeys();
+        return Long.parseLong(keyHolder.getKeys().get("company_id").toString());
     }
 
     public void createCompanyAssessment(long companyId, String assessmentVersion) {
@@ -240,6 +248,13 @@ public class RestoreDaoService {
     }
 
     public void createMyAccountUser(Long userId, long companyId, String role) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("user_id", userId);
+        param.put("company_id", companyId);
+        Long id = getId("user_myaccount", "user_myaccount_id", param);
+        if (nonNull(id))
+            return;
+
         String toJobPost = "all_posts";
         String toDepart = "all_departments";
 
@@ -296,6 +311,17 @@ public class RestoreDaoService {
     }
 
     public void createCompanyJobpostStatusAss(Long companyJobpostingStatusId, Long assId) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("company_jobposting_status_id", companyJobpostingStatusId);
+        param.put("assessment_id", assId);
+        Long id = getId(
+                "company_jobposting_status_assessment",
+                "company_jobposting_status_assessment_id",
+                param
+        );
+        if (nonNull(id))
+            return;
+
         String sql = """
                 insert into company_jobposting_status_assessment(company_jobposting_status_id, assessment_id)
                 values (?, ?)
@@ -387,5 +413,28 @@ public class RestoreDaoService {
                 """;
 
         template.update(sql, companyId);
+    }
+
+    public void createJobPostNotificationSettings(Long comJobpostId) {
+        Long id = getId(
+                "company_jobposting_notification_settings",
+                "company_jobposting_notification_settings_id",
+                singletonMap("company_jobposting_id", comJobpostId)
+        );
+
+        String sql;
+
+        if (nonNull(id))
+            sql = """
+                    update company_jobposting_notification_settings set assessment_results = true
+                    where company_jobposting_id = ?
+                    """;
+        else
+            sql = """
+                    insert into company_jobposting_notification_settings(company_jobposting_id, assessment_results)
+                    values (?, true)
+                    """;
+
+        template.update(sql, comJobpostId);
     }
 }
