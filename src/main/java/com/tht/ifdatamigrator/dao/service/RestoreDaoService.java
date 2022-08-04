@@ -14,15 +14,13 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static java.lang.String.format;
 import static java.lang.String.join;
 import static java.sql.Types.INTEGER;
 import static java.util.Collections.singletonMap;
+import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
 @Service
@@ -193,7 +191,7 @@ public class RestoreDaoService {
         Map<String, Object> param = new HashMap<>();
         param.put("ati_cust", companyDTO.getNum());
         param.put("ati_store", companyDTO.getStore());
-        companyId = getId("company", "company_id", param);
+        Long companyId = getId("company", "company_id", param);
         if (nonNull(companyId))
             return companyId;
 
@@ -436,5 +434,26 @@ public class RestoreDaoService {
                     """;
 
         template.update(sql, comJobpostId);
+    }
+
+    public void addUserToJobPost(Long comJobpostId, Set<UserDTO> users) {
+        String sql = """
+                insert into company_jobposting_user(company_jobposting_id, user_id)
+                      values (?, ?)
+                """;
+        users.forEach(u -> {
+            Long userId = getUserIdByEmail(u.getEmail());
+
+            Map<String, Object> param = new HashMap<>();
+            param.put("company_jobposting_id", comJobpostId);
+            param.put("user_id", userId);
+            Long id = getId(
+                    "company_jobposting_user",
+                    "company_jobposting_user_id",
+                    param);
+            if (isNull(id)) {
+                template.update(sql, comJobpostId, userId);
+            }
+        });
     }
 }

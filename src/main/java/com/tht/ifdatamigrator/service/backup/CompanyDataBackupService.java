@@ -47,7 +47,6 @@ public class CompanyDataBackupService {
 
         companies = companies.stream()
                 .peek(c -> c.setAssessmentData(extractCompanyAssessments(c)))
-                .filter(c -> !isEmpty(c.getAssessmentData()))
                 .collect(toList());
 
         Map<String, List<CompanyDTO>> numCompanies = companies

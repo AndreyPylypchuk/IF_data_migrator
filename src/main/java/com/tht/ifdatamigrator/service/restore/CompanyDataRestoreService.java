@@ -75,7 +75,7 @@ public class CompanyDataRestoreService {
         }
 
         handleUsers(companyId, companyDTO.getUsers());
-        handleAss(companyId, adminId, companyDTO.getAssessmentData());
+        handleAss(companyId, adminId, companyDTO.getAssessmentData(), companyDTO.getUsers());
     }
 
     @SneakyThrows
@@ -108,7 +108,7 @@ public class CompanyDataRestoreService {
         }
     }
 
-    private void handleAss(Long companyId, Long adminId, List<AssessmentData> data) {
+    private void handleAss(Long companyId, Long adminId, List<AssessmentData> data, Set<UserDTO> users) {
         for (AssessmentData ass : data) {
             log.info("Handling assessment {}", ass.getThtVersion());
             service.createCompanyAssessment(companyId, ass.getThtVersion());
@@ -141,6 +141,7 @@ public class CompanyDataRestoreService {
                 companyJobpostingStatusId = service.getCompanyJobpostingStatusId(comJobpostId);
             }
 
+            service.addUserToJobPost(comJobpostId, users);
             service.createJobPostNotificationSettings(comJobpostId);
 
             Long assId = service.getAssessment(ass.getThtVersion());
