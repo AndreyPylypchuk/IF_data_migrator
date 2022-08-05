@@ -26,6 +26,7 @@ import static java.util.List.of;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.util.CollectionUtils.isEmpty;
 
 @Slf4j
 @Service
@@ -109,12 +110,12 @@ public class CompanyDataRestoreService {
     }
 
     private void handleAss(Long companyId, Long adminId, List<AssessmentData> data, Set<UserDTO> users) {
+        if (isEmpty(data))
+            data.add(new AssessmentData("MIT54M5V2"));
+
         for (AssessmentData ass : data) {
             log.info("Handling assessment {}", ass.getThtVersion());
             service.createCompanyAssessment(companyId, ass.getThtVersion());
-
-            if (!ass.isHasApplicants())
-                return;
 
             String jobpostTitle = format("IntegrityFirst (%s)", ass.getThtVersion());
 

@@ -85,9 +85,9 @@ public class BackupDaoService {
 
     public List<Company> getCompanies() {
         String sql = """
-                select c.CustNum, c.CustName, s.Store# as store, s.StoreName
+                select c.CustNum, c.CustName, s.StoreNum as store, s.CustName as StoreName
                 from atiCustomer c
-                         left join (select * from atiAllStores where Active = 'True') s on c.CustNum = s.Cust#
+                         left join (select * from atiStore where Active = 'True') s on c.CustNum = s.CustNum
                 where c.CustNum in (:companies)
                 """;
 

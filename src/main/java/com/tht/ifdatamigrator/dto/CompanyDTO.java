@@ -1,5 +1,6 @@
 package com.tht.ifdatamigrator.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -21,11 +22,17 @@ public class CompanyDTO {
     private List<AssessmentData> assessmentData = new ArrayList<>();
 
     @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
     public static class AssessmentData {
         private String atiVersion;
         private String thtVersion;
         private boolean hasApplicants;
         private List<ApplicantDTO> applicants = new ArrayList<>();
+
+        public AssessmentData(String version) {
+            thtVersion = version;
+        }
     }
 
     public CompanyDTO(String num, String store, String name, String storeName, Long thtId) {
