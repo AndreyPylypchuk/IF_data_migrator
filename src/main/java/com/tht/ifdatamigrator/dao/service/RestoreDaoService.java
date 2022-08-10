@@ -69,7 +69,7 @@ public class RestoreDaoService {
             """;
 
     private static final String GET_USER_ID_BY_EMAIL = """
-            select user_id from "user" where user_email_address = ? limit 1
+            select user_id from "user" where user_email_address ilike ? limit 1
             """;
 
     private static final String CREATE_USER = """
