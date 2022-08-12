@@ -456,4 +456,23 @@ public class RestoreDaoService {
             }
         });
     }
+
+    public void createCompanyBillingPlan(Long companyId) {
+        Long id = getId("billing_plan", "billing_plan_id", singletonMap("company_id", companyId));
+
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into billing_plan(company_id, billing_plan_type, billing_plan_description, company_size, max_job_posts,
+                                         user_id, billing_plan_active, billing_plan_start_date, billing_plan_renewal_type,
+                                         candidate_tracking_renewal_cost, assessment_renewal_cost,
+                                         assessment_renewal_type, in_depth_assessment_quantity, skill_assessment_quantity,
+                                         interview_renewal_cost, reference_renewal_cost, performance_review_renewal_cost,
+                                         onboarding_renewal_cost, scorecard_renewal_cost, date_added)
+                values (?, 'platinum', 'default', 'size_101_to_200', 20, 11, true, now(), 'day', 0, 0, 'recurring', 0, 0, 0, 0,
+                        0, 0, 0, now());
+                """;
+        template.update(sql, companyId);
+    }
 }

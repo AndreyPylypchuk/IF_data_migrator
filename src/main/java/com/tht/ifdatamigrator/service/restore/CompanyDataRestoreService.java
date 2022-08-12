@@ -73,6 +73,7 @@ public class CompanyDataRestoreService {
             service.createCompanyStatus(companyId);
             service.createCompanyEmailTemplate(companyId);
             service.createCompanyReference(companyId);
+            service.createCompanyBillingPlan(companyId);
         }
 
         handleUsers(companyId, companyDTO.getUsers());
