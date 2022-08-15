@@ -126,7 +126,7 @@ public class CompanyDataBackupService {
 
     private Set<UserDTO> extractCompanyUsers(CompanyDTO companyDto) {
         log.info("Extracting users for company {} {}", companyDto.getNum(), companyDto.getStore());
-        return service.getUsers(companyDto.getNum(), companyDto.getStore())
+        Set<UserDTO> users = service.getUsers(companyDto.getNum(), companyDto.getStore())
                 .stream()
                 .map(u -> {
                     UserDTO dto = new UserDTO();
@@ -138,6 +138,21 @@ public class CompanyDataBackupService {
                 .filter(u -> hasText(u.getEmail()))
                 .filter(u -> nonNull(u.getRole()))
                 .collect(toSet());
+
+        users.addAll(
+                MIGRATED_COMPANIES.get(companyDto.getNum()).getUsers().entrySet()
+                        .stream()
+                        .map(e -> {
+                            UserDTO dto = new UserDTO();
+                            dto.setId(null);
+                            dto.setEmail(e.getKey());
+                            dto.setRole(e.getValue());
+                            return dto;
+                        })
+                        .collect(toSet())
+        );
+
+        return users;
     }
 
     private CompanyDTO toCompanyDto(Company company) {
@@ -146,7 +161,7 @@ public class CompanyDataBackupService {
                 company.getStore(),
                 company.getCustName(),
                 company.getStoreName(),
-                MIGRATED_COMPANIES.get(company.getCustNum())
+                MIGRATED_COMPANIES.get(company.getCustNum()).getThtId()
         );
     }
 
