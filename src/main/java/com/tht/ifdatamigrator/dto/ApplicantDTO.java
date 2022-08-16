@@ -8,6 +8,7 @@ import java.util.Map;
 
 @Data
 public class ApplicantDTO {
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
@@ -20,7 +21,8 @@ public class ApplicantDTO {
     private String drugsResult;
     private String hostilityResult;
     private String result;
-    private LocalDateTime assessmentDate;
+    private LocalDateTime testDate;
+    private LocalDateTime testStart;
 
     private Map<Integer, Integer> questionAnswer = new HashMap<>();
 }

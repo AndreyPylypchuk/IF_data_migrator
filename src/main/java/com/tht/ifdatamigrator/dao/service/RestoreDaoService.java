@@ -14,14 +14,19 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
 import java.sql.PreparedStatement;
+import java.time.LocalDateTime;
 import java.util.*;
 
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 import static java.lang.String.format;
 import static java.lang.String.join;
+import static java.sql.Timestamp.valueOf;
 import static java.sql.Types.INTEGER;
 import static java.util.Collections.singletonMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static java.util.stream.Collectors.toMap;
 
 @Service
 @RequiredArgsConstructor
@@ -207,7 +212,7 @@ public class RestoreDaoService {
             return ps;
         }, keyHolder);
 
-        return Long.parseLong(keyHolder.getKeys().get("company_id").toString());
+        return parseLong(keyHolder.getKeys().get("company_id").toString());
     }
 
     public void createCompanyAssessment(long companyId, String assessmentVersion) {
@@ -242,7 +247,7 @@ public class RestoreDaoService {
             return ps;
         }, keyHolder);
 
-        return Long.parseLong(keyHolder.getKeys().get("user_id").toString());
+        return parseLong(keyHolder.getKeys().get("user_id").toString());
     }
 
     public void createMyAccountUser(Long userId, long companyId, String role) {
@@ -286,15 +291,26 @@ public class RestoreDaoService {
         }
     }
 
-    public Long getCompanyJobpostingStatusId(Long comJobpostId) {
+    public Long getCompanyJobpostingStatusIdByType(Long comJobpostId, String type) {
         String sql = """
                 select company_jobposting_status_id
                 from company_jobposting_status
                 where company_jobposting_id = ?
-                and status_type = 'assessment'
+                and status_type = ?
                 limit 1
                 """;
-        return template.queryForObject(sql, Long.class, comJobpostId);
+        return template.queryForObject(sql, Long.class, comJobpostId, type);
+    }
+
+    public Long getCompanyJobpostingStatusIdByName(Long comJobpostId, String name) {
+        String sql = """
+                select company_jobposting_status_id
+                from company_jobposting_status
+                where company_jobposting_id = ?
+                and status_name = ?
+                limit 1
+                """;
+        return template.queryForObject(sql, Long.class, comJobpostId, name);
     }
 
     public Long getAssessment(String assVersion) {
@@ -474,5 +490,208 @@ public class RestoreDaoService {
                         0, 0, 0, now());
                 """;
         template.update(sql, companyId);
+    }
+
+    public Long createUser(ApplicantDTO app) {
+        String sql = """
+                insert into "user"(user_status_id,
+                                   user_email_address,
+                                   user_last_name,
+                                   user_first_name,
+                                   user_cell_phone,
+                                   date_added,
+                                   from_ati,
+                                   ati_notified,
+                                   welcome_message_viewed)
+                values (1, ?, ?, ?, ?, ?, true, false, false)
+                """;
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql, new String[]{"user_id"});
+            ps.setString(1, app.getEmail());
+            ps.setString(2, app.getLastName());
+            ps.setString(3, app.getFirstName());
+            ps.setString(4, app.getPhone());
+            ps.setTimestamp(5, valueOf(app.getTestStart()));
+            return ps;
+        }, keyHolder);
+
+        return parseLong(keyHolder.getKeys().get("user_id").toString());
+    }
+
+    public Long createCompanyJobpostingCandidate(ApplicantDTO app, Long userId, Long cjId, Long cjsId) {
+        Long id = getId("company_jobposting_candidate", "company_jobposting_candidate_id", singletonMap("ati_id", app.getId()));
+        if (nonNull(id))
+            return id;
+
+        String sql = """
+                insert into company_jobposting_candidate(company_jobposting_id, user_id, candidate_date_added,
+                                                         company_jobposting_status_id, first_name, last_name, primary_source, ati_id)
+                values (?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        template.update(connection -> {
+            PreparedStatement ps = connection.prepareStatement(sql, new String[]{"company_jobposting_candidate_id"});
+            ps.setLong(1, cjId);
+            ps.setLong(2, userId);
+            ps.setTimestamp(3, valueOf(app.getTestStart()));
+            ps.setLong(4, cjsId);
+            ps.setString(5, app.getFirstName());
+            ps.setString(6, app.getLastName());
+            ps.setString(7, "unknown");//TODO:needs confirm
+            ps.setLong(8, app.getId());
+            return ps;
+        }, keyHolder);
+
+        return parseLong(keyHolder.getKeys().get("company_jobposting_candidate_id").toString());
+    }
+
+    public void createCompanyJobpostingCandidateEmail(Long cjcId, String email) {
+        if (isNull(email))
+            return;
+
+        Long id = getId("company_jobposting_candidate_email",
+                "company_jobposting_candidate_email_id",
+                singletonMap("company_jobposting_candidate_id", cjcId)
+        );
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into company_jobposting_candidate_email(company_jobposting_candidate_id, email_address, priority)
+                values (?, ?, ?)
+                """;
+        template.update(sql, cjcId, email, "primary");
+    }
+
+    public void createCompanyJobpostingCandidatePhone(Long cjcId, String phone) {
+        if (isNull(phone))
+            return;
+
+        Long id = getId("company_jobposting_candidate_phone",
+                "company_jobposting_candidate_phone_id",
+                singletonMap("company_jobposting_candidate_id", cjcId)
+        );
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into company_jobposting_candidate_phone(company_jobposting_candidate_id, phone, priority)
+                values (?, ?, ?)
+                """;
+        template.update(sql, cjcId, phone, "primary");
+    }
+
+    public Long getCompanyJobpostingManagerId(Long cjId) {
+        String sql = """
+                select added_by from company_jobposting where company_jobposting_id = ?
+                """;
+        return template.queryForObject(sql, Long.class, cjId);
+    }
+
+    public Long createCompanyJobpostingCandidateAss(Long cjcId, Long assId, String thtVersion, ApplicantDTO app, Long cjManagerId) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("company_jobposting_candidate_id", cjcId);
+        param.put("assessment_id", assId);
+        Long id = getId("company_jobposting_candidate_assessment",
+                "company_jobposting_candidate_assessment_id",
+                param
+        );
+        if (nonNull(id))
+            return id;
+
+        String sql = """
+                insert into company_jobposting_candidate_assessment(company_jobposting_candidate_id, assessment_id, date_assigned,
+                                                                    added_by, assessment_complete, completion_date, assessment_score,
+                                                                    assessment_version_name)
+                values (?, ?, ?, ?, 1, ?, ?, ?)
+                """;
+
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+        template.update(connection -> {
+            int score = 1;
+            if ("H".equals(app.getResult()))
+                score = 0;
+
+            PreparedStatement ps = connection.prepareStatement(sql, new String[]{"company_jobposting_candidate_assessment_id"});
+            ps.setLong(1, cjcId);
+            ps.setLong(2, assId);
+            ps.setTimestamp(3, valueOf(app.getTestStart()));
+            ps.setLong(4, cjManagerId);
+            ps.setTimestamp(5, valueOf(app.getTestDate()));
+            ps.setInt(6, score);
+            ps.setString(7, thtVersion);
+            return ps;
+        }, keyHolder);
+
+        return parseLong(keyHolder.getKeys().get("company_jobposting_candidate_id").toString());
+    }
+
+    public Map<Integer, Long> getAssessmentQuestions(Long assId) {
+        String sql = """
+                select question_order, question_id
+                from assessment_question
+                where assessment_id = ?
+                """;
+
+        return template.queryForList(sql, assId).stream()
+                .collect(toMap(
+                        m -> parseInt(m.get("question_order").toString()),
+                        m -> parseLong(m.get("question_id").toString())
+                ));
+    }
+
+    public Long getAnswerId(Long qId, Integer answerOrder) {
+        String sql = """
+                select question_answer_id from question_answer
+                where question_id = ? and answer_order = ?
+                """;
+
+        return template.queryForObject(sql, Long.class, qId, answerOrder);
+    }
+
+    public void creteQuestionAnswer(Long cjcaId, Long qId, Long aId, LocalDateTime date, Long userId) {
+        createUserAssessmentAnswer(cjcaId, qId, aId, date, userId);
+        createUserAssessmentQuestionAnswer(cjcaId, qId, aId, date);
+    }
+
+    private void createUserAssessmentQuestionAnswer(Long cjcaId, Long qId, Long aId, LocalDateTime date) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("company_jobposting_candidate_assessment_id", cjcaId);
+        param.put("question_id", qId);
+        Long id = getId("user_assessment_question_answer",
+                "company_jobposting_candidate_assessment_id",
+                param);
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into user_assessment_question_answer(company_jobposting_candidate_assessment_id, question_id, question_answer_id,
+                                                   date_added)
+                values (?, ?, ?, ?)
+                """;
+
+        template.update(sql, cjcaId, qId, aId, valueOf(date));
+    }
+
+    private void createUserAssessmentAnswer(Long cjcaId, Long qId, Long aId, LocalDateTime date, Long userId) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("company_jobposting_candidate_assessment_id", cjcaId);
+        param.put("question_id", qId);
+        Long id = getId("user_assessment_answer",
+                "user_assessment_answer_id",
+                param);
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into user_assessment_answer(company_jobposting_candidate_assessment_id, question_id, question_answer_id,
+                                                   time_began, time_finished, user_id)
+                values (?, ?, ?, ?, ?, ?)
+                """;
+
+        template.update(sql, cjcaId, qId, aId, valueOf(date), valueOf(date), userId);
     }
 }

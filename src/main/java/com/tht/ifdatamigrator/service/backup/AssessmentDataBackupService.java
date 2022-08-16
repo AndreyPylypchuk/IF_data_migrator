@@ -4,7 +4,6 @@ import com.tht.ifdatamigrator.dao.domain.Assessment;
 import com.tht.ifdatamigrator.dao.domain.AssessmentQuestion;
 import com.tht.ifdatamigrator.dao.service.BackupDaoService;
 import com.tht.ifdatamigrator.dto.AssessmentDTO;
-import com.tht.ifdatamigrator.service.BackupUtils;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

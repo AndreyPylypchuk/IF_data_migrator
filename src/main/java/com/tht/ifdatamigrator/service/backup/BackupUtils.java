@@ -1,6 +1,6 @@
-package com.tht.ifdatamigrator.service;
+package com.tht.ifdatamigrator.service.backup;
 
-public class BackupUtils {
+public final class BackupUtils {
 
     public static Integer mapQuality(String category) {
         if (category.endsWith("THEFT")) return 1338;

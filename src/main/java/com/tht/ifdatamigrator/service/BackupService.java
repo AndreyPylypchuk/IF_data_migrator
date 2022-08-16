@@ -42,7 +42,7 @@ public class BackupService {
         if (scopes.contains("assessmentData"))
             result.setAssessmentData(assessmentDataBackupService.backupAssessmentData());
 
-        if (scopes.contains("companyData"))
+        if (scopes.contains("companyData") || scopes.contains("companyApplicant"))
             result.setCompanyData(companyDataBackupService.backupCompanyData());
 
         writeString(

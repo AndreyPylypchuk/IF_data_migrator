@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-import static com.tht.ifdatamigrator.service.BackupUtils.mapQuality;
+import static com.tht.ifdatamigrator.service.backup.BackupUtils.mapQuality;
 import static java.lang.Integer.parseInt;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.groupingBy;

@@ -140,7 +140,7 @@ public class CompanyDataRestoreService {
                         .orElseThrow(() -> new RuntimeException("Not found 'assessment' status after creating jobpost"))
                         .getCompanyJobpostingStatusId();
             } else {
-                companyJobpostingStatusId = service.getCompanyJobpostingStatusId(comJobpostId);
+                companyJobpostingStatusId = service.getCompanyJobpostingStatusIdByType(comJobpostId, "assessment");
             }
 
             service.addUserToJobPost(comJobpostId, users);

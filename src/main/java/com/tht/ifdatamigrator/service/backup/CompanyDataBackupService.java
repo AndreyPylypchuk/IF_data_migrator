@@ -112,14 +112,12 @@ public class CompanyDataBackupService {
                 })
                 .collect(toList());
 
-//        assessmentData.forEach(v -> {
+        if (scopes.contains("companyApplicant")) {
+            //        assessmentData.forEach(v -> {
 //            var applicants = service.getApplicants(companyDto.getNum(), companyDto.getStore(), v.getAtiVersion());
 //            v.setHasApplicants(!isEmpty(applicants));
-//
-//            if (scopes.contains("companyApplicant")) {
-//                //TODO:parse applicants
-//            }
 //        });
+        }
 
         return assessmentData;
     }

@@ -2,6 +2,7 @@ package com.tht.ifdatamigrator.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tht.ifdatamigrator.dto.BackupDTO;
+import com.tht.ifdatamigrator.service.restore.ApplicantRestoreService;
 import com.tht.ifdatamigrator.service.restore.AssessmentDataRestoreService;
 import com.tht.ifdatamigrator.service.restore.CompanyDataRestoreService;
 import com.tht.ifdatamigrator.service.restore.QuestionAnswerRestoreService;
@@ -25,6 +26,7 @@ public class RestoreService {
     private final QuestionAnswerRestoreService questionAnswerRestoreService;
     private final AssessmentDataRestoreService assessmentDataRestoreService;
     private final CompanyDataRestoreService companyDataRestoreService;
+    private final ApplicantRestoreService applicantRestoreService;
 
     @SneakyThrows
     public void restore() {
@@ -40,6 +42,9 @@ public class RestoreService {
 
         if (scopes.contains("companyData"))
             data.getCompanyData().forEach(companyDataRestoreService::restore);
+
+        if (scopes.contains("companyApplicant"))
+            data.getCompanyData().forEach(applicantRestoreService::restore);
 
         log.info("Restoring finished");
     }
