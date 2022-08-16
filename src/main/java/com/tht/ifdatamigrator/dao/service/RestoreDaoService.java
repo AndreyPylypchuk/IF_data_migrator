@@ -540,7 +540,7 @@ public class RestoreDaoService {
             ps.setLong(4, cjsId);
             ps.setString(5, app.getFirstName());
             ps.setString(6, app.getLastName());
-            ps.setString(7, "unknown");//TODO:needs confirm
+            ps.setString(7, "Manual")
             ps.setLong(8, app.getId());
             return ps;
         }, keyHolder);
