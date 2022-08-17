@@ -59,6 +59,8 @@ public class ApplicantRestoreService {
                             if (nonNull(qId) && nonNull(value))
                                 createQuestionAnswer(cjcaId, userId, qId, value, app.getTestDate());
                         });
+
+                service.createIntegrityFirstResult(cjcaId, ass.getThtVersion(), app);
             });
         });
     }

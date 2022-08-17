@@ -694,4 +694,21 @@ public class RestoreDaoService {
 
         template.update(sql, cjcaId, qId, aId, valueOf(date), valueOf(date), userId);
     }
+
+    public void createIntegrityFirstResult(Long cjcaId, String thtVersion, ApplicantDTO app) {
+        Long id = getId("integrity_first_results",
+                "company_jobposting_candidate_assessment_id",
+                singletonMap("company_jobposting_candidate_assessment_id", cjcaId));
+        if (nonNull(id))
+            return;
+
+        String sql = """
+                insert into integrity_first_results(company_jobposting_candidate_assessment_id, integrity_first_version, theft,
+                                                    theft_result, theft_result_desc, drugs, drugs_result, drugs_result_desc, faking,
+                                                    faking_result, faking_result_desc, hostility, hostility_result,
+                                                    hostility_result_desc, result, result_desc, disclosures, business_impact)
+                values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+//        template.update(sql, cjcaId, thtVersion, app.get);
+    }
 }
