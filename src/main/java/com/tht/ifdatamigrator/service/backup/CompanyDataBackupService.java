@@ -2,6 +2,7 @@ package com.tht.ifdatamigrator.service.backup;
 
 import com.tht.ifdatamigrator.dao.domain.Company;
 import com.tht.ifdatamigrator.dao.service.BackupDaoService;
+import com.tht.ifdatamigrator.dto.ApplicantDTO;
 import com.tht.ifdatamigrator.dto.CompanyDTO;
 import com.tht.ifdatamigrator.dto.CompanyDTO.AssessmentData;
 import com.tht.ifdatamigrator.dto.UserDTO;
@@ -10,14 +11,17 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.sql.Timestamp;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static com.tht.ifdatamigrator.Const.MIGRATED_COMPANIES;
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
+import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.*;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.StringUtils.hasText;
@@ -26,6 +30,9 @@ import static org.springframework.util.StringUtils.hasText;
 @Service
 @RequiredArgsConstructor
 public class CompanyDataBackupService {
+
+    private static final Pattern NAME_PART_PATTERN = compile("([a-zA-z]{2,})");
+    private static final Pattern DIGIT_PATTERN = compile("\\d");
 
     @Value("${migration.scopes}")
     private List<String> scopes;
@@ -65,39 +72,6 @@ public class CompanyDataBackupService {
         return companies;
     }
 
-//    private List<ApplicantDTO> map(List<Map<String, Object>> applicants) {
-//        return applicants.stream().map(this::map).collect(toList());
-//    }
-
-//    private ApplicantDTO map(Map<String, Object> applicant) {
-//        ApplicantDTO dto = new ApplicantDTO();
-//
-//        RawBson
-//
-//        JSONObject o = new JSONObject(new String((byte[]) applicant.get("FullSurvey")));
-//
-//        Timestamp date = (Timestamp) applicant.get("TestDate");
-//        dto.setAssessmentDate(date.toLocalDateTime());
-//
-//        Map<Integer, Integer> questionAnswers = new HashMap<>();
-//        for (int i = 1; i <= 110; i++) {
-//            String key = "Q" + i;
-//            Object answer = applicant.get(key);
-//
-//            if (isNull(answer))
-//                questionAnswers.put(i, null);
-//            else
-//                try {
-//                    questionAnswers.put(i, parseInt(answer.toString().trim()));
-//                } catch (Exception e) {
-//                    questionAnswers.put(i, null);
-//                }
-//        }
-//        dto.setQuestionAnswer(questionAnswers);
-//
-//        return dto;
-//    }
-
     private List<AssessmentData> extractCompanyAssessments(CompanyDTO companyDto) {
         log.info("Extracting assessments for company {} {}", companyDto.getNum(), companyDto.getStore());
 
@@ -113,13 +87,110 @@ public class CompanyDataBackupService {
                 .collect(toList());
 
         if (scopes.contains("companyApplicant")) {
-            //        assessmentData.forEach(v -> {
-//            var applicants = service.getApplicants(companyDto.getNum(), companyDto.getStore(), v.getAtiVersion());
-//            v.setHasApplicants(!isEmpty(applicants));
-//        });
+            assessmentData.forEach(v -> {
+                var applicants = service.getApplicants(companyDto.getNum(), companyDto.getStore(), v.getAtiVersion());
+                v.setApplicants(map(applicants));
+            });
         }
 
         return assessmentData;
+    }
+
+    private List<ApplicantDTO> map(List<Map<String, Object>> applicants) {
+        return applicants.stream()
+                .map(this::map)
+                .filter(Objects::nonNull)
+                .collect(toList());
+    }
+
+    private ApplicantDTO map(Map<String, Object> applicant) {
+        String phone = get(applicant.get("Phone"));
+        String ssn = get(applicant.get("SSN"));
+        String firstName = get(applicant.get("FirstName"));
+        String lastName = get(applicant.get("LastName"));
+
+        if (isNull(phone) && isNull(ssn) && isNull(firstName) && isNull(lastName))
+            return null;
+
+        ApplicantDTO dto = new ApplicantDTO();
+
+        if (nonNull(ssn) && ssn.contains("@"))
+            dto.setEmail(ssn);
+
+        if (nonNull(phone))
+            dto.setPhone(phone);
+
+        if (nonNull(firstName) && nonNull(lastName)) {
+            dto.setFirstName(firstName);
+            dto.setLastName(lastName);
+        }
+
+        if (isNull(firstName) && isNull(lastName)) {
+            if (nonNull(dto.getEmail()))
+                dto.setLastName(dto.getEmail());
+            else if (nonNull(ssn)) {
+                if (!DIGIT_PATTERN.matcher(ssn).find()) {
+                    List<String> nameParts = new LinkedList<>();
+                    Matcher nameMatcher = NAME_PART_PATTERN.matcher(ssn);
+                    while (nameMatcher.find()) {
+                        nameParts.add(nameMatcher.group());
+                    }
+                    if (nameParts.size() == 1)
+                        dto.setLastName(nameParts.get(0));
+                    else if (nameParts.size() > 1) {
+                        dto.setFirstName(nameParts.get(0));
+                        dto.setLastName(nameParts.get(1));
+                    }
+                }
+            }
+        }
+
+        if (isNull(firstName) && isNull(lastName) && nonNull(dto.getPhone()))
+            dto.setLastName("Phone Number - " + dto.getPhone());
+
+        if (isNull(dto.getPhone()) && isNull(dto.getEmail()) && isNull(dto.getFirstName()) && isNull(dto.getLastName()))
+            return null;
+
+        dto.setId(parseLong(applicant.get("RowID").toString()));
+
+        Timestamp testDate = (Timestamp) applicant.get("TestDate");
+        dto.setTestDate(testDate.toLocalDateTime());
+
+        Timestamp testStart = (Timestamp) applicant.get("TestStart");
+        dto.setTestStart(testStart.toLocalDateTime());
+
+        dto.setResult(applicant.get("Overall").toString());
+        dto.setDrugs(applicant.get("Drugs").toString());
+        dto.setFaking(applicant.get("Faking").toString());
+        dto.setTheft(applicant.get("Theft").toString());
+        dto.setHostility(applicant.get("Hostility").toString());
+
+        //TODO:needs parse byte data
+
+        Map<Integer, Integer> questionAnswers = new HashMap<>();
+        for (int i = 1; i <= 110; i++) {
+            String key = "Q" + i;
+            Object answer = applicant.get(key);
+
+            if (isNull(answer))
+                questionAnswers.put(i, null);
+            else
+                try {
+                    questionAnswers.put(i, parseInt(answer.toString().trim()));
+                } catch (Exception e) {
+                    questionAnswers.put(i, null);
+                }
+        }
+        dto.setQuestionAnswer(questionAnswers);
+
+        return dto;
+    }
+
+    private String get(Object o) {
+        if (isNull(o)) return null;
+        String tr = o.toString().trim();
+        if (!hasText(tr)) return null;
+        return tr;
     }
 
     private Set<UserDTO> extractCompanyUsers(CompanyDTO companyDto) {

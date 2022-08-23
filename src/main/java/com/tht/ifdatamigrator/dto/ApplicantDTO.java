@@ -16,13 +16,16 @@ public class ApplicantDTO {
 
     private String faking;
     private String hostility;
-    private String theftResult;
-    private String fakingResult;
-    private String drugsResult;
-    private String hostilityResult;
+    private String drugs;
+    private String theft;
+
     private String result;
+
     private LocalDateTime testDate;
     private LocalDateTime testStart;
+
+    private String businessImpact;
+    private String disclosures;
 
     private Map<Integer, Integer> questionAnswer = new HashMap<>();
 }

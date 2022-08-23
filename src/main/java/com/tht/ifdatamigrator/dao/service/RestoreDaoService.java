@@ -24,6 +24,7 @@ import static java.lang.String.join;
 import static java.sql.Timestamp.valueOf;
 import static java.sql.Types.INTEGER;
 import static java.util.Collections.singletonMap;
+import static java.util.List.of;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
@@ -34,6 +35,8 @@ public class RestoreDaoService {
 
     @Value("${migration.restore.assessment.companyId}")
     private Long companyId;
+
+    private static final List<String> HANDLED_RESULT = of("H", "L");
 
     private static final String CREATE_QUESTION = """
             insert into question (quality_id, question_text, question_type, scored, skippable, ati_code, ati_full_code)
@@ -702,6 +705,21 @@ public class RestoreDaoService {
         if (nonNull(id))
             return;
 
+        checkOnIgnoreValue(app);
+
+        String theftResultDesc = getResultDesc(app.getTheft());
+        String fakingResultDesc = getResultDesc(app.getFaking());
+        String drugsResultDesc = getResultDesc(app.getDrugs());
+        String hostilityResultDesc = getResultDesc(app.getHostility());
+
+        String resultDesc = null;
+        if (nonNull(app.getResult())) {
+            if ("L".equals(app.getResult()))
+                resultDesc = "Qualified";
+            else if ("H".equals(app.getResult()))
+                resultDesc = "Non-Qualified";
+        }
+
         String sql = """
                 insert into integrity_first_results(company_jobposting_candidate_assessment_id, integrity_first_version, theft,
                                                     theft_result, theft_result_desc, drugs, drugs_result, drugs_result_desc, faking,
@@ -709,6 +727,33 @@ public class RestoreDaoService {
                                                     hostility_result_desc, result, result_desc, disclosures, business_impact)
                 values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 """;
-//        template.update(sql, cjcaId, thtVersion, app.get);
+        template.update(sql, cjcaId, thtVersion,
+                app.getTheft(), app.getTheft(), theftResultDesc,
+                app.getDrugs(), app.getDrugs(), drugsResultDesc,
+                app.getFaking(), app.getFaking(), fakingResultDesc,
+                app.getHostility(), app.getHostility(), hostilityResultDesc,
+                app.getResult(), resultDesc, app.getDisclosures(), app.getBusinessImpact());
+    }
+
+    private void checkOnIgnoreValue(ApplicantDTO app) {
+        if (!HANDLED_RESULT.contains(app.getFaking()))
+            app.setFaking(null);
+        if (!HANDLED_RESULT.contains(app.getTheft()))
+            app.setTheft(null);
+        if (!HANDLED_RESULT.contains(app.getHostility()))
+            app.setHostility(null);
+        if (!HANDLED_RESULT.contains(app.getDrugs()))
+            app.setDrugs(null);
+        if (!HANDLED_RESULT.contains(app.getResult()))
+            app.setResult(null);
+    }
+
+    private String getResultDesc(String value) {
+        if (isNull(value)) return null;
+
+        if ("H".equals(value)) return "High Risk";
+        if ("L".equals(value)) return "Low Risk";
+
+        return null;
     }
 }

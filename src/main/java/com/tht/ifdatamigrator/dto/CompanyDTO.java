@@ -27,7 +27,6 @@ public class CompanyDTO {
     public static class AssessmentData {
         private String atiVersion;
         private String thtVersion;
-        private boolean hasApplicants;
         private List<ApplicantDTO> applicants = new ArrayList<>();
 
         public AssessmentData(String version) {
