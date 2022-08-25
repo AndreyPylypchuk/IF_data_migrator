@@ -24,8 +24,10 @@ public class ApplicantDTO {
     private LocalDateTime testDate;
     private LocalDateTime testStart;
 
-    private String businessImpact;
+    private String businessImpacts;
     private String disclosures;
+
+    private String fullSurveyText;
 
     private Map<Integer, Integer> questionAnswer = new HashMap<>();
 }

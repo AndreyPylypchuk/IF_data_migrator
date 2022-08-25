@@ -732,7 +732,7 @@ public class RestoreDaoService {
                 app.getDrugs(), app.getDrugs(), drugsResultDesc,
                 app.getFaking(), app.getFaking(), fakingResultDesc,
                 app.getHostility(), app.getHostility(), hostilityResultDesc,
-                app.getResult(), resultDesc, app.getDisclosures(), app.getBusinessImpact());
+                app.getResult(), resultDesc, app.getDisclosures(), app.getBusinessImpacts());
     }
 
     private void checkOnIgnoreValue(ApplicantDTO app) {

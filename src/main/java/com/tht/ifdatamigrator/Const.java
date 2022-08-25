@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static java.util.Collections.singletonMap;
 import static java.util.List.of;
 
 public final class Const {
@@ -27,7 +26,6 @@ public final class Const {
     );
 
     public static final Map<String, CompanyStaticData> MIGRATED_COMPANIES = new HashMap<>() {{
-        put("2048", new CompanyStaticData(null, singletonMap("cityhall21@cityofmomence.com", "myaccount_admin")));
-        put("2132", new CompanyStaticData(null, singletonMap("emailadmin@carlylelake.com", "myaccount_admin")));
+        put("0961", new CompanyStaticData());
     }};
 }

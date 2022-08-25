@@ -26,6 +26,7 @@ public class BackupService {
     @Value("${migration.scopes}")
     private List<String> scopes;
 
+    private final ObjectMapper mapper;
     private final QuestionAnswerBackupService questionAnswerBackupService;
     private final AssessmentDataBackupService assessmentDataBackupService;
     private final CompanyDataBackupService companyDataBackupService;
@@ -47,7 +48,7 @@ public class BackupService {
 
         writeString(
                 of("backup.json"),
-                new ObjectMapper().writeValueAsString(result), CREATE, TRUNCATE_EXISTING
+                mapper.writeValueAsString(result), CREATE, TRUNCATE_EXISTING
         );
 
         log.info("Backup finished");

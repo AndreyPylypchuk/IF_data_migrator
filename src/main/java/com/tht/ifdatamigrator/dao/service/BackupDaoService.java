@@ -138,7 +138,8 @@ public class BackupDaoService {
 
     public List<Map<String, Object>> getApplicants(String num, String store, String version) {
         String sql = """
-                select *
+                select *,
+                    (SELECT CONVERT(varchar(max), FullSurvey, 0)) as add_data
                 from atiScores
                 where Cust# = :cust
                   and Test = :version

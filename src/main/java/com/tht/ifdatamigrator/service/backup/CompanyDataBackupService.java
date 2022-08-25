@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.sql.Timestamp;
 import java.util.*;
@@ -23,6 +24,9 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.regex.Pattern.compile;
 import static java.util.stream.Collectors.*;
+import static java.util.stream.Stream.of;
+import static org.apache.commons.lang3.StringUtils.substringAfter;
+import static org.apache.commons.lang3.StringUtils.substringBefore;
 import static org.springframework.util.CollectionUtils.isEmpty;
 import static org.springframework.util.StringUtils.hasText;
 
@@ -31,6 +35,7 @@ import static org.springframework.util.StringUtils.hasText;
 @RequiredArgsConstructor
 public class CompanyDataBackupService {
 
+    private static final Pattern BUSINESS_IMPACT_PATTERN = compile("([A-Z].+)");
     private static final Pattern NAME_PART_PATTERN = compile("([a-zA-z]{2,})");
     private static final Pattern DIGIT_PATTERN = compile("\\d");
 
@@ -47,10 +52,11 @@ public class CompanyDataBackupService {
                 .map(this::toCompanyDto)
                 .collect(toList());
 
-        companies = companies.stream()
-                .peek(c -> c.setUsers(extractCompanyUsers(c)))
-                .filter(c -> !isEmpty(c.getUsers()))
-                .collect(toList());
+        if (scopes.contains("companyData"))
+            companies = companies.stream()
+                    .peek(c -> c.setUsers(extractCompanyUsers(c)))
+                    .filter(c -> !isEmpty(c.getUsers()))
+                    .collect(toList());
 
         companies = companies.stream()
                 .peek(c -> c.setAssessmentData(extractCompanyAssessments(c)))
@@ -125,7 +131,7 @@ public class CompanyDataBackupService {
             dto.setLastName(lastName);
         }
 
-        if (isNull(firstName) && isNull(lastName)) {
+        if (isNull(dto.getFirstName()) && isNull(dto.getLastName())) {
             if (nonNull(dto.getEmail()))
                 dto.setLastName(dto.getEmail());
             else if (nonNull(ssn)) {
@@ -145,7 +151,7 @@ public class CompanyDataBackupService {
             }
         }
 
-        if (isNull(firstName) && isNull(lastName) && nonNull(dto.getPhone()))
+        if (isNull(dto.getFirstName()) && isNull(dto.getLastName()) && nonNull(dto.getPhone()))
             dto.setLastName("Phone Number - " + dto.getPhone());
 
         if (isNull(dto.getPhone()) && isNull(dto.getEmail()) && isNull(dto.getFirstName()) && isNull(dto.getLastName()))
@@ -165,7 +171,12 @@ public class CompanyDataBackupService {
         dto.setTheft(applicant.get("Theft").toString());
         dto.setHostility(applicant.get("Hostility").toString());
 
-        //TODO:needs parse byte data
+        String businessImpacts = extractBusinessImpacts(applicant.get("add_data").toString());
+
+        if ("L".equals(dto.getResult()))
+            dto.setBusinessImpacts(businessImpacts);
+        else if ("H".equals(dto.getResult()))
+            dto.setDisclosures(businessImpacts);
 
         Map<Integer, Integer> questionAnswers = new HashMap<>();
         for (int i = 1; i <= 110; i++) {
@@ -184,6 +195,51 @@ public class CompanyDataBackupService {
         dto.setQuestionAnswer(questionAnswers);
 
         return dto;
+    }
+
+    private String extractBusinessImpacts(String addInfo) {
+        String cleanAddInfo = addInfo.replaceAll("[\u0000-\u001F\u007F-\uFFFF]", " ");
+
+        if (!cleanAddInfo.contains("BUSINESSIMPACT"))
+            return null;
+
+        String data = substringAfter(cleanAddInfo, "#MagnetCore.Entities.ModelCategory[]");
+
+        if (!hasText(data))
+            return null;
+
+        data = substringBefore(data, "&MagnetCore.Entities.MagnetQuestionFull");
+
+        if (!hasText(data))
+            return null;
+
+        List<String> parts = of(data.split(".BUSINESSIMPACT."))
+                .filter(StringUtils::hasText)
+                .filter(p -> p.contains("."))
+                .map(String::trim)
+                .flatMap(p -> of(p.split("\\.")))
+                .filter(StringUtils::hasText)
+                .map(String::trim)
+                .filter(p -> p.length() > 5)
+                .collect(toList());
+
+        String list = parts.stream()
+                .flatMap(p -> {
+                    ArrayList<String> impacts = new ArrayList<>();
+                    Matcher matcher = BUSINESS_IMPACT_PATTERN.matcher(p);
+                    while (matcher.find()) {
+                        impacts.add(matcher.group());
+                    }
+                    return impacts.stream();
+                })
+                .filter(Objects::nonNull)
+                .map(p -> "<li>" + p + ".</li>")
+                .collect(joining(""));
+
+        if (hasText(list))
+            return "<ul>" + list + "</ul>";
+        else
+            return "<ul></ul>";
     }
 
     private String get(Object o) {
