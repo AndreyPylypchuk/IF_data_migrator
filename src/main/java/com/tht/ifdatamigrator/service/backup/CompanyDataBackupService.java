@@ -17,9 +17,11 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.tht.ifdatamigrator.Const.IMPACTS;
 import static com.tht.ifdatamigrator.Const.MIGRATED_COMPANIES;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
+import static java.util.Collections.emptyList;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.regex.Pattern.compile;
@@ -171,12 +173,17 @@ public class CompanyDataBackupService {
         dto.setTheft(applicant.get("Theft").toString());
         dto.setHostility(applicant.get("Hostility").toString());
 
-        String businessImpacts = extractBusinessImpacts(applicant.get("add_data").toString());
-
-        if ("L".equals(dto.getResult()))
-            dto.setBusinessImpacts(businessImpacts);
-        else if ("H".equals(dto.getResult()))
-            dto.setDisclosures(businessImpacts);
+        List<String> facts = extractBusinessImpacts(applicant.get("add_data").toString());
+        if (!isEmpty(facts)) {
+            List<String> businessImpacts = new ArrayList<>();
+            List<String> disclosures = new ArrayList<>();
+            facts.forEach(f -> {
+                if (IMPACTS.contains(f)) businessImpacts.add(f);
+                else disclosures.add(f);
+            });
+            dto.setBusinessImpacts(toImpact(businessImpacts));
+            dto.setDisclosures(toImpact(disclosures));
+        }
 
         Map<Integer, Integer> questionAnswers = new HashMap<>();
         for (int i = 1; i <= 110; i++) {
@@ -197,21 +204,32 @@ public class CompanyDataBackupService {
         return dto;
     }
 
-    private String extractBusinessImpacts(String addInfo) {
+    private String toImpact(List<String> facts) {
+        if (isEmpty(facts))
+            return "<ul></ul>";
+
+        return "<ul>" +
+                facts.stream()
+                        .map(p -> "<li>" + p + "</li>")
+                        .collect(joining("")) +
+                "</ul>";
+    }
+
+    private List<String> extractBusinessImpacts(String addInfo) {
         String cleanAddInfo = addInfo.replaceAll("[\u0000-\u001F\u007F-\uFFFF]", " ");
 
         if (!cleanAddInfo.contains("BUSINESSIMPACT"))
-            return null;
+            return emptyList();
 
         String data = substringAfter(cleanAddInfo, "#MagnetCore.Entities.ModelCategory[]");
 
         if (!hasText(data))
-            return null;
+            return emptyList();
 
         data = substringBefore(data, "&MagnetCore.Entities.MagnetQuestionFull");
 
         if (!hasText(data))
-            return null;
+            return emptyList();
 
         List<String> parts = of(data.split(".BUSINESSIMPACT."))
                 .filter(StringUtils::hasText)
@@ -223,7 +241,7 @@ public class CompanyDataBackupService {
                 .filter(p -> p.length() > 5)
                 .collect(toList());
 
-        String list = parts.stream()
+        return parts.stream()
                 .flatMap(p -> {
                     ArrayList<String> impacts = new ArrayList<>();
                     Matcher matcher = BUSINESS_IMPACT_PATTERN.matcher(p);
@@ -233,13 +251,8 @@ public class CompanyDataBackupService {
                     return impacts.stream();
                 })
                 .filter(Objects::nonNull)
-                .map(p -> "<li>" + p + ".</li>")
-                .collect(joining(""));
-
-        if (hasText(list))
-            return "<ul>" + list + "</ul>";
-        else
-            return "<ul></ul>";
+                .map(p -> p + ".")
+                .collect(toList());
     }
 
     private String get(Object o) {
