@@ -629,7 +629,7 @@ public class RestoreDaoService {
             return ps;
         }, keyHolder);
 
-        return parseLong(keyHolder.getKeys().get("company_jobposting_candidate_id").toString());
+        return parseLong(keyHolder.getKeys().get("company_jobposting_candidate_assessment_id").toString());
     }
 
     public Map<Integer, Long> getAssessmentQuestions(Long assId) {
@@ -661,6 +661,9 @@ public class RestoreDaoService {
     }
 
     private void createUserAssessmentQuestionAnswer(Long cjcaId, Long qId, Long aId, LocalDateTime date) {
+        if (isNull(aId))
+            return;
+
         Map<String, Object> param = new HashMap<>();
         param.put("company_jobposting_candidate_assessment_id", cjcaId);
         param.put("question_id", qId);

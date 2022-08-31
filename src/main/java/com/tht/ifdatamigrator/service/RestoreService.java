@@ -23,6 +23,7 @@ public class RestoreService {
     @Value("${migration.scopes}")
     private List<String> scopes;
 
+    private final ObjectMapper mapper;
     private final QuestionAnswerRestoreService questionAnswerRestoreService;
     private final AssessmentDataRestoreService assessmentDataRestoreService;
     private final CompanyDataRestoreService companyDataRestoreService;
@@ -32,7 +33,7 @@ public class RestoreService {
     public void restore() {
         log.info("Restoring started");
 
-        BackupDTO data = new ObjectMapper().readValue(new File("backup.json"), BackupDTO.class);
+        BackupDTO data = mapper.readValue(new File("backup.json"), BackupDTO.class);
 
         if (scopes.contains("questionAnswerData"))
             data.getQuestionAnswerData().forEach(questionAnswerRestoreService::restore);

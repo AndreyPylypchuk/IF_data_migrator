@@ -41,7 +41,7 @@ public class ApplicantRestoreService {
             var qOrderId = service.getAssessmentQuestions(assId);
 
             ass.getApplicants().forEach(app -> {
-                log.info("Restoring applicant {}", app.getEmail());
+                log.info("Restoring applicant {}", app.getId());
 
                 Long userId = getUserId(app);
 
@@ -56,7 +56,7 @@ public class ApplicantRestoreService {
                 app.getQuestionAnswer()
                         .forEach((key, value) -> {
                             Long qId = qOrderId.get(key);
-                            if (nonNull(qId) && nonNull(value))
+                            if (nonNull(qId))
                                 createQuestionAnswer(cjcaId, userId, qId, value, app.getTestDate());
                         });
 
@@ -68,9 +68,14 @@ public class ApplicantRestoreService {
     private void createQuestionAnswer(Long cjcaId, Long userId, Long qId, Integer answer, LocalDateTime date) {
         log.info("Restoring question {} {} {}", cjcaId, qId, answer);
 
-        Long aId = service.getAnswerId(qId, answer);
-        if (isNull(aId))
-            throw new RuntimeException("Not found answer [questionId=" + qId + ",answerOrder=" + answer + "]");
+        Long aId;
+        if (isNull(answer))
+            aId = null;
+        else {
+            aId = service.getAnswerId(qId, answer);
+            if (isNull(aId))
+                throw new RuntimeException("Not found answer [questionId=" + qId + ",answerOrder=" + answer + "]");
+        }
 
         service.creteQuestionAnswer(cjcaId, qId, aId, date, userId);
     }
