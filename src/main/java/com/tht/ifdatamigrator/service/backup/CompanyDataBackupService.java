@@ -126,7 +126,7 @@ public class CompanyDataBackupService {
             dto.setEmail(ssn);
 
         if (nonNull(phone))
-            dto.setPhone(phone);
+            dto.setPhone("1" + phone);
 
         if (nonNull(firstName) && nonNull(lastName)) {
             dto.setFirstName(firstName);
