@@ -90,6 +90,7 @@ public class CompanyDataRestoreService {
         params.put("company_id", companyId);
         params.put("jobpost_title", jobpostTitle);
         params.put("jobpost_description", jobpostTitle);
+        params.put("job_type_id", 186);
 
         HttpEntity<String> entity = new HttpEntity<>(
                 new ObjectMapper().writeValueAsString(params),

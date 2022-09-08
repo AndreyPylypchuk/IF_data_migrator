@@ -2,17 +2,18 @@ package com.tht.ifdatamigrator.service.restore;
 
 import com.tht.ifdatamigrator.dao.service.RestoreDaoService;
 import com.tht.ifdatamigrator.dto.ApplicantDTO;
-import com.tht.ifdatamigrator.dto.CompanyDTO;
+import com.tht.ifdatamigrator.dto.CompanyDTO.AssessmentData;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-import static com.tht.ifdatamigrator.service.restore.RestoreUtils.generateJobpostTitle;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 
@@ -24,101 +25,50 @@ public class ApplicantRestoreService {
     private final RestoreDaoService service;
 
     @Transactional
-    public void restore(CompanyDTO companyDTO) {
-        log.info("Restoring company {} {} applicants", companyDTO.getNum(), companyDTO.getStore());
+    public void restore(ApplicantDTO app, Long cjId, Long cjsId, Long cjManagerId, Long assId, AssessmentData ass, Map<Integer, Long> qOrderId) {
+        log.info("Restoring applicant {}", app.getId());
 
-        Long companyId = getCompanyId(companyDTO);
+        Long userId = getUserId(app);
 
-        companyDTO.getAssessmentData().forEach(ass -> {
-            log.info("Restoring assessment {}", ass.getThtVersion());
+        Long cjcId = service.createCompanyJobpostingCandidate(app, userId, cjId, cjsId);
+        service.createCompanyJobpostingCandidateEmail(cjcId, app.getEmail());
+        service.createCompanyJobpostingCandidatePhone(cjcId, app.getPhone());
 
-            Long assId = getAssessmentId(ass.getThtVersion());
-            String jobpostTitle = generateJobpostTitle(ass.getThtVersion());
-            Long cjId = getCompanyJobpostId(companyId, jobpostTitle);
-            Long cjManagerId = service.getCompanyJobpostingManagerId(cjId);
-            Long cjsId = getCompanyJobpostStatusId(cjId);
+        Long cjcaId = service.createCompanyJobpostingCandidateAss(
+                cjcId, assId, ass.getThtVersion(), app, cjManagerId
+        );
 
-            var qOrderId = service.getAssessmentQuestions(assId);
+        CountDownLatch countDownLatch = new CountDownLatch(app.getQuestionAnswer().size());
+        ExecutorService executorService = Executors.newFixedThreadPool(30);
 
-            ass.getApplicants().forEach(app -> {
-                log.info("Restoring applicant {}", app.getId());
+        app.getQuestionAnswer()
+                .forEach((key, value) -> {
+                    executorService.submit(() -> {
+                        log.info("Restoring question {}", key);
+                        Long qId = qOrderId.get(key);
+                        if (nonNull(qId))
+                            createQuestionAnswer(cjcaId, userId, qId, value, app.getTestDate());
+                        countDownLatch.countDown();
+                    });
+                });
 
-                Long userId = getUserId(app);
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            throw new RuntimeException("Parallel exception", e);
+        } finally {
+            executorService.shutdown();
+        }
 
-                Long cjcId = service.createCompanyJobpostingCandidate(app, userId, cjId, cjsId);
-                service.createCompanyJobpostingCandidateEmail(cjcId, app.getEmail());
-                service.createCompanyJobpostingCandidatePhone(cjcId, app.getPhone());
-
-                Long cjcaId = service.createCompanyJobpostingCandidateAss(
-                        cjcId, assId, ass.getThtVersion(), app, cjManagerId
-                );
-
-                app.getQuestionAnswer()
-                        .forEach((key, value) -> {
-                            Long qId = qOrderId.get(key);
-                            if (nonNull(qId))
-                                createQuestionAnswer(cjcaId, userId, qId, value, app.getTestDate());
-                        });
-
-                service.createIntegrityFirstResult(cjcaId, ass.getThtVersion(), app);
-            });
-        });
+        service.createIntegrityFirstResult(cjcaId, ass.getThtVersion(), app);
     }
 
     private void createQuestionAnswer(Long cjcaId, Long userId, Long qId, Integer answer, LocalDateTime date) {
-        log.info("Restoring question {} {} {}", cjcaId, qId, answer);
-
         Long aId;
-        if (isNull(answer))
-            aId = null;
-        else {
-            aId = service.getAnswerId(qId, answer);
-            if (isNull(aId))
-                throw new RuntimeException("Not found answer [questionId=" + qId + ",answerOrder=" + answer + "]");
-        }
+        if (isNull(answer)) aId = null;
+        else aId = service.getAnswerId(qId, answer);
 
         service.creteQuestionAnswer(cjcaId, qId, aId, date, userId);
-    }
-
-    private Long getAssessmentId(String version) {
-        Long id = service.getAssessment(version);
-        if (id == null)
-            throw new RuntimeException("Assessment not found " + version);
-        return id;
-    }
-
-    private Long getCompanyId(CompanyDTO companyDTO) {
-        Map<String, Object> companyParam = new HashMap<>();
-        companyParam.put("ati_cust", companyDTO.getNum());
-        companyParam.put("ati_store", companyDTO.getStore());
-        Long companyId = service.getId("company", "company_id", companyParam);
-        if (companyId == null)
-            throw new RuntimeException("Company not migrated");
-        return companyId;
-    }
-
-    private Long getCompanyJobpostId(Long companyId, String jobpostTitle) {
-        Map<String, Object> companyJobpostParam = new HashMap<>();
-        companyJobpostParam.put("jobpost_title", jobpostTitle);
-        companyJobpostParam.put("company_id", companyId);
-
-        Long cjId = service.getId(
-                "company_jobposting",
-                "company_jobposting_id",
-                companyJobpostParam
-        );
-
-        if (cjId == null)
-            throw new RuntimeException("Company jobposting not found " + companyJobpostParam);
-
-        return cjId;
-    }
-
-    private Long getCompanyJobpostStatusId(Long cjId) {
-        Long cjsId = service.getCompanyJobpostingStatusIdByName(cjId, "New candidate");
-        if (cjsId == null)
-            throw new RuntimeException("Company jobposting status not found. Company jobposting id " + cjId);
-        return cjsId;
     }
 
     private Long getUserId(ApplicantDTO app) {

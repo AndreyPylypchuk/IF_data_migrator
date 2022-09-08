@@ -5,6 +5,7 @@ import com.tht.ifdatamigrator.dto.*;
 import com.tht.ifdatamigrator.dto.AssessmentDTO.AssQuestionDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
@@ -29,6 +30,7 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static java.util.stream.Collectors.toMap;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class RestoreDaoService {
@@ -651,8 +653,12 @@ public class RestoreDaoService {
                 select question_answer_id from question_answer
                 where question_id = ? and answer_order = ?
                 """;
-
-        return template.queryForObject(sql, Long.class, qId, answerOrder);
+        try {
+            return template.queryForObject(sql, Long.class, qId, answerOrder);
+        } catch (EmptyResultDataAccessException e) {
+            log.warn("Not found answer question_id={} answer_order={}", qId, answerOrder);
+            return null;
+        }
     }
 
     public void creteQuestionAnswer(Long cjcaId, Long qId, Long aId, LocalDateTime date, Long userId) {
