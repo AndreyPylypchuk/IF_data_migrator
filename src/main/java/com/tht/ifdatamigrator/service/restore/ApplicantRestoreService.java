@@ -39,7 +39,7 @@ public class ApplicantRestoreService {
         );
 
         CountDownLatch countDownLatch = new CountDownLatch(app.getQuestionAnswer().size());
-        ExecutorService executorService = Executors.newFixedThreadPool(30);
+        ExecutorService executorService = Executors.newFixedThreadPool(20);
 
         app.getQuestionAnswer()
                 .forEach((key, value) -> {
