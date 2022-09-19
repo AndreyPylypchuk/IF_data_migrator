@@ -52,6 +52,10 @@ public class CompanyDataBackupService {
         List<CompanyDTO> companies = service.getCompanies()
                 .stream()
                 .map(this::toCompanyDto)
+                .filter(c -> {
+                    if (isEmpty(MIGRATED_COMPANIES.get(c.getNum()).getStores())) return true;
+                    return MIGRATED_COMPANIES.get(c.getNum()).getStores().contains(c.getStore());
+                })
                 .collect(toList());
 
         if (scopes.contains("companyData"))

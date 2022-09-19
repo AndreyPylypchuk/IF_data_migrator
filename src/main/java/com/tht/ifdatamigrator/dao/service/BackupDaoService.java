@@ -110,27 +110,17 @@ public class BackupDaoService {
         return namedTemplate.query(sql, parameters, new BeanPropertyRowMapper<>(User.class));
     }
 
-    public List<String> getCompanyAssessment(String cusNum, String storeNum) {
+    public List<String> getCompanyAssessment(String custNum, String storeNum) {
         String sql = """
-                select distinct at2.TestCode
-                from TescorNetBiz.dbo.UserCredentialCoverage ucc
-                         inner join TescorNetBiz.dbo.UserCredentials uc
-                                    on ucc.UserCredentialId = uc.UserCredentialId
-                         inner join TescorNetBiz.dbo.UniqueUrls uu
-                                    on uu.Applicant_Username = uc.Username
-                         inner join TescorNetBiz.dbo.atiTestsAssignedToUsers atatu
-                                    on CONCAT(ucc.CustomerNumber, ucc.StoreNumber, 'U') = atatu.Username
-                         inner join TescorNetBiz.dbo.atiTests at2
-                                    on at2.TestID = atatu.TestID
-                where uc.RoleID = 4
-                  and uc.IsActive = 1
-                  and at2.TestCode in (:versions)
-                and ucc.CustomerNumber = :cut
+                select distinct (Test)
+                from atiScores
+                where Cust# = :cust
+                and Test in (:versions)
                 """;
 
         if (nonNull(storeNum))
-            sql += " and ucc.StoreNumber = :store";
-        SqlParameterSource parameters = new MapSqlParameterSource("cut", cusNum)
+            sql += " and Store# = :store";
+        SqlParameterSource parameters = new MapSqlParameterSource("cust", custNum)
                 .addValue("store", storeNum)
                 .addValue("versions", VERSIONS);
         return namedTemplate.queryForList(sql, parameters, String.class);

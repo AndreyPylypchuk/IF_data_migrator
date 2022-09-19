@@ -26,8 +26,7 @@ public final class Const {
     );
 
     public static final Map<String, CompanyStaticData> MIGRATED_COMPANIES = new HashMap<>() {{
-        put("2097", new CompanyStaticData());
-        put("2148", new CompanyStaticData());
+        put("0743", new CompanyStaticData(List.of("0004")));
     }};
 
     public static final List<String> IMPACTS = of(
